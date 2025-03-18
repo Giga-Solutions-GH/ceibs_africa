@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event Added Successfully - CEIBS Africa</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+        color: #000;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+      }
+      .header {
+        background-color: #d60000; /* Red */
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+      }
+      .header img {
+        max-width: 150px;
+        display: block;
+        margin: 0 auto 10px;
+      }
+      .content {
+        padding: 20px;
+      }
+      .content h2 {
+        color: #d60000;
+      }
+      .event-details {
+        border: 1px solid #d60000;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 4px;
+      }
+      .event-details p {
+        margin: 5px 0;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #d60000;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 15px;
+      }
+      .footer {
+        background-color: #f8f8f8;
+        text-align: center;
+        padding: 15px;
+        font-size: 12px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        {% if ceibs_logo_url %}
+          <img src="{{ ceibs_logo_url }}" alt="CEIBS Africa Logo">
+        {% else %}
+          <h1>CEIBS Africa</h1>
+        {% endif %}
+        <h2>Event Added Successfully!</h2>
+      </div>
+      <div class="content">
+        <p>Dear {{ event.event_contact_name }},</p>
+        <p>Your event "<strong>{{ event.name }}</strong>" has been added successfully to our system.</p>
+        <div class="event-details">
+          <p><strong>Description:</strong> {{ event.description }}</p>
+          <p><strong>Start Date:</strong> {{ event.start_time|date:"Y-m-d" }}</p>
+          <p><strong>End Date:</strong> {{ event.end_time|date:"Y-m-d" }}</p>
+          <p><strong>Start Time:</strong> {{ event.start_time|time:"H:i" }}</p>
+          <p><strong>End Time:</strong> {{ event.end_time|time:"H:i" }}</p>
+          <p><strong>Venue:</strong> {{ event.venue }}</p>
+          {% if event.company %}
+            <p><strong>Company:</strong> {{ event.company }}</p>
+          {% endif %}
+          <p><strong>Contact Email:</strong> {{ event.event_contact_email }}</p>
+          <p><strong>Contact Phone:</strong> {{ event.event_contact_phone }}</p>
+        </div>
+        <p>Please download the attached Excel template, fill in the participant details, and return it to us for processing.</p>
+
+        <p>Thank you for choosing CEIBS Africa. We look forward to a successful event.</p>
+        <p>Best regards,<br>The CEIBS Africa Team</p>
+      </div>
+      <div class="footer">
+        <p>&copy; {{ current_time|date:"Y" }} CEIBS Africa. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

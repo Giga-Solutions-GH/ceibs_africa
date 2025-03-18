@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="min-height: 100vh; display: flex; justify-content: center; align-items: center; background: #f8f9fa;">
+    <div class="splash-container">
+        <div class="card" style="max-width: 400px; width: 100%;">
+            <div class="card-header text-center">
+                <h3>Verify Your Email</h3>
+                <p>Please enter the verification code sent to your email.</p>
+                <small>NB: You might have to check your spam folder</small>
+            </div>
+            <div class="card-body">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        {{ form.code.label_tag }}
+                        {{ form.code }}
+                        {% if form.code.errors %}
+                            <div class="text-danger">
+                                {{ form.code.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group pt-2">
+                        <button class="btn btn-block btn-primary" type="submit">Verify Email</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="form-group pt-2 text-center">
+                    <p>If you did not receive or your code expired, please wait
+                    <span id="countdown">120</span> seconds before you can
+                    <a id="resendLink" class="btn btn-link disabled" aria-disabled="true" style="pointer-events: none;">Resend Code</a>.</p>
+                </div>
+            </div>
+            <div class="card-footer bg-white">
+                <p>Already verified or need to log in? <a href="{% url 'account:login' %}" class="text-secondary">Login Here.</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{ block.super }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let countdownElement = document.getElementById('countdown');
+    let secondsRemaining = 120; // 2 minutes
+    let parentP = countdownElement.closest('p');
+
+    let timer = setInterval(function() {
+        secondsRemaining--;
+        countdownElement.textContent = secondsRemaining;
+
+        if (secondsRemaining <= 0) {
+            clearInterval(timer);
+            parentP.innerHTML = `If you did not receive or your code expired, you can
+            <a href="?resend=1" class="btn btn-link">Resend Code</a>.`;
+        }
+    }, 1000);
+});
+</script>
+{% endblock scripts %}

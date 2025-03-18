@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="dashboard-main-wrapper">
+        {% include 'inc/header.html' %}
+        {% include 'inc/sidenav.html' %}
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <div class="col-12" style="display: flex; justify-content: space-between">
+                                    <div>
+                                       <h2 class="pageheader-title">All Students</h2>
+                                    </div>
+                                </div>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Students</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Students List</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filtering Form -->
+                    <div class="row mb-4">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form method="get" action="">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="gender">Gender</label>
+                                                <select name="gender" id="gender" class="form-select form-control">
+                                                    <option value="">--Select Gender--</option>
+                                                    {% for gender in genders %}
+                                                        <option value="{{ gender }}" {% if request.GET.gender == gender %}selected{% endif %}>{{ gender }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="active_program">Active Program</label>
+                                                <select name="active_program" id="active_program" class="form-select form-control">
+                                                    <option value="">--Select Program--</option>
+                                                    {% for program in active_programs %}
+                                                        <option value="{{ program }}" {% if request.GET.active_program == program %}selected{% endif %}>{{ program }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="company">Company/Organization</label>
+                                                <input type="text" name="company" id="company" class="form-control" value="{{ request.GET.company }}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="module">Module/Session</label>
+                                                <input type="text" name="module" id="module" class="form-control" value="{{ request.GET.module }}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="name">Name</label>
+                                                <input type="text" name="name" id="name" class="form-control" value="{{ request.GET.name }}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="student_number">Student Number</label>
+                                                <input type="text" name="student_number" id="student_number" class="form-control" value="{{ request.GET.student_number }}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="email">Email</label>
+                                                <input type="text" name="email" id="email" class="form-control" value="{{ request.GET.email }}">
+                                            </div>
+                                            <div class="col-md-3">
+    <label for="status">Status</label>
+    <select name="status" id="status" class="form-select form-control">
+        <option value="">--Select Enrollment Status--</option>
+        {% for status in statuses %}
+            <option value="{{ status }}" {% if request.GET.status == status %}selected{% endif %}>{{ status }}</option>
+        {% endfor %}
+    </select>
+</div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 text-end">
+                                                <button type="submit" class="btn btn-primary">Filter</button>
+                                                <a href="{% url 'students:student_overview' %}" class="btn btn-secondary">Reset</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Student Table -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">All Students</h5>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table" id="myTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Student ID</th>
+                                                    <th>Gender</th>
+                                                    <th>Company</th>
+                                                    <th>Position</th>
+                                                    <th>Email</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Active Program</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            {% for student in students %}
+                                                <tr>
+                                                    <td>
+                                                        {% if student.image %}
+                                                            <img style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" src="{{ student.image.url }}" alt="" data-bs-toggle="modal" data-bs-target="#imageModal{{ student.id }}">
+                                                        {% else %}
+                                                            <i class="fa fa-user"></i>
+                                                        {% endif %}
+                                                    </td>
+                                                    <td>{{ student.first_name }}</td>
+                                                    <td>{{ student.last_name }}</td>
+                                                    <td>{{ student.unique_id }}</td>
+                                                    <td>{{ student.gender }}</td>
+                                                <td>{{ student.company }}</td>
+                                                <td>{{ student.position }}</td>
+                                                    <td>{{ student.email }}</td>
+                                                    <td>{{ student.phone_number }}</td>
+                                                    <td>{{ student.active_program }}</td>
+                                                    <td>{{ student.active_status }}</td>
+                                                    <td><a class="btn btn-sm btn-outline-danger" href="{% url 'students:student_details' student_id=student.unique_id %}">Full Details</a></td>
+                                                </tr>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="imageModal{{ student.id }}" tabindex="-1" aria-labelledby="imageModalLabel{{ student.id }}" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="imageModalLabel{{ student.id }}">{{ student.first_name }} {{ student.last_name }}</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body text-center">
+                                                                {% if student.image %}
+                                                                    <img src="{{ student.image.url }}" class="img-fluid" alt="">
+                                                                {% else %}
+                                                                    <h3><i class="fa fa-user"></i></h3>
+                                                                {% endif %}
+                                                                        </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Export Statistics Section -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5>Export Student Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="get" action="{% url 'students:export_student_statistics' %}" class="row g-3 align-items-center">
+                            <div class="col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="include_alumni" id="includeAlumni">
+                                    <label class="form-check-label" for="includeAlumni">Include Alumni</label>
+                                </div>
+                            </div>
+                            <!-- You can add additional filter fields here if needed -->
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary">Export Statistics</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                </div> <!-- Dashboard Content End -->
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Bootstrap JS for modal functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

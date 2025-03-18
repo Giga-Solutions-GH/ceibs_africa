@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- Pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <div class="col-12" style="display: flex; justify-content: space-between">
+                                <div>
+                                    <h2 class="pageheader-title">Student List - {{ program_name }}</h2>
+                                </div>
+                            </div>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Students</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Student List</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Total Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    {% if program.alumni_program %}
+                                    <h5 class="text-muted">Total Students</h5>
+                                    {% else %}
+                                    <h5 class="text-muted">Total Participants</h5>
+                                    {% endif %}
+                                    <h2 class="mb-0">{{ count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-users fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Active Students</h5>
+                                    <h2 class="mb-0">{{ active_count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-check-circle fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inactive Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Inactive Students</h5>
+                                    <h2 class="mb-0">{{ inactive_count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-ban fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deferred Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Deferred Students</h5>
+                                    <h2 class="mb-0">{{ deferred_count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-clock fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Completed Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Completed Students</h5>
+                                    <h2 class="mb-0">{{ completed_count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-check fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alumni Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Alumni</h5>
+                                    <h2 class="mb-0">{{ alumnus_count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-user-graduate fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Male Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Male Students</h5>
+                                    <h2 class="mb-0">{{ male_count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-mars fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Female Students Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Female Students</h5>
+                                    <h2 class="mb-0">{{ female_count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                    <i class="fa fa-venus fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Import Form -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <form class="px-3 py-3" action="" method="POST" enctype="multipart/form-data">
+                                <div class="w-50">
+                                    <input name="student_file" class="form-control mb-2" type="file" required>
+                                    <button class="btn btn-outline-danger" type="submit">Import</button>
+                                </div>
+                            </form>
+                            <!-- Add Student Button -->
+                            {% if program.alumni_program %}
+                                <a href="{% url 'add_student_from_program_page' program.id %}" class="btn btn-success">Add Student</a>
+                            {% else %}
+                                <a href="{% url 'add_program_participant' program.id %}" class="btn btn-success">Add Participant</a>
+                            {% endif %}
+
+                            <h5 class="card-header">Students ({{ program_name }})</h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                {% if program.alumni_program %}
+                                                <th>Student ID</th>
+                                                <th>Gender</th>
+                                                {% endif %}
+                                                <th>Company</th>
+                                                <th>Position</th>
+                                                <th>Email</th>
+                                                <th>Phone Number</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for student in students %}
+                                                <tr>
+                                                    {% if student.image %}
+                                                        <td><img style="border-radius: 100%; width: 50px" src="{{ student.image.url }}" alt=""></td>
+                                                    {% else %}
+                                                        <td><i class="fa fa-user"></i></td>
+                                                    {% endif %}
+                                                    <td>{{ student.first_name }}</td>
+                                                    <td>{{ student.last_name }}</td>
+                                                    {% if program.alumni_program %}
+                                                        <td>{{ student.unique_id }}</td>
+                                                        <td>{{ student.gender }}</td>
+                                                    {% endif %}
+                                                    <td>{{ student.company }}</td>
+                                                    <td>{{ student.position }}</td>
+                                                    <td>{{ student.email }}</td>
+                                                    <td>{{ student.phone_number }}</td>
+                                                    {% if program.alumni_program %}
+                                                        <td><a class="btn btn-sm btn-primary" href="{% url 'student_details' student_id=student.unique_id %}">Full Details</a></td>
+                                                    {% else %}
+                                                        <td><a class="btn btn-sm btn-primary" href="{% url 'program_participant_detail' participant_id=student.id %}">Full Details</a></td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

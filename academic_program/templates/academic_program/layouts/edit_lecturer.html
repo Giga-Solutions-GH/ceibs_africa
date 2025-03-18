@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <!-- ============================================================== -->
+                <!-- pageheader  -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Edit Lecturer</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Lecturers</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit Lecturer</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Form to Edit Lecturer -->
+                <!-- ============================================================== -->
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    {% if lecturer.image %}
+                                        <img src="{{ lecturer.image.url }}" alt="Lecturer Image" class="img-fluid mb-3 rounded-circle">
+                                    {% else %}
+                                        <img src="{% static 'default_avatar.png' %}" alt="Default Avatar" class="img-fluid mb-3 rounded-circle">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-9">
+                                    {{ lecturer_form.as_p }}
+                                    <div class="form-group">
+                                        <label for="id_courses">Assign Courses</label>
+                                        {{ course_form.courses }}
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-success">Save Changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <form method="post" action="{% url 'academic_program:deactivate_lecturer' lecturer.pk %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-warning btn-block">Mark as Inactive</button>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <form method="post" action="{% url 'academic_program:delete_lecturer' lecturer.pk %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-danger btn-block">Delete Lecturer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

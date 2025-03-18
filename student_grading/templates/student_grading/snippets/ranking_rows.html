@@ -1,0 +1,11 @@
+{% for row in ranking_list %}
+<tr>
+  <td>{{ row.rank }}</td>
+  <td>{{ row.student_name }}</td>
+  <td>{{ row.score }}</td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="3">No records found.</td>
+</tr>
+{% endfor %}

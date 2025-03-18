@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="page-header text-center">
+                            <h2 class="pageheader-title">Program Types</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Program Schedule</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Programs</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grouped Program Cards -->
+                {% for cover, groups in grouped_programs.items %}
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h4 class="mb-3">
+                                {% if cover %}
+                                    {{ cover.name }}
+                                {% else %}
+                                    No Cover
+                                {% endif %}
+                            </h4>
+                        </div>
+
+                        {% if groups.ongoing %}
+                            <!-- Ongoing Programs -->
+                            {% for program in groups.ongoing %}
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-inline-block">
+                                            <h5 class="text-muted">{{ program.program_name }}</h5>
+                                            {% if program.program_type %}
+                                                <p class="mb-1"><small>Type: {{ program.program_type.name }}</small></p>
+                                            {% endif %}
+                                            <p class="mb-1">
+                                                <small>
+                                                    Start: {% if program.start_date %}{{ program.start_date|date:"Y-m-d" }}{% else %}N/A{% endif %}
+                                                    <br>
+                                                    End: {% if program.end_date %}{{ program.end_date|date:"Y-m-d" }}{% else %}N/A{% endif %}
+                                                </small>
+                                            </p>
+                                            <a href="{% url 'academic_program:add_schedule' program_id=program.id %}" class="btn btn-outline-primary btn-sm">
+                                                Program Schedule
+                                            </a>
+                                        </div>
+                                        <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                            <i class="fa fa-calendar fa-2x text-success"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if groups.ended %}
+                            <!-- Divider for Ended Programs -->
+                            <div class="col-12">
+                                <hr>
+                                <h5 class="text-center text-danger">Ended Programs</h5>
+                            </div>
+                            {% for program in groups.ended %}
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-inline-block">
+                                            <h5 class="text-muted">{{ program.program_name }}</h5>
+                                            {% if program.program_type %}
+                                                <p class="mb-1"><small>Type: {{ program.program_type.name }}</small></p>
+                                            {% endif %}
+                                            <p class="mb-1">
+                                                <small>
+                                                    Start: {% if program.start_date %}{{ program.start_date|date:"Y-m-d" }}{% else %}N/A{% endif %}
+                                                    <br>
+                                                    End: {% if program.end_date %}{{ program.end_date|date:"Y-m-d" }}{% else %}N/A{% endif %}
+                                                </small>
+                                            </p>
+                                            <a href="{% url 'academic_program:add_schedule' program_id=program.id %}" class="btn btn-outline-primary btn-sm">
+                                                Program Schedule
+                                            </a>
+                                        </div>
+                                        <div class="float-right icon-circle-medium icon-box-lg mt-1">
+                                            <i class="fa fa-calendar fa-2x text-danger"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <div class="row">
+                        <div class="col-12">
+                            <p>No programs available.</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div> <!-- container-fluid -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Include any additional JS here if needed -->
+{% endblock %}

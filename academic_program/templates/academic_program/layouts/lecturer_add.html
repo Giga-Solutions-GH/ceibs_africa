@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="dashboard-main-wrapper">
+        {% include 'inc/header.html' %}
+        {% include 'inc/sidenav.html' %}
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Add Lecturer</h2>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Lecturers</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Add Lecturer</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 mx-auto">
+                            <div class="card">
+                                <h5 class="card-header">Lecturer Details</h5>
+                                <div class="card-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                {{ form.first_name.label_tag }}
+                                                {{ form.first_name }}
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ form.last_name.label_tag }}
+                                                {{ form.last_name }}
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                {{ form.other_names.label_tag }}
+                                                {{ form.other_names }}
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ form.title.label_tag }}
+                                                {{ form.title }}
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                {{ form.email.label_tag }}
+                                                {{ form.email }}
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ form.phone_number.label_tag }}
+                                                {{ form.phone_number }}
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                {{ form.lecturer_type.label_tag }}
+                                                {{ form.lecturer_type }}
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ form.image.label_tag }}
+                                                {{ form.image }}
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add Lecturer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Dashboard Content End -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

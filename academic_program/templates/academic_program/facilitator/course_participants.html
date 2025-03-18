@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Participants for {{ course.course_name }}</h2>
+            </div>
+          </div>
+        </div>
+        <!-- Participants List -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Course Participants</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  {% for participant in participants %}
+                  <li class="list-group-item">
+                    {{ participant.student.student.first_name }} {{ participant.student.student.last_name }}
+                  </li>
+                  {% empty %}
+                  <li class="list-group-item">No participants found.</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container-fluid -->
+    </div> <!-- dashboard-ecommerce -->
+  </div> <!-- dashboard-wrapper -->
+</div> <!-- dashboard-main-wrapper -->
+{% endblock %}

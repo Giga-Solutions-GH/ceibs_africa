@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="dashboard-main-wrapper">
+        {% include 'inc/header.html' %}
+        {% include 'inc/sidenav.html' %}
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Add Student to {{ program }}</h2>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Students</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Add Student</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <h5 class="card-header">Fill the form below</h5>
+                            <div class="card-body">
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row mb-3">
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.image.id_for_label }}">Image</label>
+                                            {{ form.image }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                                            {{ form.first_name }}
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                                            {{ form.last_name }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.other_names.id_for_label }}">Other Names</label>
+                                            {{ form.other_names }}
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.email.id_for_label }}">Email</label>
+                                            {{ form.email }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+                                            {{ form.phone_number }}
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
+                                            {{ form.date_of_birth }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.unique_id.id_for_label }}">Student ID</label>
+                                            {{ form.unique_id }}
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.gender.id_for_label }}">Gender</label>
+                                            {{ form.gender }}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.position.id_for_label }}">Position</label>
+                                            {{ form.position }}
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="{{ form.company.id_for_label }}">Company</label>
+                                            {{ form.company }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="{{ form.address.id_for_label }}">Address</label>
+                                        {{ form.address }}
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-outline-danger">Add Student</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Dashboard Content End -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

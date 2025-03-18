@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="page-header text-center">
+                            <h2 class="pageheader-title">Prospect Statistics</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row mb-4">
+                    <!-- Total Prospects -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <h5 class="card-header">Total Prospects</h5>
+                            <div class="card-body">
+                                <h2>{{ total_prospects }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Converted vs. Not Converted -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <h5 class="card-header">Converted vs. Not Converted</h5>
+                            <div class="card-body">
+                                <p>Converted: {{ converted_count }}</p>
+                                <p>Not Converted: {{ not_converted_count }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Average Times Reached -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <h5 class="card-header">Average Times Reached</h5>
+                            <div class="card-body">
+                                <h2>{{ avg_reach }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="row mb-4">
+                    <!-- Conversion Pie Chart -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-header">Conversion Rate</h5>
+                            <div class="card-body">
+                                <div class="chart-container" style="height:300px; width:100%;">
+                                    <canvas id="conversionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Prospects Line Chart -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-header">Monthly Prospects</h5>
+                            <div class="card-body">
+                                <div class="chart-container" style="height:300px; width:100%;">
+                                    <canvas id="monthlyChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <!-- Top Companies Bar Chart -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-header">Top Companies</h5>
+                            <div class="card-body">
+                                <div class="chart-container" style="height:300px; width:100%;">
+                                    <canvas id="companyChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Feedback Card -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-header">Total Feedback Received</h5>
+                            <div class="card-body">
+                                <h2>{{ total_feedback }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Button (Optional) -->
+                <div class="row mt-4">
+                    <div class="col-md-12 text-end">
+                        <a href="" class="btn btn-primary">Export Statistics</a>
+                    </div>
+                </div>
+
+            </div> <!-- container-fluid end -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-container {
+        width: 100%;
+        height: 300px;
+    }
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Conversion Pie Chart ---
+    var ctxConversion = document.getElementById('conversionChart').getContext('2d');
+    new Chart(ctxConversion, {
+        type: 'pie',
+        data: {
+            labels: ['Converted', 'Not Converted'],
+            datasets: [{
+                data: [{{ converted_count }}, {{ not_converted_count }}],
+                backgroundColor: ['#36A2EB', '#FF6384']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // --- Monthly Prospects Line Chart ---
+    var ctxMonthly = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(ctxMonthly, {
+        type: 'line',
+        data: {
+            labels: {{ monthly_labels|safe }},
+            datasets: [{
+                label: 'Prospects Added',
+                data: {{ monthly_counts|safe }},
+                borderColor: '#FFCE56',
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // --- Top Companies Bar Chart ---
+    var ctxCompany = document.getElementById('companyChart').getContext('2d');
+    new Chart(ctxCompany, {
+        type: 'bar',
+        data: {
+            labels: {{ top_companies|safe }},
+            datasets: [{
+                label: 'Number of Prospects',
+                data: {{ top_company_counts|safe }},
+                backgroundColor: ['#4BC0C0', '#9966FF', '#FF9F40', '#FF6384', '#36A2EB']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+});
+</script>
+{% endblock %}

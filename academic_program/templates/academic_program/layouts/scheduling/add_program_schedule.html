@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2 class="page-header-title">Add/Edit Program Schedule for {{ program.program_name }}</h2>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="#" class="breadcrumb-link">Programs</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="{% url 'academic_program:add_schedule_overview' %}" class="breadcrumb-link">
+                                            Program Schedules
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        Add/Edit Schedule
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display Messages -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- Form for Program Schedules -->
+                <div class="card mb-4">
+                    <h5 class="card-header">Program Schedules</h5>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ schedule_formset.management_form }}
+                            <div id="schedule-formset-container">
+                                {% for form in schedule_formset %}
+                                    <div class="formset-row border p-3 mb-2" data-form="schedule-{{ forloop.counter0 }}">
+                                        {{ form.id }}
+                                        <div class="row">
+                                            <div class="form-group col-lg-3">
+                                                <label>Course</label>
+                                                {{ form.course }}
+                                                {% if form.course.errors %}
+                                                    <div class="text-danger">{{ form.course.errors }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label>Location</label>
+                                                {{ form.location }}
+                                                {% if form.location.errors %}
+                                                    <div class="text-danger">{{ form.location.errors }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label>Start Time</label>
+                                                {{ form.start_time }}
+                                                {% if form.start_time.errors %}
+                                                    <div class="text-danger">{{ form.start_time.errors }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label>End Time</label>
+                                                {{ form.end_time }}
+                                                {% if form.end_time.errors %}
+                                                    <div class="text-danger">{{ form.end_time.errors }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label>Start Date</label>
+                                                {{ form.start_date }}
+                                                {% if form.start_date.errors %}
+                                                    <div class="text-danger">{{ form.start_date.errors }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label>End Date</label>
+                                                {{ form.end_date }}
+                                                {% if form.end_date.errors %}
+                                                    <div class="text-danger">{{ form.end_date.errors }}</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="form-group col-lg-12">
+                                                <label>Session Dates</label>
+                                                {{ form.session_dates }}
+                                                <small class="form-text text-muted">
+                                                    Enter dates separated by commas or new lines (YYYY-MM-DD).
+                                                </small>
+                                                {% if form.session_dates.errors %}
+                                                    <div class="text-danger">{{ form.session_dates.errors }}</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="form-group col-lg-2">
+                                                <label>Remove?</label><br>
+                                                {{ form.DELETE }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button type="button" id="add-schedule-btn" class="btn btn-outline-success mt-3">Add Another Schedule</button>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div> <!-- container-fluid end -->
+        </div> <!-- dashboard-ecommerce end -->
+    </div> <!-- dashboard-wrapper end -->
+</div> <!-- dashboard-main-wrapper end -->
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // SCHEDULE FORMSET: Add row functionality
+    const addScheduleBtn = document.getElementById('add-schedule-btn');
+    addScheduleBtn.addEventListener('click', function() {
+        const formsetContainer = document.getElementById('schedule-formset-container');
+        const totalFormsInput = document.getElementById('id_schedule-TOTAL_FORMS');
+        const currentFormCount = parseInt(totalFormsInput.value);
+        const newFormIdx = currentFormCount;
+
+        // Clone the last row
+        const lastRow = formsetContainer.lastElementChild;
+        const newRow = lastRow.cloneNode(true);
+
+        // Replace occurrences of the old index with the new one
+        newRow.innerHTML = newRow.innerHTML.replace(/schedule-(\d+)/g, 'schedule-' + newFormIdx);
+
+        // Clear out inputs in the new row
+        newRow.querySelectorAll('input, select, textarea').forEach(function(input) {
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                input.checked = false;
+            } else {
+                input.value = '';
+            }
+        });
+
+        formsetContainer.appendChild(newRow);
+        totalFormsInput.value = currentFormCount + 1;
+    });
+});
+</script>
+{% endblock %}

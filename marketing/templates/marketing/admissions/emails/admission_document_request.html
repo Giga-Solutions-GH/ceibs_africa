@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Upload Your Admission Documents</title>
+</head>
+<body>
+    <div style="text-align: center; font-family: Arial, sans-serif;">
+        <img src="https://{{ domain }}/static/images/ceibs_logo.png" alt="CEIBS Africa Logo" style="max-width: 200px; margin-bottom: 20px;">
+        <h2>Welcome to CEIBS Africa Admissions</h2>
+        <p>Dear {{ admission.first_name }} {{ admission.last_name }},</p>
+        <p>Thank you for applying to CEIBS Africa. To complete your admission process, please upload your required documents using the link below.</p>
+        <p>
+            <a href="{{ upload_url }}" style="background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Upload Your Documents</a>
+        </p>
+        <p>If you have any questions, please contact our admissions office.</p>
+        <p>Best regards,<br>CEIBS Africa Admissions Team</p>
+        <hr>
+        <p style="font-size: 0.8em; color: #666;">This email was sent on {{ current_time|date:"Y-m-d H:i" }}.</p>
+    </div>
+</body>
+</html>

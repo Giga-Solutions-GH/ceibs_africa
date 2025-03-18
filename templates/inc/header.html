@@ -1,0 +1,26 @@
+{% load static %}
+<div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a href="{% if request.user.is_student %}{% url 'elevated:home' %}{% else %}{% url 'elevated:home' %}{% endif %}">
+                    <img src="/static/assets/images/ceibs-logo1.jpg" alt="Logo">
+                </a>
+                <a style="font-family: 'Diphylleia', serif;" class="navbar-brand text-primary" href="#"></a>
+                <a class="navbar-toggler border-0 bg-transparent" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </a>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i> {{ request.user.first_name }} {{ request.user.last_name }}</a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">{{request.user.first_name }} {{ request.user.last_name }}</h5>
+                                    <h6 class="text-white">{{ request.user.main_role }}</h6>
+                                </div>
+                                <a class="dropdown-item" href="{% url 'account:logout' %}"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>

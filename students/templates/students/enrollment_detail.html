@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+
+                <!-- ===================== Page Header ===================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-header text-center">
+                            <h2 class="pageheader-title">
+                                {{ student.first_name }} {{ student.last_name }} - Enrollment Details - {{ program.program_name }}
+                            </h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="{% url 'students:student_list' program_name=program.program_name program_type='All' %}"
+                                               class="breadcrumb-link">
+                                                Students
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Enrollment Details
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===================== Student Details Card ===================== -->
+                <div class="card mt-4">
+                    <h5 class="card-header">Student Details</h5>
+                    <div class="card-body">
+                        <p><strong>Full Name:</strong>
+                            {{ student.first_name }}
+                            {% if student.other_names %}{{ student.other_names }}{% endif %}
+                            {{ student.last_name }}
+                        </p>
+                        <p><strong>Email:</strong> {{ student.email }}</p>
+                        <p><strong>Phone Number:</strong> {{ student.phone_number }}</p>
+                        <p><strong>Address:</strong> {{ student.address }}</p>
+                        <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
+                        <p><strong>Gender:</strong> {{ student.gender }}</p>
+                        <p><strong>Position:</strong> {{ student.position }}</p>
+                        <p><strong>Company:</strong> {{ student.company }}</p>
+                    </div>
+                </div>
+
+                <!-- ===================== Program Details Card ===================== -->
+                <div class="card mt-4">
+                    <h5 class="card-header">Program Details</h5>
+                    <div class="card-body">
+                        <p><strong>Program Name:</strong> {{ program.program_name }}</p>
+                        <p><strong>Description:</strong> {{ program.course_description }}</p>
+                        <p><strong>Alumni Program:</strong> {{ is_alumni_program|yesno:"Yes,No" }}</p>
+                    </div>
+                </div>
+
+                <!-- ===================== Enroll in Courses (Table with Checkboxes) ===================== -->
+                <div class="card mt-4">
+                    <h5 class="card-header">Enroll in New Courses</h5>
+                    <div class="card-body">
+                        {% if available_courses %}
+                            <form method="post" id="enroll-courses-form">
+                                {% csrf_token %}
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center;">Select</th>
+                                                <th>Course Name</th>
+                                                <th>Description</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Lecturer</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for course in available_courses %}
+                                            <tr>
+                                                <td style="vertical-align: middle; text-align: center;">
+                                                    <input class="form-check-input"
+                                                           type="checkbox"
+                                                           name="selected_courses"
+                                                           value="{{ course.id }}"
+                                                           id="course{{ course.id }}">
+                                                </td>
+                                                <td>{{ course.course_name }}</td>
+                                                <td>{{ course.course_description }}</td>
+                                                <td>{{ course.start_date }}</td>
+                                                <td>{{ course.end_date }}</td>
+                                                <td>{{ course.lecturer }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="submit"
+                                        name="enroll_courses"
+                                        class="btn btn-success mt-2"
+                                        id="enroll-courses-btn">
+                                    Enroll Selected Courses
+                                </button>
+                            </form>
+                        {% else %}
+                            <p class="text-muted">No new courses available for enrollment.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- ===================== Enrolled Courses Table ===================== -->
+                <div class="card mt-4">
+                    <h5 class="card-header">Courses Enrolled By Student</h5>
+                    <div class="card-body">
+                        {% if enrolled_courses %}
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Course Name</th>
+                                            <th>Description</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Lecturer</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for course in enrolled_courses %}
+                                        <tr>
+                                            <td>{{ course.course_name }}</td>
+                                            <td>{{ course.course_description }}</td>
+                                            <td>{{ course.start_date }}</td>
+                                            <td>{{ course.end_date }}</td>
+                                            <td>{{ course.lecturer }}</td>
+                                            <td>
+                                                <form method="post" class="unenroll-form d-inline">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="course_id" value="{{ course.id }}">
+                                                    <button type="submit" name="unenroll" class="btn btn-danger btn-sm">
+                                                        Unenroll
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p class="text-muted">The student is not enrolled in any courses yet.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- ===================== Previous Enrollments ===================== -->
+                {% if previous_enrollments %}
+                <div class="card mt-4">
+                    <h5 class="card-header">Previous Enrollments</h5>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Program Name</th>
+                                        <th>Status</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Completion Year</th>
+                                        <th>Alumni Program?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for prev_enrollment in previous_enrollments %}
+                                    <tr>
+                                        <td>{{ prev_enrollment.program.program_name }}</td>
+                                        <td>{{ prev_enrollment.status }}</td>
+                                        <td>{{ prev_enrollment.start_date }}</td>
+                                        <td>{{ prev_enrollment.end_date }}</td>
+                                        <td>
+                                            {% if prev_enrollment.end_date %}
+                                                {{ prev_enrollment.end_date.year }}
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {{ prev_enrollment.program.alumni_program|yesno:"Yes,No" }}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div> <!-- .container-fluid -->
+        </div> <!-- .dashboard-ecommerce -->
+    </div> <!-- .dashboard-wrapper -->
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Load SweetAlert2 from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Enrollment confirmation
+    const enrollForm = document.getElementById('enroll-courses-form');
+    if (enrollForm) {
+        enrollForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const checkboxes = enrollForm.querySelectorAll('input[name="selected_courses"]:checked');
+            if (checkboxes.length === 0) {
+                Swal.fire({
+                    title: 'No Courses Selected',
+                    text: "Please select at least one course to enroll.",
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+            Swal.fire({
+                title: 'Confirm Enrollment',
+                text: "Do you want to enroll the student in the selected courses?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, enroll',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    enrollForm.submit();
+                }
+            });
+        });
+    }
+
+    // Unenrollment confirmation
+    document.querySelectorAll('.unenroll-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Confirm Unenrollment',
+                text: "Do you want to unenroll the student from this course?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, unenroll',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+});
+</script>
+{% endblock %}

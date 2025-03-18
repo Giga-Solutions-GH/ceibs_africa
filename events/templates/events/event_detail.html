@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="page-header text-center">
+                            <h2 class="pageheader-title">Event Details</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="{% url 'event:events_overview' %}" class="breadcrumb-link">Events</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">Details</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Form -->
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card mb-3">
+                                <!-- New buttons row -->
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <a href="{% url 'event:generate_qr_code' event_id=event.id %}" class="btn btn-outline-danger">Generate QR Code</a>
+                                        <a href="{% url 'event:send_contact_email' event_id=event.id %}" class="btn btn-outline-primary">Send Contact Email</a>
+                                    </div>
+                                    <span>Editing Event</span>
+                                </div>
+                                <div class="card-body">
+                                    {{ event_form.as_p }}
+                                    <button type="submit" name="save_event" class="btn btn-primary">Save Event</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <h5 class="card-header">Event Image</h5>
+                                <div class="card-body">
+                                    {% if event.event_image %}
+                                        <img src="{{ event.event_image.url }}" class="img-fluid" alt="Event Image">
+                                    {% else %}
+                                        <p>No image uploaded</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Participants File Upload -->
+                <div class="card mt-4">
+                    {% if messages %}
+  <div class="mt-3">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+                    <div class="card-header">
+                        <h5 class="mb-0">Upload Participants Excel File</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="file" name="participant_file" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Upload Participants</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Participants Formset -->
+                <div class="card mt-4">
+                    <h5 class="card-header">Participants</h5>
+                    <a href="{% url 'event:export_participants' pk=event.pk %}" class="btn btn-success">Export Participants</a>
+                    <div class="card-body">
+                        <form method="post" id="participantForm">
+                            {% csrf_token %}
+                            {{ formset.management_form }}
+                            <div class="table-responsive">
+                                <table class="table" id="participants-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Last Name</th>
+                                            <th>First Name</th>
+                                            <th>Other Names</th>
+                                            <th>Phone Contact</th>
+                                            <th>Email Address</th>
+                                            <th>Company</th>
+                                            <th>Position</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="participants-table-body">
+                                        {% for form in formset %}
+                                        <tr>
+                                            <td>{{ form.last_name }}</td>
+                                            <td>{{ form.first_name }}</td>
+                                            <td>{{ form.other_names }}</td>
+                                            <td>{{ form.phone_contact }}</td>
+                                            <td>{{ form.email_address }}</td>
+                                            <td>{{ form.company }}</td>
+                                            <td>{{ form.position }}</td>
+                                            <td>
+                                                {% if form.instance.pk %}
+                                                    <input type="hidden" name="form-{{ forloop.counter0 }}-id" value="{{ form.instance.pk }}">
+                                                    <input type="checkbox" name="form-{{ forloop.counter0 }}-DELETE" id="id_form-{{ forloop.counter0 }}-DELETE">
+                                                {% endif %}
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        <tr>
+                                            <td colspan="8" class="text-center">
+                                                <button type="button" id="add-participant-btn" class="btn btn-outline-success">
+                                                    <i class="fa fa-plus"></i> Add Participant
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button type="submit" name="save_participants" class="btn btn-primary">Save Participants</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 'Select All' functionality if needed (for participant checkboxes)
+    // Add Participant Row Functionality
+    const addParticipantBtn = document.getElementById('add-participant-btn');
+    addParticipantBtn.addEventListener('click', function() {
+        const tableBody = document.getElementById('participants-table-body');
+        const totalFormsInput = document.getElementById('id_form-TOTAL_FORMS');
+        const currentFormCount = parseInt(totalFormsInput.value);
+        const newFormIdx = currentFormCount;
+        // Insert new row before the last row (the row with the add button)
+        const newRow = tableBody.insertRow(tableBody.rows.length - 1);
+        newRow.innerHTML = `
+            <td><input type="text" name="form-${newFormIdx}-last_name" class="form-control"></td>
+            <td><input type="text" name="form-${newFormIdx}-first_name" class="form-control"></td>
+            <td><input type="text" name="form-${newFormIdx}-other_names" class="form-control"></td>
+            <td><input type="text" name="form-${newFormIdx}-phone_contact" class="form-control"></td>
+            <td><input type="email" name="form-${newFormIdx}-email_address" class="form-control"></td>
+            <td><input type="text" name="form-${newFormIdx}-company" class="form-control"></td>
+            <td><input type="text" name="form-${newFormIdx}-position" class="form-control"></td>
+            <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+        `;
+        totalFormsInput.value = newFormIdx + 1;
+    });
+
+    function removeRow(button) {
+        button.closest('tr').remove();
+    }
+});
+</script>
+{% endblock %}

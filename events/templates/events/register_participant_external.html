@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for {{ event.name }}</title>
+  {% load static %}
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .event-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .submit-btn {
+      background-color: transparent;
+      border-color: red;
+        color: red;
+    }
+    .powered-by {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+    .powered-by p {
+      margin-bottom: 10px;
+    }
+    .ceibs-logo {
+      max-width: 100px;
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h4 class="text-center mb-4">Register for {{ event.name }}</h4>
+    {% if event.event_image %}
+    <div class="text-center mb-4">
+      <img src="{{ event.event_image.url }}" alt="{{ event.name }}" class="event-image">
+    </div>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-danger btn-block submit-btn">Register</button>
+    </form>
+    <div class="powered-by">
+      <p>Powered by CEIBS Africa</p>
+      <img src="{% static 'assets/images/ceibs-logo.png' %}" alt="CEIBS Africa" class="ceibs-logo">
+    </div>
+  </div>
+</body>
+</html>

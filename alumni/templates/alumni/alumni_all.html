@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader  -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <div class="col-12" style="display: flex; justify-content: space-between">
+                                <div>
+                                    <h2 class="pageheader-title">Alumni List (All)</h2>
+                                </div>
+                            </div>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="#" class="breadcrumb-link">Alumni</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Alumni List
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Filter Form -->
+                <!-- ============================================================== -->
+                <div class="row mb-4">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Filter Alumni</h5>
+                            <div class="card-body">
+                                <form method="GET" class="form-inline">
+                                    <!-- Nationality Filter -->
+                                    <label class="mr-2" for="id_nationality">Nationality</label>
+                                    <select name="nationality" id="id_nationality" class="form-control mr-4">
+                                        <option value="">-- All --</option>
+                                        {% for nat in all_nationalities %}
+                                            <option value="{{ nat }}"
+                                                {% if selected_nationality == nat %}
+                                                    selected
+                                                {% endif %}
+                                            >
+                                                {{ nat }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <!-- Industry Filter -->
+                                    <label class="mr-2" for="id_industry">Industry</label>
+                                    <select name="industry" id="id_industry" class="form-control mr-4">
+                                        <option value="">-- All --</option>
+                                        {% for ind in all_industries %}
+                                            <option value="{{ ind }}"
+                                                {% if selected_industry == ind %}
+                                                    selected
+                                                {% endif %}
+                                            >
+                                                {{ ind }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <!-- Country of Residence Filter -->
+                                    <label class="mr-2" for="id_country_of_residence">Country of Residence</label>
+                                    <select name="country_of_residence" id="id_country_of_residence" class="form-control mr-4">
+                                        <option value="">-- All --</option>
+                                        {% for res in all_residences %}
+                                            <option value="{{ res }}"
+                                                {% if selected_residence == res %}
+                                                    selected
+                                                {% endif %}
+                                            >
+                                                {{ res }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <!-- Program Filter -->
+                                    <label class="mr-2" for="id_program">Program</label>
+                                    <select name="program" id="id_program" class="form-control mr-4">
+                                        <option value="">-- All --</option>
+                                        {% for prog in all_programs %}
+                                            <option value="{{ prog.id }}"
+                                                {% if selected_program == prog.id|stringformat:"s" %}
+                                                    selected
+                                                {% endif %}
+                                            >
+                                                {{ prog.program_name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-primary ml-2">Filter</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Alumni List Table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">
+                                Alumni Table ({{ program_name }})
+                            </h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable">
+                                        <thead>
+                                            <tr>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Enrolment</th>
+                                                <th>Current Position</th>
+                                                <th>Company</th>
+                                                <th>Industry</th>
+                                                <th>Country of Residence</th>
+                                                <th>Nationality</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {% for al in alumni %}
+                                            <tr>
+                                                <td>{{ al.first_name }}</td>
+                                                <td>{{ al.last_name }}</td>
+                                                <td>{{ al.email }}</td>
+                                                <td>{{ al.program }}</td>
+                                                <td>{{ al.current_position }}</td>
+                                                <td>{{ al.company }}</td>
+                                                <td>{{ al.industry }}</td>
+                                                <td>{{ al.country_of_residence }}</td>
+                                                <td>{{ al.nationality }}</td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary"
+                                                       href="{% url 'alumni:alumni_detail' al.id %}">
+                                                       View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row end -->
+
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<!-- If you're using DataTables or any custom JS, include it here -->
+{% endblock %}

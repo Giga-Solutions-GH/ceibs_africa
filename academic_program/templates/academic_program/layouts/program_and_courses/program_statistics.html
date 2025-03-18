@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Program Statistics</h2>
+                            <a href="{% url 'academic_program:export_program_statistics' %}" class="btn btn-primary">Export Program Statistics</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Programs by Type -->
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="card chart-card">
+                            <h5 class="card-header">Programs by Type</h5>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="programsByTypeChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Courses per Program -->
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="card">
+                            <h5 class="card-header">Courses per Program</h5>
+                            <div class="card-body">
+                                <canvas id="coursesPerProgramChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Students per Program -->
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="card">
+                            <h5 class="card-header">Students per Program</h5>
+                            <div class="card-body">
+                                <canvas id="studentsPerProgramChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Students per Course -->
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="card">
+                            <h5 class="card-header">Students per Course</h5>
+                            <div class="card-body">
+                                <canvas id="studentsPerCourseChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Students per Program Cover -->
+                    {% for cover_name, years_data in program_cover_data.items %}
+                        <div class="col-lg-6 col-xl-6">
+                            <div class="card">
+                                <h5 class="card-header">Enrollment by Year for {{ cover_name }}</h5>
+                                <div class="card-body">
+                                    <canvas id="chart-{{ cover_name|slugify }}"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-card {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .chart-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Programs by Type Chart
+    var ctxProgramsByType = document.getElementById('programsByTypeChart').getContext('2d');
+    var programsByTypeChart = new Chart(ctxProgramsByType, {
+        type: 'pie',
+        data: {
+            labels: [{% for item in programs_by_type %}'{{ item.program_type__name }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+            datasets: [{
+                data: [{% for item in programs_by_type %}{{ item.count }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Courses per Program Chart
+    var ctxCoursesPerProgram = document.getElementById('coursesPerProgramChart').getContext('2d');
+    var coursesPerProgramChart = new Chart(ctxCoursesPerProgram, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in courses_per_program %}'{{ item.program__program_name }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Courses',
+                data: [{% for item in courses_per_program %}{{ item.count }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                backgroundColor: '#36A2EB',
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Students per Program Chart
+    var ctxStudentsPerProgram = document.getElementById('studentsPerProgramChart').getContext('2d');
+    var studentsPerProgramChart = new Chart(ctxStudentsPerProgram, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in students_per_program %}'{{ item.program__program_name }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in students_per_program %}{{ item.count }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                backgroundColor: '#FF6384',
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Students per Course Chart
+    var ctxStudentsPerCourse = document.getElementById('studentsPerCourseChart').getContext('2d');
+    var studentsPerCourseChart = new Chart(ctxStudentsPerCourse, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in students_per_course %}'{{ item.course_name }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in students_per_course %}{{ item.student_count }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                backgroundColor: '#4BC0C0',
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Students per Program Cover Charts
+    {% for cover_name, years_data in program_cover_data.items %}
+        var ctxProgramCoverStats{{ cover_name|slugify }} = document.getElementById('chart-{{ cover_name|slugify }}').getContext('2d');
+        var programCoverStatsChart{{ cover_name|slugify }} = new Chart(ctxProgramCoverStats{{ cover_name|slugify }}, {
+            type: 'bar',
+            data: {
+                labels: [{% for year, count in years_data.items %}'{{ year }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Number of Enrolled Students',
+                    data: [{% for year, count in years_data.items %}{{ count }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                    backgroundColor: '#FF9F40',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    {% endfor %}
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="page-header-title">Program Officer Dashboard</h2>
+            <p>Select a program to manage attendance:</p>
+          </div>
+        </div>
+        <div class="row">
+          {% for program in programs %}
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <div class="card-body text-center">
+                <h5>{{ program.program_name }}</h5>
+                <a href="{% url 'program_officer_courses' program.id %}" class="btn btn-primary">
+                  Manage Attendance
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

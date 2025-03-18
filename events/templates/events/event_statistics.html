@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Event and Participant Statistics</h2>
+              <a href="{% url 'event:export_event_statistics' %}" class="btn btn-primary">Export Statistics</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Statistics Cards -->
+        <div class="row mb-4">
+          <!-- Total Participants -->
+          <div class="col-md-4">
+            <div class="card">
+              <h5 class="card-header">Total Participants (Recent 10 Events)</h5>
+              <div class="card-body">
+                <h2>{{ total_participants }}</h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- Participants by Event (Bar Chart) -->
+          <div class="col-md-8">
+            <div class="card">
+              <h5 class="card-header">Participants by Event</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="participantsByEventChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frequent Participants Table -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header">Frequent Participants</h5>
+              <div class="card-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email Address</th>
+                      <th>Number of Events Attended</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for name, email, count in frequent_participants %}
+                    <tr>
+                      <td>{{ name }}</td>
+                      <td>{{ email }}</td>
+                      <td>{{ count }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Charts: Event Insights -->
+        <div class="row mb-4">
+          <!-- Events per Month -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Events per Month</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="eventsByMonthChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Events by Company -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Events by Company</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="eventsByCompanyChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <!-- Events by Quarter -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Events by Quarter</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="eventsByQuarterChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- Dashboard Content End -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+  .chart-container {
+    width: 100%;
+    height: 300px;
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Participants by Event Chart (Bar Chart)
+    var ctxParticipants = document.getElementById('participantsByEventChart').getContext('2d');
+    new Chart(ctxParticipants, {
+        type: 'bar',
+        data: {
+            labels: {{ event_names|safe }},
+            datasets: [{
+                label: 'Participants',
+                data: {{ participant_counts|safe }},
+                backgroundColor: '#36A2EB'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } },
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Events per Month Chart (Line Chart)
+    var ctxMonth = document.getElementById('eventsByMonthChart').getContext('2d');
+    new Chart(ctxMonth, {
+        type: 'line',
+        data: {
+            labels: {{ events_by_month_labels|safe }},
+            datasets: [{
+                label: 'Events per Month',
+                data: {{ events_by_month_data|safe }},
+                borderColor: '#FFCE56',
+                backgroundColor: 'rgba(255,206,86,0.2)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } },
+            plugins: {
+                legend: { position: 'top' }
+            }
+        }
+    });
+
+    // Events by Company Chart (Bar Chart)
+    var ctxCompany = document.getElementById('eventsByCompanyChart').getContext('2d');
+    new Chart(ctxCompany, {
+        type: 'bar',
+        data: {
+            labels: {{ events_by_company_labels|safe }},
+            datasets: [{
+                label: 'Events by Company',
+                data: {{ events_by_company_data|safe }},
+                backgroundColor: '#4BC0C0'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } },
+            plugins: {
+                legend: { position: 'top' }
+            }
+        }
+    });
+
+    // Events by Quarter Chart (Pie Chart)
+    var ctxQuarter = document.getElementById('eventsByQuarterChart').getContext('2d');
+    new Chart(ctxQuarter, {
+        type: 'pie',
+        data: {
+            labels: {{ events_by_quarter_labels|safe }},
+            datasets: [{
+                label: 'Events by Quarter',
+                data: {{ events_by_quarter_data|safe }},
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

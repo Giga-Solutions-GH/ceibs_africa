@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Add Event</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Events</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Add Event</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display messages -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- Event Form -->
+                <div class="card">
+                    <h5 class="card-header">Fill the form below to add an Event</h5>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="name">Event Name</label>
+                                    {{ form.name }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="description">Description</label>
+                                    {{ form.description }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="start_time">Start Time</label>
+                                    {{ form.start_time }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="end_time">End Time</label>
+                                    {{ form.end_time }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="number_of_participants">Number of Participants</label>
+                                    {{ form.number_of_participants }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="venue">Venue</label>
+                                    {{ form.venue }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="event_contact_name">Event Contact Name</label>
+                                    {{ form.event_contact_name }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="event_contact_email">Event Contact Email</label>
+                                    {{ form.event_contact_email }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="event_contact_name">Department</label>
+                                    {{ form.department }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="event_contact_email">Prescence</label>
+                                    {{ form.presence }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="event_contact_phone">Event Contact Phone</label>
+                                    {{ form.event_contact_phone }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="event_image">Image</label>
+                                    {{ form.event_image }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="event_contact_phone">Organizing Company</label>
+                                    {{ form.company }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="event_image">Event Type</label>
+                                    {{ form.event_type }}
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="comments">Comments</label>
+                                {{ form.comments }}
+                            </div>
+                            <!-- Submit Buttons -->
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" name="save_event" class="btn btn-outline-danger">Add Event</button>
+                                <button type="submit" name="save_and_send_email" class="btn btn-outline-primary">Save and Send Contact Email</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Add any additional scripts if needed -->
+{% endblock %}

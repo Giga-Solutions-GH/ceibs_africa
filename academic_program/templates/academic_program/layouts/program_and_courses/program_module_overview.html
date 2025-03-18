@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Program Module Overview</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="coverFilter"><strong>Filter by Cover:</strong></label>
+                        <select id="coverFilter" class="form-control">
+                            <option value="all" selected>All Covers</option>
+                            {% for cover in used_covers %}
+                                <option value="{{ cover.name|lower }}">{{ cover.name }}</option>
+                            {% endfor %}
+                            <option value="no cover">No Cover</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="searchInput"><strong>Search:</strong></label>
+                        <input type="text"
+                               id="searchInput"
+                               class="form-control"
+                               placeholder="Search by program name...">
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+
+                <!-- Grouped by cover, with program/course listing -->
+                <div class="row" id="coverContainer">
+                    {% comment %}
+                      We'll loop through each cover in cover_dict, each group is a "cover-group"
+                      containing one or more programs.
+                    {% endcomment %}
+                    {% for cover, program_list in cover_dict.items %}
+                    <div class="cover-group col-12 mb-4">
+                        <!-- Cover title heading -->
+                        <h4 class="cover-title">
+                            {% if cover %}
+                                {{ cover.name }}
+                            {% else %}
+                                No Cover
+                            {% endif %}
+                        </h4>
+
+                        <div class="row">
+                            {% for program in program_list %}
+                            <div class="col-lg-4 col-xl-4 program-card">
+                                <div class="card p-3 mb-2">
+                                    <h5 class="card-header program-name">{{ program.program_name }}</h5>
+                                    <div class="card-body">
+                                        <ul>
+                                            {% for course in program.course_set.all %}
+                                            <li>
+                                                <a style="text-decoration: underline"
+                                                   href="{% url 'academic_program:course_details' course.id %}">
+                                                   {{ course.course_name }}
+                                                </a> ➡️
+                                            </li>
+                                            {% empty %}
+                                            <li>No courses available.</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12">
+                        <p>No programs available.</p>
+                    </div>
+                    {% endfor %}
+                </div> <!-- #coverContainer -->
+
+            </div> <!-- container-fluid -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+/*
+ * Client-side filtering by:
+ * 1) Program Cover
+ * 2) Search text (program name)
+ *
+ * "Reset" button clears all filters.
+ */
+$(document).ready(function() {
+    const $coverFilter = $("#coverFilter");
+    const $searchInput = $("#searchInput");
+    const $resetBtn = $("#resetBtn");
+
+    $coverFilter.on("change", filterPrograms);
+    $searchInput.on("input", filterPrograms);
+    $resetBtn.on("click", function() {
+        $coverFilter.val("all");
+        $searchInput.val("");
+        filterPrograms();
+    });
+
+    function filterPrograms() {
+        let coverValue = $coverFilter.val().toLowerCase();  // e.g. 'all', 'no cover', or actual cover name
+        let searchValue = $searchInput.val().toLowerCase();
+
+        // For each .cover-group, we check if any of its .program-card pass the filters
+        $(".cover-group").each(function() {
+            let $group = $(this);
+            let coverTitle = $group.find(".cover-title").text().toLowerCase();
+
+            // We'll track if any program is visible
+            let anyVisible = false;
+
+            // Iterate each program card
+            $group.find(".program-card").each(function() {
+                let $card = $(this);
+                let programNameText = $card.find(".program-name").text().toLowerCase();
+
+                // Does cover match?
+                let coverMatches = (coverValue === "all") ||
+                                   (coverValue === "no cover" && coverTitle.includes("no cover")) ||
+                                   (coverValue === coverTitle);
+
+                // Does search match?
+                let searchMatches = (searchValue === "") || programNameText.includes(searchValue);
+
+                if (coverMatches && searchMatches) {
+                    $card.show();
+                    anyVisible = true;
+                } else {
+                    $card.hide();
+                }
+            });
+
+            // If no program is visible in this group, hide the entire group
+            if (anyVisible) {
+                $group.show();
+            } else {
+                $group.hide();
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

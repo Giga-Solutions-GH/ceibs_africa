@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="page-header text-center">
+                            <h2 class="pageheader-title">Attendance Overview</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters: Place filters on top in a neat row -->
+                <div class="row mb-4">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="card p-3">
+                            <form method="get" class="row g-3 align-items-center">
+                                <div class="col-md-4">
+                                    <label for="program" class="form-label">Select Program</label>
+                                    <select id="program" name="program" class="form-select form-control" onchange="this.form.submit()">
+                                        <option value="">--Select Program--</option>
+                                        {% for prog in programs %}
+                                            <option value="{{ prog.id }}" {% if prog.id|stringformat:"s" == selected_program %}selected{% endif %}>
+                                                {{ prog.program_name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="course" class="form-label">Select Course</label>
+                                    <select id="course" name="course" class="form-select form-control" onchange="this.form.submit()">
+                                        <option value="">--Select Course--</option>
+                                        {% for course in courses %}
+                                            <option value="{{ course.id }}" {% if course.id|stringformat:"s" == selected_course %}selected{% endif %}>
+                                                {{ course.course_name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="date" class="form-label">Select Date</label>
+                                    <select id="date" name="date" class="form-select form-control" onchange="this.form.submit()">
+                                        <option value="">--All Dates--</option>
+                                        {% for dt in dates %}
+                                            <option value="{{ dt|date:"Y-m-d" }}" {% if dt|date:"Y-m-d" == selected_date %}selected{% endif %}>
+                                                {{ dt|date:"Y-m-d" }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Attendance Button -->
+                <div class="row mb-4">
+                    <div class="col-lg-10 offset-lg-1 text-end">
+                        {% if selected_course and selected_date %}
+                            <a href="{% url 'academic_program:export_course_attendance' %}?course_id={{ selected_course }}&date={{ selected_date }}" class="btn btn-outline-success">
+                                Export Attendance to Excel
+                            </a>
+                        {% else %}
+                            <button type="button" class="btn btn-outline-secondary" disabled>
+                                Select a Course and Date to Export Attendance
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Attendance Table -->
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        {% if attendance_records %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Attendance Records for {{ selected_date|date:"Y-m-d" }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Student Name</th>
+                                                <th>Present</th>
+                                                <th>Comment</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for record in attendance_records %}
+                                            <tr>
+                                                <td>{{ record.student_name }}</td>
+                                                <td>{% if record.is_present %}Yes{% else %}No{% endif %}</td>
+                                                <td>{{ record.comment|default:"No comment" }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                            <div class="alert alert-info text-center">No attendance records available.</div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div> <!-- container-fluid end -->
+        </div> <!-- dashboard-ecommerce end -->
+    </div> <!-- dashboard-wrapper end -->
+</div> <!-- dashboard-main-wrapper end -->
+{% endblock %}
+
+{% block scripts %}
+<!-- Optionally, add custom scripts here -->
+{% endblock %}

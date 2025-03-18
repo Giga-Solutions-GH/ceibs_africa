@@ -1,0 +1,241 @@
+{% load static %}
+{% load custom_filters %}
+
+<div class="nav-left-sidebar sidebar-dark">
+    <div class="menu-list">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <!-- Mobile Brand -->
+            <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavSidebar" aria-controls="navbarNavSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavSidebar">
+                <ul class="navbar-nav flex-column">
+
+                    {# STUDENT SECTION #}
+                    {% if request.user.is_student %}
+                        <li class="nav-divider">
+                            <i class="fa fa-fw fa-user-circle"></i> Student Portal
+                        </li>
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:student_portal' %}">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:program_schedule_overview' %}">Program Schedule</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:student_fee_history' %}">Student Finance</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:student_programs' %}">Provisional Marks</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        {# STUDENT MANAGEMENT SECTION #}
+                        <li class="nav-divider">
+                            <i class="fa fa-fw fa-user-circle"></i> Student Management
+                        </li>
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:add_student' %}">Add Student</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:student_overview' %}">Students Overview</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:enrol_student' %}">Enrol Student</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'students:student_statistics' %}">Student Statistics</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {# LECTURER MANAGEMENT SECTION #}
+                    <li class="nav-divider">
+                        <i class="fa fa-fw fa-graduation-cap"></i> Lecturer Management
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:lecturer_list' %}">Lecturers Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:add_lecturer' %}">Add Lecturer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:lecturer_statistics' %}">Lecturer Statistics</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    {# PROGRAMS MANAGEMENT SECTION #}
+                    <li class="nav-divider">
+                        Programs Management
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:program_types' %}">Programs Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:program_module_overview' %}">Program Module Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:program_statistics' %}">Program Statistics</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    {# ATTENDANCE MANAGEMENT SECTION #}
+                    <li class="nav-divider">
+                        Attendance Management
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:attendance_overview' %}">Attendance Overview</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    {# MARKETING SECTION #}
+                    <li class="nav-divider">
+                        Marketing
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'marketing:prospect_list' %}">Prospects Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'marketing:add_prospect' %}">Add Prospect</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'marketing:prospect_stats' %}">Prospects Stat</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'marketing:add_admission_prospect' %}">Add Admission</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'marketing:admissions_list' %}">Admissions List</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    {# FINANCE MANAGEMENT SECTION #}
+                    <li class="nav-divider">
+                        Finance Management
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'student_finance:student_finance_overview' %}">Finance Overview</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    {# ALUMNI MANAGEMENT SECTION #}
+                    <li class="nav-divider">
+                        Alumni Management
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'alumni:all_alumni' %}">All Alumni</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'alumni:list_programs' %}">Alumni Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'alumni:alumni_statistics' %}">Alumni Stat</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    {# EVENT MANAGEMENT SECTION #}
+                    <li class="nav-divider">
+                        Event Management
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'event:add_event' %}">Add Event</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'event:events_overview' %}">Events Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'event:event_statistics' %}">Event Stat</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    {# FACILITATOR PANEL (Only if user has Facilitator role in Programs department) #}
+                    {% if request.user|has_role:"Facilitator,Programs" %}
+                        <li class="nav-divider">
+                            <i class="fa fa-fw fa-chalkboard-teacher"></i> Facilitator Panel
+                        </li>
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'facilitator:course_list' %}">My Courses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'facilitator:input_grades' %}">Input Grades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'facilitator:participant_list' %}">View Participants</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'facilitator:send_email' %}">Send Emails</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {# ADMIN PANEL SECTION #}
+                    <li class="nav-divider">
+                        Admin Panel
+                    </li>
+                    <li class="nav-item">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/elevated/">Super Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'student_grading:active_programs' %}">Grades Management</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'student_grading:student_grades_overview' %}">Grades Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'student_grading:statistics' %}">Grades Statistics</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'students:all_transcript_requests' %}">Transcript Requests</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'academic_program:add_schedule_overview' %}">Programs Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Add Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Cert Generation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Bulk Email Sending</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> <!-- /.collapse -->
+        </nav>
+    </div> <!-- /.menu-list -->
+</div> <!-- /.nav-left-sidebar -->

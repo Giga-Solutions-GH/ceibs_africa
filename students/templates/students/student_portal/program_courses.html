@@ -1,0 +1,67 @@
+<!-- templates/program_courses.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title mt-2">{{ enrollment.program.program_name }} Provisional Results</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'students:student_programs' %}" class="breadcrumb-link">Programs</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{ enrollment.program.program_name }}</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table of Courses for the Selected Program -->
+                <div class="card mt-4">
+                    <h5 class="card-header">{{ enrollment.program.program_name }} Courses
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Course</th>
+                                    <th>Lecturer</th>
+                                    <th>Score</th>
+                                    <th>Grade</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course, grade in courses_with_grades %}
+                                <tr>
+                                    <td>{{ course.course_name }}</td>
+                                    <td>{{ course.lecturer }}</td>
+                                    {% if grade %}
+                                        <td>{{ grade.student_score }}</td>
+                                        <td>{{ grade.grade.grade }}</td>
+                                        <td>{{ grade.grade.remarks }}</td>
+                                    {% else %}
+                                        <td colspan="2">Not published</td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

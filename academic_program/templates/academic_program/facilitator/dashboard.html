@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Facilitator Dashboard</h2>
+              <p class="lead">Manage your courses, input grades, view participants, and send emails to course attendees.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Courses Cards -->
+        <div class="row">
+          {% for course in courses %}
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">{{ course.course_name }}</h5>
+                <p class="card-text">
+                  <strong>Start:</strong> {{ course.start_date|date:"Y-m-d" }}<br>
+                  <strong>End:</strong> {{ course.end_date|date:"Y-m-d" }}<br>
+                  <strong>Lecturer:</strong> {{ course.lecturer }}
+                </p>
+                <div class="btn-group d-flex flex-wrap" role="group">
+                  <a href="{% url 'facilitator:course_grades' course.id %}" class="btn btn-primary btn-sm mb-1 me-1">Input Grades</a>
+                  <a href="{% url 'facilitator:course_participants' course.id %}" class="btn btn-secondary btn-sm mb-1 me-1">View Participants</a>
+                  <a href="{% url 'facilitator:send_course_email' course.id %}" class="btn btn-info btn-sm mb-1">Send Email</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <div class="col-12 text-center">
+            <p class="text-muted">No courses assigned to you.</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div> <!-- container-fluid -->
+    </div> <!-- dashboard-ecommerce -->
+  </div> <!-- dashboard-wrapper -->
+</div> <!-- dashboard-main-wrapper -->
+{% endblock %}

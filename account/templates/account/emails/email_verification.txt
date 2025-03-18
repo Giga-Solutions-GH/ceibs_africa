@@ -1,0 +1,12 @@
+Hello,
+
+Thank you for registering. Please verify your email by entering this code on the verification page:
+
+{{ code }}
+
+This code is valid for 30 minutes.
+
+If you did not sign up for this account, please ignore this email.
+
+Best,
+CEIBS Africa

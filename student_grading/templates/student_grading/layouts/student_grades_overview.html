@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+
+                <!-- ============================================================== -->
+                <!-- Page Header -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Grades Overview</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="#" class="breadcrumb-link">Grades</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Overview
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Filters: Cover & Search & Reset -->
+                <!-- ============================================================== -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="coverFilter"><strong>Filter by Cover:</strong></label>
+                        <select id="coverFilter" class="form-control">
+                            <option value="all" selected>All Covers</option>
+                            {% for cover in used_covers %}
+                                <option value="{{ cover.name|lower }}">{{ cover.name }}</option>
+                            {% endfor %}
+                            <!-- For programs with no cover, user can filter them by "No Cover" text -->
+                            <option value="no cover">No Cover</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="searchInput"><strong>Search:</strong></label>
+                        <input type="text"
+                               id="searchInput"
+                               class="form-control"
+                               placeholder="Search by program name or type...">
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Program Covers with Program Cards -->
+                <!-- ============================================================== -->
+                <div id="programContainer">
+                    {% for cover, program_list in cover_dict.items %}
+                        <div class="cover-group mb-4">
+                            <h4 class="cover-title">
+                                {% if cover %}
+                                    {{ cover.name }}
+                                {% else %}
+                                    No Cover
+                                {% endif %}
+                            </h4>
+                            <div class="row">
+                                {% for program in program_list %}
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 program-card">
+                                    <div class="card mb-3">
+                                        <h5 class="card-header program-name">
+                                            {{ program.program_name }}
+                                        </h5>
+                                        <div class="card-body">
+                                            <p class="program-type">
+                                                <strong>Type:</strong>
+                                                {% if program.program_type %}
+                                                    {{ program.program_type.name }}
+                                                {% else %}
+                                                    (No Type)
+                                                {% endif %}
+                                            </p>
+                                            <p class="program-dates">
+                                                <strong>Start:</strong>
+                                                {% if program.start_date %}
+                                                    {{ program.start_date|date:"Y-m-d" }}
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                                <br>
+                                                <strong>End:</strong>
+                                                {% if program.end_date %}
+                                                    {{ program.end_date|date:"Y-m-d" }}
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </p>
+
+                                            {% if program.end_date and program.end_date <= today %}
+                                                <p class="program-ended text-danger">
+                                                    <em>Program Ended</em>
+                                                </p>
+                                            {% else %}
+                                                <p class="program-ended text-success">
+                                                    <em>Ongoing</em>
+                                                </p>
+                                            {% endif %}
+
+                                            <!-- Link to students in the program -->
+                                            <a href="{% url 'student_grading:program_students' program.id %}"
+                                               class="btn btn-outline-primary">
+                                                View Students
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div> <!-- #programContainer -->
+
+            </div> <!-- container-fluid end -->
+        </div> <!-- dashboard-ecommerce end -->
+    </div> <!-- dashboard-wrapper end -->
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+/*
+ * Client-side filtering:
+ * 1) Filter by cover name
+ * 2) Filter by search text (program name or type)
+ * The "reset" button clears both filters.
+ */
+$(document).ready(function() {
+    const $coverFilter = $("#coverFilter");
+    const $searchInput = $("#searchInput");
+    const $resetBtn = $("#resetBtn");
+
+    // Whenever user changes filter or search, we call filterPrograms()
+    $coverFilter.on("change", filterPrograms);
+    $searchInput.on("input", filterPrograms);
+    $resetBtn.on("click", function() {
+        $coverFilter.val("all");
+        $searchInput.val("");
+        filterPrograms();
+    });
+
+    function filterPrograms() {
+        let coverValue = $coverFilter.val().toLowerCase();
+        let searchValue = $searchInput.val().toLowerCase();
+
+        // Each group is .cover-group
+        // Each group has a heading .cover-title and .program-card items in a .row
+        $(".cover-group").each(function() {
+            let $group = $(this);
+            let coverTitle = $group.find(".cover-title").text().toLowerCase();
+
+            // We'll track if we show any program in this group
+            let anyProgramVisible = false;
+
+            // For each .program-card in this group, check if it meets the filters
+            $group.find(".program-card").each(function() {
+                let $card = $(this);
+
+                // Check cover filter
+                let coverMatches = (coverValue === "all") ||
+                                   (coverValue === "no cover" && coverTitle.includes("no cover")) ||
+                                   coverTitle === coverValue;
+
+                // Check search filter
+                let programNameText = $card.find(".program-name").text().toLowerCase();
+                let programTypeText = $card.find(".program-type").text().toLowerCase();
+                let combinedText = programNameText + " " + programTypeText;
+                let searchMatches = searchValue === "" || combinedText.includes(searchValue);
+
+                if (coverMatches && searchMatches) {
+                    $card.show();
+                    anyProgramVisible = true;
+                } else {
+                    $card.hide();
+                }
+            });
+
+            // If no program in this group is visible, hide the entire group
+            if (anyProgramVisible) {
+                $group.show();
+            } else {
+                $group.hide();
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

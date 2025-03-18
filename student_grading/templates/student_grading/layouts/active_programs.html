@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                
+                <!-- Page Header -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-header">
+                            <div class="col-12 d-flex justify-content-between">
+                                <div>
+                                    <h2 class="pageheader-title">Active Programs</h2>
+                                </div>
+                            </div>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="#" class="breadcrumb-link">Grades</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Programs
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <input type="text"
+                               id="programSearch"
+                               class="form-control"
+                               placeholder="Search programs by name, type, or cover...">
+                    </div>
+                </div>
+
+                <!-- Programs Grouped by Cover -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" id="programContainer">
+                                {% for cover, program_list in cover_dict.items %}
+                                    <h5 class="mt-3 mb-2 program-cover-name">
+                                        <!-- If the cover object is None, show "No Cover" -->
+                                        {% if cover %}
+                                            {{ cover.name }}
+                                        {% else %}
+                                            No Cover
+                                        {% endif %}
+                                    </h5>
+
+                                    <ul class="list-group mb-4">
+                                        {% for program in program_list %}
+                                        <li class="list-group-item program-item">
+                                            <strong class="program-name">
+                                                <!-- Link to the Program Grades page -->
+                                                <a href="{% url 'student_grading:program_grades' program.id %}">
+                                                    {{ program.program_name }}
+                                                </a>
+                                            </strong>
+                                            <br>
+                                            <!-- Program Type -->
+                                            <span class="program-type">
+                                                Type: 
+                                                {% if program.program_type %}
+                                                    {{ program.program_type.name }}
+                                                {% else %}
+                                                    (No Type)
+                                                {% endif %}
+                                            </span>
+                                            <br>
+                                            <!-- Dates -->
+                                            <span class="program-dates">
+                                                Start: {{ program.start_date|date:"Y-m-d" }} &nbsp;
+                                                End: 
+                                                {% if program.end_date %}
+                                                    {{ program.end_date|date:"Y-m-d" }}
+                                                {% else %}
+                                                    Not Set
+                                                {% endif %}
+                                            </span>
+                                            <br>
+                                            <!-- Check if ended -->
+                                            {% if program.end_date and program.end_date <= today %}
+                                                <em style="color: red;">This program has ended</em>
+                                            {% else %}
+                                                <em style="color: green;">Still ongoing</em>
+                                            {% endif %}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- .container-fluid -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+/**
+ * Client-side search for programs by cover name, program name, or program type.
+ */
+$(document).ready(function() {
+    let $searchInput = $("#programSearch");
+    $searchInput.on("input", function() {
+        let query = $searchInput.val().toLowerCase();
+
+        // Show all by default
+        $(".program-cover-name, .program-item").show();
+        
+        // Filter out items that don't match
+        $(".program-item").each(function() {
+            let $item = $(this);
+            let coverText = $item.closest("ul").prev(".program-cover-name").text().toLowerCase();
+            let programText = $item.find(".program-name").text().toLowerCase();
+            let typeText = $item.find(".program-type").text().toLowerCase();
+
+            let combinedText = coverText + " " + programText + " " + typeText;
+            if (!combinedText.includes(query)) {
+                $item.hide();
+            }
+        });
+
+        // If all items in a group are hidden, hide the group heading
+        $(".program-cover-name").each(function() {
+            let $coverHeading = $(this);
+            let $itemsUl = $coverHeading.next("ul");
+            let visibleItems = $itemsUl.find(".program-item:visible").length;
+            if (visibleItems === 0) {
+                $coverHeading.hide();
+                $itemsUl.hide();
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

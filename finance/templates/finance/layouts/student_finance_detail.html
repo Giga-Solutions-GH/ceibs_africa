@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+              <div class="col-12" style="display: flex; justify-content: space-between">
+                <div>
+                  <h2 class="pageheader-title">Finance Details for {{ student.first_name }} {{ student.last_name }}</h2>
+                </div>
+              </div>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Finance</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Student Finance Details</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finance Table -->
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+              <h5 class="card-header">Finance Details</h5>
+              <div class="card-body">
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Program</th>
+                          <th>Fees</th>
+                          <th>Fees Paid</th>
+                          <th>Percentage Cleared</th>
+                          <th>Program Status</th>
+                          <th>Amount to Add</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+  {% for finance in student_finances %}
+    {% with prog=finance.fees.program_fees.program %}
+    <tr>
+      <td>{{ prog.program_name }}</td>
+      <td>${{ prog.programfees_set.first.fee|floatformat:2 }}</td>
+      <td>${{ finance.fees_paid|floatformat:2 }}</td>
+      <td>{{ finance.percentage_cleared|floatformat:2 }}%</td>
+      <td>
+        {% if prog.program_ended or prog.end_date and prog.end_date < today %}
+          <span class="text-danger">Ended</span>
+        {% else %}
+          <span class="text-success">Ongoing</span>
+        {% endif %}
+      </td>
+      <!-- The new name is "amount_to_add_<finance.id>" -->
+      <td>
+        <input
+          type="number"
+          name="amount_to_add_{{ finance.id }}"
+          value=""
+          step="0.01"
+          class="form-control"
+          placeholder="0.00"
+        >
+      </td>
+    </tr>
+    {% endwith %}
+  {% endfor %}
+</tbody>
+
+                    </table>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit Payment(s)</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <!-- Payment Trail Section -->
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                      <h5 class="card-header">Payment Trail</h5>
+                      <div class="card-body">
+                        {% if grouped_trails %}
+                          <!-- We'll loop over each program in grouped_trails -->
+                          {% for prog, trails in grouped_trails.items %}
+                            <h5>{{ prog.program_name }}</h5>
+                            <div class="table-responsive mb-4">
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th>Date & Time</th>
+                                    <th>Receipt Number</th>
+                                    <th>Amount Paid</th>
+                                    <th>Amount Cleared</th>
+                                    <th>Remarks</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for trail in trails %}
+                                  <tr>
+                                    <td>{{ trail.timestamp|date:"Y-m-d H:i" }}</td>
+                                    <td>{{ trail.receipt_number }}</td>
+                                    <td>${{ trail.amount_paid|floatformat:2 }}</td>
+                                    <td>${{ trail.new_balance }}</td>
+                                    <td>{{ trail.remarks }}</td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                            </div>
+                          {% endfor %}
+                        {% else %}
+                          <p>No payment records available.</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div> <!-- container-fluid end -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+   function formatNumberWithCommas(number) {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  window.onload = function() {
+      const elements = document.querySelectorAll('.number-format');
+      elements.forEach(function(element) {
+          const number = parseFloat(element.textContent.replace(/,/g, ''));
+          if (!isNaN(number)) {
+              element.textContent = formatNumberWithCommas(number);
+          }
+      });
+  }
+</script>
+{% endblock %}

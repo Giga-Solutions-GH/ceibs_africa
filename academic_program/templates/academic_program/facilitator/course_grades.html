@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Input Grades for {{ course.course_name }}</h2>
+            </div>
+          </div>
+        </div>
+        <!-- Grades Input Section -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Participants & Grades</h5>
+              </div>
+              <div class="card-body">
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Student Name</th>
+                          <th>Current Score</th>
+                          <th>New Score</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for participant in participants %}
+                        <tr>
+                          <td>
+                            {{ participant.student.student.first_name }} {{ participant.student.student.last_name }}
+                          </td>
+                          <td>
+                            {% comment %} Display current score if available; otherwise, show 0 {% endcomment %}
+                            {% with sg=participant.student.student.studentgrade_set.filter(course=course).first %}
+                              {{ sg.student_score|default:"0" }}
+                            {% endwith %}
+                          </td>
+                          <td>
+                            <input type="number" name="grade_{{ participant.id }}" class="form-control" placeholder="Enter new score">
+                          </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                          <td colspan="3" class="text-center">No participants found.</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save Grades</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container-fluid -->
+    </div> <!-- dashboard-ecommerce -->
+  </div> <!-- dashboard-wrapper -->
+</div> <!-- dashboard-main-wrapper -->
+{% endblock %}

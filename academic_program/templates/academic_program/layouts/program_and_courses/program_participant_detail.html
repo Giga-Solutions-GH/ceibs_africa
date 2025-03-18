@@ -1,0 +1,81 @@
+<!-- templates/program_participant_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title mt-2">{{ participant.first_name }} {{ participant.other_names }} {{ participant.last_name }}</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Participants</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Participant Details</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <h5 class="card-header">Participant Details</h5>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="first_name">First Name</label>
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="last_name">Last Name</label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="other_names">Other Names</label>
+                                    {{ form.other_names }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="email">Email</label>
+                                    {{ form.email }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="form-group col-lg-6">
+                                    <label for="phone_number">Phone Number</label>
+                                    {{ form.phone_number }}
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="position">Position</label>
+                                    {{ form.position }}
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="company">Company</label>
+                                {{ form.company }}
+                            </div>
+                            <button type="submit" class="btn btn-outline-danger">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+
+                <form method="post" action="{% url 'delete_participant' participant.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger mt-4">Delete Participant</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

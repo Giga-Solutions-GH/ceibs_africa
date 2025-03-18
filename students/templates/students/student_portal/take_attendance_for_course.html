@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="page-header-title">Take Attendance for {{ course.course_name }} ({{ program.program_name }})</h2>
+            <p>Select a date and mark attendance for the following students:</p>
+          </div>
+        </div>
+        <!-- Date Picker -->
+        <div class="row mb-3">
+          <div class="col-12 text-center">
+            <form method="POST" id="attendanceDateForm">
+              {% csrf_token %}
+              <label for="date_posted" class="form-label">Select Date:</label>
+              <input type="date" id="date_posted" name="date_posted" class="form-control d-inline-block" style="width: auto;" value="{{ today|date:'Y-m-d' }}" required>
+              <button type="submit" class="btn btn-primary ms-2">Submit Attendance</button>
+            </form>
+          </div>
+        </div>
+        <!-- Attendance Forms -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header">Attendance Forms</h5>
+              <div class="card-body">
+                <form method="POST" id="attendanceForm">
+                  {% csrf_token %}
+                  <input type="hidden" name="date_posted" value="{{ today|date:'Y-m-d' }}">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Student Name</th>
+                          <th>Present</th>
+                          <th>Comment</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for enrollment, form in attendance_forms %}
+                        <tr>
+                          <td>{{ enrollment.student.first_name }} {{ enrollment.student.last_name }}</td>
+                          <td>{{ form.is_present }}</td>
+                          <td>{{ form.comment }}</td>
+                          {{ form.student }}
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-2">Submit Attendance</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Link to Attendance History -->
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <a href="{% url 'attendance_history' program.id course.id %}" class="btn btn-info">
+              View Attendance History
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

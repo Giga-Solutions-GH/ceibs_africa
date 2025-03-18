@@ -1,0 +1,168 @@
+<!doctype html>
+{% load static %}
+{% load humanize %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="CEIBS Africa">
+    <meta property="og:type" content="Management System" />
+    <meta property="og:image" content="{% static 'assets/images/ceibs_on_white.png' %}">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="{% static 'assets/images/ceibs_on_white.png' %}">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="CEIBS Management.">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/ceibs_favicon.png' %}">
+
+    <!-- ALERTIFY CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/libs/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/charts/chartist-bundle/chartist.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/charts/morris-bundle/morris.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/vendor/charts/c3charts/c3.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/flag-icon-css/flag-icon.min.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Include Bootstrap Datepicker CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>CEIBS</title>
+
+    <style>
+    .chart-container {
+        position: relative;
+        height: 250px; /* Adjust height as needed */
+        width: 100%; /* Full width of the parent container */
+    }
+
+    .chart-container canvas {
+        max-width: 100%;
+    }
+    </style>
+
+</head>
+
+<body>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <!-- Bootstrap bundle JS -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <!-- Slimscroll JS -->
+    <script src="{% static 'assets/vendor/slimscroll/jquery.slimscroll.js'%}"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Datatables -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <!-- Alertify -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!-- Main JS -->
+    <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
+    <!-- Chart chartist JS -->
+    <script src="{% static 'assets/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+    <!-- Sparkline JS -->
+    <script src="{% static 'assets/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+    <!-- Morris JS -->
+    <script src="{% static 'assets/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/morris-bundle/morris.js' %}"></script>
+    <!-- Chart C3 JS -->
+    <script src="{% static 'assets/vendor/charts/c3charts/c3.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/C3chartjs.js' %}"></script>
+    <script src="{% static 'assets/libs/js/dashboard-ecommerce.js' %}"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <!-- Include Bootstrap Datepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+        {% for msg in messages %}
+            {% if msg.tags == "success" %}
+            Swal.fire({
+                text: '{{ msg }}',
+                icon: 'success',
+                timer: 1000
+            })
+            {% elif msg.tags == "warning" %}
+            Swal.fire({
+                text: '{{ msg }}',
+                icon: 'info',
+                timer: 1500
+            })
+            {% elif msg.tags == "info" %}
+            Swal.fire({
+                text: '{{ msg }}',
+                icon: 'info',
+            })
+            {% else %}
+            Swal.fire({
+                text: '{{ msg }}',
+                icon: 'error',
+                timer: 1000
+            })
+            {% endif %}
+        {% endfor %}
+    </script>
+
+    <script>
+        let table = new DataTable('#myTable', {
+            responsive: true,
+            ordering: false
+        });
+    </script>
+
+    <script>
+        $("#datepicker").datepicker({
+            format: "mm-yyyy",
+            startView: "months",
+            minViewMode: "months"
+        });
+    </script>
+
+
+<script>
+  $(document).ready(function(){
+      $('.multidate-picker').datepicker({
+          multidate: true,
+          format: 'yyyy-mm-dd',
+          todayHighlight: true,
+          autoclose: false
+      });
+  });
+</script>
+
+
+    {% block scripts %}
+
+    {% endblock %}
+
+</body>
+
+</html>

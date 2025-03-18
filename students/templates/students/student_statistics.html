@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Student Statistics</h2>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Students</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Statistics</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Form -->
+        <div class="row mb-4">
+          <div class="col-md-6 offset-md-3">
+            <form method="get" class="d-flex align-items-center">
+              <label for="program_id" class="me-2">Filter by Program:</label>
+              <select name="program_id" id="program_id" class="form-select me-2">
+                <option value="">All Programs</option>
+                {% for prog in all_programs %}
+                  <option value="{{ prog.id }}" {% if selected_program and prog.id == selected_program.id %}selected{% endif %}>
+                    {{ prog.program_name }}
+                  </option>
+                {% endfor %}
+              </select>
+              <button type="submit" class="btn btn-primary">Apply</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row mb-4">
+          <!-- Gender Distribution Chart -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Gender Distribution{% if selected_program %} for {{ selected_program.program_name }}{% endif %}</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="genderDistributionChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Students per Program Chart -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Students per Program</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="programStatsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <!-- Students per Course Chart -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Students per Course</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="courseStatsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Students per Year Chart -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Students per Year</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="yearStatsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <!-- Students by Company Chart -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Students by Company</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="companyStatsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Students by Position Chart -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Students by Position</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="positionStatsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <!-- Students by Nationality Chart -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header">Students by Nationality</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="nationalityStatsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Export Button -->
+        <div class="row mt-4">
+          <div class="col-md-12 text-end">
+            <a href="" class="btn btn-primary">Export Statistics</a>
+          </div>
+        </div>
+
+      </div> <!-- Dashboard Content End -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gender Distribution Chart
+    var ctxGender = document.getElementById('genderDistributionChart').getContext('2d');
+    new Chart(ctxGender, {
+        type: 'pie',
+        data: {
+            labels: [{% for item in gender_stats %}'{{ item.gender }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Gender Distribution',
+                data: [{% for item in gender_stats %}{{ item.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Students per Program Chart
+    var ctxProgram = document.getElementById('programStatsChart').getContext('2d');
+    new Chart(ctxProgram, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in program_stats %}'{{ item.program__program_name }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in program_stats %}{{ item.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                backgroundColor: ['#4BC0C0', '#9966FF', '#FF9F40']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // Students per Course Chart
+    var ctxCourse = document.getElementById('courseStatsChart').getContext('2d');
+    new Chart(ctxCourse, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in course_stats %}'{{ item.course_name }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in course_stats %}{{ item.student_count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // Students per Year Chart
+    var ctxYear = document.getElementById('yearStatsChart').getContext('2d');
+    new Chart(ctxYear, {
+        type: 'line',
+        data: {
+            labels: [{% for item in year_stats %}'{{ item.start_date__year }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in year_stats %}{{ item.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                borderColor: '#FF6384',
+                backgroundColor: 'rgba(255,99,132,0.2)'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // Students by Company Chart
+    var ctxCompany = document.getElementById('companyStatsChart').getContext('2d');
+    new Chart(ctxCompany, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in company_stats %}'{{ item.company }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in company_stats %}{{ item.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                backgroundColor: '#4BC0C0'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // Students by Position Chart
+    var ctxPosition = document.getElementById('positionStatsChart').getContext('2d');
+    new Chart(ctxPosition, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in position_stats %}'{{ item.position }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in position_stats %}{{ item.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                backgroundColor: '#9966FF'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // Students by Nationality Chart
+    var ctxNationality = document.getElementById('nationalityStatsChart').getContext('2d');
+    new Chart(ctxNationality, {
+        type: 'bar',
+        data: {
+            labels: [{% for item in nationality_stats %}'{{ item.nationality }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+            datasets: [{
+                label: 'Number of Students',
+                data: [{% for item in nationality_stats %}{{ item.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                backgroundColor: '#FFB6C1'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+});
+</script>
+{% endblock %}

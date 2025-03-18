@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to {{ program.program_name }} at CEIBS Africa</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; }
+        .container { padding: 20px; }
+        .header { background-color: #f4f4f4; padding: 10px; text-align: center; }
+        .content { margin-top: 20px; }
+        .course-list { margin: 20px 0; }
+        .course-list li { margin-bottom: 5px; }
+        .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #777; }
+        .btn { display: inline-block; background-color: #007bff; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>Welcome to {{ program.program_name }} at CEIBS Africa</h2>
+    </div>
+    <div class="content">
+        <p>Dear {{ student.first_name }},</p>
+        <p>You have been successfully enrolled in the program <strong>{{ program.program_name }}</strong> at CEIBS Africa.</p>
+        <p>The program includes the following courses:</p>
+        <ul class="course-list">
+            {% for course in course_names %}
+                <li>{{ course }}</li>
+            {% endfor %}
+        </ul>
+        <p>Please visit the student portal for more details:</p>
+        <p>
+            <a class="btn" href="{{ portal_link }}" target="_blank">Go to Student Portal</a>
+        </p>
+        <p>If you have any questions, please contact our administration office.</p>
+        <p>Best regards,<br>CEIBS Africa</p>
+    </div>
+    <div class="footer">
+        <p>&copy; {{ current_time.year }} CEIBS Africa. All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>

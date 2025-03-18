@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="dashboard-main-wrapper">
+            {% include 'inc/header.html' %}
+
+            {% include 'inc/sidenav.html' %}
+
+            <div class="dashboard-wrapper">
+                <div class="dashboard-ecommerce">
+                    <div class="container-fluid dashboard-content ">
+                        <!-- ============================================================== -->
+                        <!-- pageheader  -->
+                        <!-- ============================================================== -->
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="page-header">
+                                    <div class="col-12" style="display: flex; justify-content: space-between">
+                                        <div>
+                                           <h2 class="pageheader-title">Alumni List</h2>
+                                        </div>
+                                    </div>
+                                    <div class="page-breadcrumb">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Alumni</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Alumni List</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-inline-block">
+                                            <h5 class="text-muted">Alumni Count for {{ program_name }}</h5>
+                                            <h2 class="mb-0">{{ count }}</h2>
+                                        </div>
+                                        <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+{#                                            <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+{#                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">#}
+{#                                <div class="card">#}
+{#                                    <div class="card-body">#}
+{#                                        <div class="d-inline-block">#}
+{#                                            <h5 class="text-muted">No. of goods sold</h5>#}
+{#                                            <h2 class="mb-0"> 30</h2>#}
+{#                                        </div>#}
+{#                                        <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">#}
+{#                                            <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+                        </div>
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Alumni Table ({{ program_name }})</h5>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table" id="myTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Email</th>
+                                                    <th>Current Position</th>
+                                                    <th>Company</th>
+                                                    <th>Industry</th>
+                                                    <th>Country of Residence</th>
+                                                    <th>Nationality</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            {% for al in alumni %}
+                                                <tr>
+                                                    <td>{{ al.first_name }}</td>
+                                                    <td>{{ al.last_name }}</td>
+                                                    <td>{{ al.email }}</td>
+                                                    <td>{{ al.current_position }}</td>
+                                                    <td>{{ al.company }}</td>
+                                                    <td>{{ al.industry }}</td>
+                                                    <td>{{ al.country_of_residence }}</td>
+                                                    <td>{{ al.nationality }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div> <!-- Dashboard Content End -->
+                </div>
+            </div>
+
+        </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

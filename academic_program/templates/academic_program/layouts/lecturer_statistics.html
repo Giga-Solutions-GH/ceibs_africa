@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Lecturer Statistics</h2>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Statistics</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Lecturer Statistics</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Card -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="card">
+              <h5 class="card-header">Total Lecturers</h5>
+              <div class="card-body">
+                <h2>{{ total_lecturers }}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row mb-4">
+          <!-- Lecturers by Status (Pie Chart) -->
+          <div class="col-md-4">
+            <div class="card">
+              <h5 class="card-header">Lecturers by Status</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="statusChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full-width charts -->
+        <div class="row mb-4">
+          <!-- Lecturers by Type (Bar Chart) -->
+          <div class="col-12 mb-4">
+            <div class="card">
+              <h5 class="card-header">Lecturers by Type</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="typeChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lecturers by Title (Bar Chart) -->
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header">Lecturers by Title</h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px; width:100%;">
+                  <canvas id="titleChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Export Button -->
+        <div class="row mt-4">
+          <div class="col-md-12 text-end">
+            <a href="{% url 'academic_program:export_lecturer_statistics' %}" class="btn btn-primary">Export Statistics</a>
+          </div>
+        </div>
+
+      </div> <!-- Dashboard Content End -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Load Chart.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Lecturer Status Pie Chart ---
+    const statusCtx = document.getElementById('statusChart').getContext('2d');
+    new Chart(statusCtx, {
+        type: 'pie',
+        data: {
+            labels: {{ statuses|safe }}, // e.g., ["Active", "Inactive"]
+            datasets: [{
+                data: {{ status_counts|safe }}, // e.g., [45, 10]
+                backgroundColor: ['#36A2EB', '#FF6384']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        // If you supply additional data (e.g., status_details), you can display it here.
+                        afterBody: function(tooltipItems) {
+                            // Example: return extra detail data if available.
+                            // You may need to supply 'status_details' in your context as JSON.
+                            // return "Details: " + status_details[tooltipItems[0].dataIndex].join(", ");
+                            return "";
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // --- Lecturer Type Bar Chart ---
+    const typeCtx = document.getElementById('typeChart').getContext('2d');
+    new Chart(typeCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ types|safe }}, // e.g., ["Full Time", "Part Time", "Guest"]
+            datasets: [{
+                label: 'Lecturers by Type',
+                data: {{ type_counts|safe }}, // e.g., [30, 15, 10]
+                backgroundColor: ['#4BC0C0', '#9966FF', '#FF9F40'] // Use a different color for each bar if needed
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        afterBody: function(tooltipItems) {
+                            // Optionally, display details for the type if provided in context.
+                            // return "Details: " + type_details[tooltipItems[0].dataIndex].join(", ");
+                            return "";
+                        }
+                    }
+                }
+            },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // --- Lecturer Title Bar Chart ---
+    const titleCtx = document.getElementById('titleChart').getContext('2d');
+    new Chart(titleCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ titles|safe }}, // e.g., ["Professor", "Associate Professor", "Assistant Professor"]
+            datasets: [{
+                label: 'Lecturers by Title',
+                data: {{ title_counts|safe }}, // e.g., [10, 20, 15]
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'] // Different colors for each bar
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        afterBody: function(tooltipItems) {
+                            // Optionally, display details for the title if provided in context.
+                            // return "Details: " + title_details[tooltipItems[0].dataIndex].join(", ");
+                            return "";
+                        }
+                    }
+                }
+            },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+});
+</script>
+{% endblock %}

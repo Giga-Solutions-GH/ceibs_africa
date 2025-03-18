@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h2>Course Details</h2>
+                        <hr>
+                        <div class="page-header d-flex justify-content-between align-items-center">
+                            <h2 class="pageheader-title">{{ course.course_name }} - {{ course.program.program_name }}</h2>
+                            <a href="{% url 'academic_program:take_attendance' program_name=course.program.program_name course_name=course.course_name %}" class="btn btn-primary">Take Attendance</a>
+                        </div>
+                        <p><strong>Description:</strong> {{ course.course_description }}</p>
+                        <p><strong>Start Date:</strong> {{ course.start_date }}</p>
+                        <p><strong>Program:</strong> {{ course.program.program_name }}</p>
+                        <p><strong>Program Description:</strong> {{ course.program.program_description }}</p>
+                        <form method="post" action="{% url 'academic_program:change_lecturer' course.id %}">
+                            {% csrf_token %}
+                            <label for="lecturer"><strong>Lecturer:</strong></label>
+                            <select name="lecturer" id="lecturer" class="form-control d-inline-block" style="width: auto;">
+                                {% for l in lecturers %}
+                                <option value="{{ l.id }}" {% if lecturer and l.id == lecturer.id %}selected{% endif %}>
+                                    {{ l.title }} {{ l.first_name }} {{ l.last_name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-success">Update</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- List of Participants -->
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="card p-3 mt-3">
+                            <h5 class="card-header">Participants in {{ course.course_name }}</h5>
+                            <div class="card-body">
+                                <ul>
+                                    {% for participant in participants %}
+                                    <li>
+                                        {{ participant.student.student.first_name }} {{ participant.student.student.last_name }}
+                                        {% if participant.flag %}
+                                        (Active)
+                                        {% else %}
+                                        (Inactive)
+                                        {% endif %}
+                                    </li>
+                                    {% empty %}
+                                    <li>No participants found.</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List of Students -->
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="card p-3">
+                            <h5 class="card-header">Students Enrolled in {{ course.course_name }}</h5>
+                            <div class="card-body">
+                                <ul>
+                                    {% for student in students %}
+                                    <li>{{ student.first_name }} {{ student.last_name }}</li>
+                                    {% empty %}
+                                    <li>No students enrolled.</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Update Program Schedule for {{ program.program_name }}</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Programs</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'academic_program:add_schedule_overview' %}" class="breadcrumb-link">Program Schedules</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Update Schedule</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card">
+                        <h5 class="card-header">Update the schedule details below</h5>
+                        <div class="card-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-outline-success">Update Schedule</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}

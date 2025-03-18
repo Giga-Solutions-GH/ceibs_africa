@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- Page Header -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Students in {{ program.program_name }}</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="{% url 'student_grading:active_programs' %}" class="breadcrumb-link">Programs</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Students</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Students Table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-bordered" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Student Name</th>
+                                            <th>Email</th>
+                                            <th>Company</th>
+                                            <th>Position</th>
+                                            <th>Unique ID</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for student in students %}
+                                        <tr>
+                                            <td>
+                                                {% if student.image.url %}
+                                                <img
+                                                    style="border-radius: 50%; width: 50px; height: 50px; cursor: pointer; object-fit: cover"
+                                                    src="{{ student.image.url }}"
+                                                    alt=""
+                                                    data-toggle="modal"
+                                                    data-target="#studentModal{{ student.id }}"
+                                                >
+                                                {% else %}
+                                                <i class="fa fa-user-circle" data-toggle="modal" data-target="#studentModal{{ student.id }}" style="cursor: pointer;"></i>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ student.first_name }} {{ student.last_name }}</td>
+                                            <td>{{ student.email }}</td>
+                                        <td>{{ student.company }}</td>
+                                        <td>{{ student.position }}</td>
+                                            <td>{{ student.unique_id }}</td>
+                                            <td>
+                                                <a href="{% url 'student_grading:student_grades' student_id=student.id program_id=program.id%}" class="btn btn-info">View Grades</a>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Student Modal -->
+                                        <div class="modal fade" id="studentModal{{ student.id }}" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel{{ student.id }}" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="studentModalLabel{{ student.id }}">{{ student.first_name }} {{ student.last_name }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <img class="mb-3" style="border-radius: 50%; width: 100px;" src="{{ student.image.url }}" alt="">
+                                                        <p><strong>Email:</strong> {{ student.email }}</p>
+                                                        <p><strong>Phone Number:</strong> {{ student.phone_number }}</p>
+                                                        <p><strong>Company:</strong> {{ student.company }}</p>
+                                                        <p><strong>Position:</strong> {{ student.position }}</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}

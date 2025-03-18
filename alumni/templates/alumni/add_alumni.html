@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Add Alumni to {{ program.name }} Program</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Alumni</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'alumni:list_programs' %}" class="breadcrumb-link">Programs</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Add Alumni</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card">
+                        <h5 class="card-header">Fill the form below to add an Alumni</h5>
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row mb-3">
+                                    <div class="form-group col-lg-6">
+                                        <label for="name">First Name</label>
+                                        {{form.first_name}}
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="quantity">Last Name</label>
+                                        {{ form.last_name }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                     <div class="form-group col-lg-6">
+                                        <label for="quantity">Email</label>
+                                        {{ form.email }}
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="name">Program</label>
+                                        {{form.program}}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="form-group col-lg-6">
+                                        <label for="name">Year of Completion</label>
+                                        {{form.year_of_completion}}
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="quantity">Current Position</label>
+                                        {{ form.current_position }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="form-group col-lg-6">
+                                        <label for="name">Company</label>
+                                        {{form.company}}
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="quantity">Industry</label>
+                                        {{ form.industry }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="form-group col-lg-6">
+                                        <label for="name">Picture</label>
+                                        {{form.picture}}
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="quantity">Nationality</label>
+                                        {{ form.nationality }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price" class="col-form-label">Country of Residence</label>
+                                    {{form.country_of_residence}}
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-outline-danger">Add Alumni</button>
+                                </div>
+                            </form>
+                            <div class="mt-4">
+                                <h5>Bulk Actions</h5>
+                                <form method="post" action="{% url 'alumni:upload_alumni_excel_program' program.id %}" enctype="multipart/form-data" class="mb-3">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="alumni_excel">Upload Alumni Excel</label>
+                                        <input type="file" name="alumni_excel" id="alumni_excel" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-success">Upload</button>
+                                </form>
+                                <form method="post" action="{% url 'alumni:export_alumni_excel_program' program.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-primary">Export Alumni Info</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Event Participation Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+    .email-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    .header img {
+      max-width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .content {
+      padding: 20px 0;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+    h2 {
+      color: #333;
+    }
+    p {
+      line-height: 1.5;
+    }
+    .detail {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      {% if event.event_image %}
+        <img style="width: 150px; height: 150px; object-fit: cover" src="{{ event.event_image.url }}" alt="{{ event.name }} Logo">
+      {% endif %}
+      <h2>Welcome to {{ event.name }}</h2>
+    </div>
+    <div class="content">
+      <p>Dear {{ participant.first_name }},</p>
+      <p>You have been successfully added as a participant for the event <span class="detail">{{ event.name }}</span>.</p>
+      <p>Event Details:</p>
+      <ul>
+        <li><span class="detail">Venue:</span> {{ venue }}</li>
+        <li><span class="detail">Date:</span> {{ start_date }} - {{ end_date }}</li>
+        <li><span class="detail">Time:</span> {{ start_time }} - {{ end_time }}</li>
+      </ul>
+      <p>You can visit the event portal for more details and updates.</p>
+      <p>Thank you for joining us!</p>
+    </div>
+    <div class="footer">
+      <p>CEIBS Africa &copy; {{ now|date:"Y" }}. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>

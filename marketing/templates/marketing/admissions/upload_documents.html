@@ -1,0 +1,38 @@
+{% extends 'base_blank.html' %}  {# A minimal base template without sidebar/header #}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <img src="{% static 'images/ceibs_logo.png' %}" alt="CEIBS Africa Logo" style="max-width:200px;">
+    </div>
+    <div class="card">
+        <div class="card-header text-center">
+            <h4>Upload Your Admission Documents</h4>
+        </div>
+        <div class="card-body">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="certificate" class="form-label">Certificate</label>
+                    {{ form.certificate }}
+                </div>
+                <div class="mb-3">
+                    <label for="transcript" class="form-label">Transcript</label>
+                    {{ form.transcript }}
+                </div>
+                <div class="mb-3">
+                    <label for="other_document" class="form-label">Other Document</label>
+                    {{ form.other_document }}
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Documents</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

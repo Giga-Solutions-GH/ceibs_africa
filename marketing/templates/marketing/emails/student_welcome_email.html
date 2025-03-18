@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to CEIBS Africa</title>
+</head>
+<body>
+  <p>Dear {{ user.first_name }},</p>
+  <p>Welcome to <strong>CEIBS Africa</strong>! We are delighted to have you as a part of our institution.</p>
+  <p>Please set your password to activate your account. You can reset your password by clicking the link below:</p>
+  <p><a href="{{ reset_link }}">Reset Your Password</a></p>
+  <p>After setting your password, you can access your student dashboard here:</p>
+  <p><a href="{{ dashboard_link }}">Student Dashboard</a></p>
+  <p>Thank you,<br>The CEIBS Africa Team</p>
+</body>
+</html>

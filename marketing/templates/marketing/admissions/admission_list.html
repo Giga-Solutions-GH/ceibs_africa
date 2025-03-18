@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Admissions List</h2>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="{% url 'marketing:admissions_list' %}" class="breadcrumb-link">Admissions</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">List</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="row mb-4">
+          <div class="col-12 text-end">
+            <a href="{% url 'marketing:add_admission_prospect' %}" class="btn btn-success">Add New Admission</a>
+          </div>
+        </div>
+
+        <!-- Admissions Table -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">All Admissions</h5>
+              </div>
+              <div class="card-body">
+                {% if messages %}
+                  {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                  {% endfor %}
+                {% endif %}
+                <form method="post" action="{% url 'marketing:admissions_list' %}">
+                  {% csrf_token %}
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="admissionsTable">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Select</th>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Date Submitted</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for admission in admissions %}
+                          <tr>
+                            <td>
+                              <input type="checkbox" name="selected_admissions" value="{{ admission.id }}">
+                            </td>
+                            <td>{{ admission.id }}</td>
+                            <td>{{ admission.first_name }} {{ admission.last_name }}</td>
+                            <td>{{ admission.email }}</td>
+                            <td>{{ admission.phone_number }}</td>
+                            <td>{{ admission.date_added|date:"Y-m-d H:i" }}</td>
+                            <td>{{ admission.get_status_display }}</td>
+                            <td>
+                              <a href="{% url 'marketing:admissions_document_upload' admission.id %}" class="btn btn-info btn-sm">Upload Documents</a>
+                            </td>
+                          </tr>
+                        {% empty %}
+                          <tr>
+                            <td colspan="8" class="text-center">No admissions found.</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="text-end mt-3">
+                    <button type="submit" class="btn btn-primary">Send Document Request</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container-fluid end -->
+    </div> <!-- dashboard-ecommerce end -->
+  </div> <!-- dashboard-wrapper end -->
+</div> <!-- dashboard-main-wrapper end -->
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+// Optional: You may add JS code to enhance table features or confirmation dialogs.
+</script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Send Email to Participants</h2>
+              <p class="lead">Compose your message below to notify all participants of {{ course.course_name }}.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Email Form -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Compose Email</h5>
+              </div>
+              <div class="card-body">
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" name="subject" id="subject" class="form-control" value="Important Updates for {{ course.course_name }}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea name="message" id="message" class="form-control" rows="5" placeholder="Enter your message here"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Send Email</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container-fluid -->
+    </div> <!-- dashboard-ecommerce -->
+  </div> <!-- dashboard-wrapper -->
+</div> <!-- dashboard-main-wrapper -->
+{% endblock %}

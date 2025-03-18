@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Request Transcript</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Program: {{ student.program }}</p>
+    <p>Year of Completion: <input type="text" name="year_of_completion"></p>
+    <button type="submit">Request</button>
+</form>
+
+{% endblock %}

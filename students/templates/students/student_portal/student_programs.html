@@ -1,0 +1,51 @@
+<!-- templates/student_programs.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title mt-2">My Programs</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Programs</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List of Enrolled Programs -->
+                <div class="card mt-4">
+                    <h5 class="card-header">Enrolled Programs</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            {% for enrollment in enrollments %}
+                            <li class="list-group-item">
+                                <a style="text-decoration: underline" href="{% url 'students:program_courses' enrollment.id %}">
+                                    <h4>{{ enrollment.program.program_name }}</h4>
+                                </a>
+                                <p><strong>Start Date:</strong> {{ enrollment.start_date }}</p>
+                                <p><strong>End Date:</strong> {{ enrollment.end_date }}</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

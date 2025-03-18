@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <div class="page-header">
+              <h2 class="pageheader-title">Fee Payment History</h2>
+              <p class="lead">Review your fee details and payment trail for your enrolled programs.</p>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Finance</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Fee History</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finance Details Table -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header">Program Fee Details</h5>
+              <div class="card-body">
+                {% if finance_data %}
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Program</th>
+                        <th>Total Fee</th>
+                        <th>Fees Paid</th>
+                        <th>Balance</th>
+                        <th>Amount Due</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for record in finance_data %}
+                      <tr>
+                        <td>{{ record.program }}</td>
+                        <td>${{ record.total_fee|floatformat:2 }}</td>
+                        <td>${{ record.fees_paid|floatformat:2 }}</td>
+                        <td>${{ record.student_balance|floatformat:2 }}</td>
+                        <td>${{ record.amount_due|floatformat:2 }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                {% else %}
+                  <p>No finance records available.</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Trail Table -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header">Payment Trail</h5>
+              <div class="card-body">
+                {% if payment_trails %}
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Date & Time</th>
+                        <th>Receipt Number</th>
+                        <th>Amount Paid</th>
+                        <th>Program</th>
+                        <th>Remarks</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for trail in payment_trails %}
+                      <tr>
+                        <td>{{ trail.timestamp|date:"Y-m-d H:i" }}</td>
+                        <td>{{ trail.receipt_number }}</td>
+                        <td>${{ trail.amount_paid|floatformat:2 }}</td>
+                        <td>{{ trail.student_finance.fees.program_fees.program.program_name }}</td>
+                        <td>{{ trail.remarks }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                {% else %}
+                  <p>No payment records available.</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional: Button to Export as CSV or PDF -->
+        <div class="row mt-3">
+          <div class="col-12 text-end">
+            <a href="" class="btn btn-primary">
+              Export Fee History
+            </a>
+          </div>
+        </div>
+
+      </div> <!-- container-fluid end -->
+    </div> <!-- dashboard-ecommerce end -->
+  </div> <!-- dashboard-wrapper end -->
+</div> <!-- dashboard-main-wrapper end -->
+{% endblock %}

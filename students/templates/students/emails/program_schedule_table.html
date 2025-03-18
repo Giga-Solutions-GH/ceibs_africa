@@ -1,0 +1,40 @@
+{% if program_schedule and program_schedule.count > 0 %}
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+    <thead>
+        <tr style="background-color: #f4f4f4;">
+            <th style="border: 1px solid #ccc; padding: 8px;">Course</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Location</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Start Time</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">End Time</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Start Date</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for schedule in program_schedule %}
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">
+                {{ schedule.course.course_name }}
+            </td>
+            <td style="border: 1px solid #ccc; padding: 8px;">
+                {{ schedule.location }}
+            </td>
+            <td style="border: 1px solid #ccc; padding: 8px;">
+                {{ schedule.start_time|time:"H:i" }}
+            </td>
+            <td style="border: 1px solid #ccc; padding: 8px;">
+                {{ schedule.end_time|time:"H:i" }}
+            </td>
+            <td style="border: 1px solid #ccc; padding: 8px;">
+                {{ schedule.start_date|date:"F j, Y" }}
+            </td>
+            <td style="border: 1px solid #ccc; padding: 8px;">
+                {{ schedule.end_date|date:"F j, Y" }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p style="color: #666; font-style: italic;">No schedule available for this program at the moment.</p>
+{% endif %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Registering</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .thank-you-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .event-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .print-btn {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <h2 class="text-center mb-4">Thank You for Registering!</h2>
+        {% if event.event_image %}
+        <div class="text-center mb-4">
+            <img style="width: 400px" src="{{ event.event_image.url }}" alt="{{ event.name }}" class="event-image">
+        </div>
+        {% endif %}
+        <p class="text-center">You have successfully registered for the event:</p>
+        <h3 class="text-center">{{ event.name }}</h3>
+        <p class="text-center">{{ event.description }}</p>
+        <ul class="list-unstyled text-center">
+            <li><strong>Date:</strong> {{ event.start_time }} - {{ event.end_time }}</li>
+            <li><strong>Venue:</strong> {{ event.venue }}</li>
+            <li><strong>Duration:</strong> {{ event.duration }} days</li>
+        </ul>
+        <div class="text-center mt-4">
+            <button onclick="window.print();" class="btn btn-lg print-btn">Save as PDF</button>
+        </div>
+    </div>
+</body>
+</html>

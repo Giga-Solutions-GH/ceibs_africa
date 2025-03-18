@@ -1,0 +1,12 @@
+Subject: Confirm Your Profile Changes
+
+Hello,
+
+A request was made to update your profile details. To confirm these changes, please enter the following code in the prompt:
+
+{{ code }}
+
+This code is valid for 10 minutes. If you did not request these changes, you can ignore this email and your profile will remain unchanged.
+
+Thank you,
+Your App Team

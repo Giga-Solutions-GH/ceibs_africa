@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- Page Header -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">
+                                Grades for {{ student.first_name }} {{ student.last_name }} in {{ program.program_name }}
+                            </h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="#" class="breadcrumb-link">Grades</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Student Grades
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Grades Entry Table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ formset.management_form }}
+
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Score</th>
+                                                <th>Grade</th>
+                                                <th>Remarks</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for form in formset %}
+                                            <tr>
+                                                <td>
+                                                    <!-- Show the related course name from the form's instance -->
+                                                    {{ form.instance.course.course_name }}
+                                                </td>
+                                                <td style="width: 150px;">
+                                                    {{ form.student_score }}
+                                                    {% if form.student_score.errors %}
+                                                        <div class="text-danger small">
+                                                            {{ form.student_score.errors }}
+                                                        </div>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if form.instance.grade %}
+                                                        {{ form.instance.grade.grade }}
+                                                    {% else %}
+                                                        --
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if form.instance.grade %}
+                                                        {{ form.instance.grade.remarks }}
+                                                    {% else %}
+                                                        --
+                                                    {% endif %}
+                                                </td>
+
+                                                <!-- Hidden form fields -->
+                                                {{ form.id }}
+                                                {{ form.student }}
+                                                {{ form.course }}
+                                                {% if form.fields.program %}
+                                                    {{ form.program }}
+                                                {% endif %}
+                                            </tr>
+                                        {% empty %}
+                                            <tr>
+                                                <td colspan="4" class="text-center">
+                                                    No courses found for this student.
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                    <button type="submit" class="btn btn-primary mt-3">Save Grades</button>
+                                </form>
+
+                                {% if messages %}
+                                <div class="mt-3">
+                                    {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }}">
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row end -->
+
+            </div> <!-- container-fluid end -->
+        </div>
+    </div>
+</div>
+{% endblock %}

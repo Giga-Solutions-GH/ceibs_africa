@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <!-- ============================================================== -->
+                <!-- pageheader  -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <div class="col-12" style="display: flex; justify-content: space-between">
+                                <div>
+                                   <h2 class="pageheader-title">Lecturers List</h2>
+                                </div>
+                            </div>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Lecturers</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Lecturers List</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Stats Cards -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Total Lecturers</h5>
+                                    <h2 class="mb-0">{{ count }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg bg-brand-light mt-1">
+                                    <i class="fa fa-all fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% for type in lecturer_type_counts %}
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">{{ type.name}}</h5>
+                                    <h2 class="mb-0">{{ type.num_lecturers }}</h2>
+                                </div>
+                                <div class="float-right icon-circle-medium icon-box-lg bg-brand-light mt-1">
+                                    <i class="fa fa-home fa-fw fa-sm text-brand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            <div class="row my-3">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-4">
+                        <a href="{% url 'academic_program:export_lecturers' %}" class="btn btn-primary">Export to Excel</a>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Lecturers Table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Lecturers</h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Other Names</th>
+                                                <th>Email</th>
+                                                <th>Phone Number</th>
+                                                <th>Title</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {% for lecturer in lecturers %}
+                                            <tr>
+                                                <td>
+                                                    {% if lecturer.image %}
+                                                        <img src="{{ lecturer.image.url }}" alt="{{ lecturer.first_name }} {{ lecturer.last_name }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                                                    {% else %}
+                                                        <img src="{% static 'default_avatar.png' %}" alt="No Image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ lecturer.first_name }}</td>
+                                                <td>{{ lecturer.last_name }}</td>
+                                                <td>{{ lecturer.other_names }}</td>
+                                                <td>{{ lecturer.email }}</td>
+                                                <td>{{ lecturer.phone_number }}</td>
+                                                <td>{{ lecturer.title }}</td>
+                                                <td>{{ lecturer.lecturer_type.name }}</td>
+                                                <td><a class="btn btn-outline-primary" href="{% url 'academic_program:edit_lecturer' pk=lecturer.id %}">Edit</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Dashboard Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

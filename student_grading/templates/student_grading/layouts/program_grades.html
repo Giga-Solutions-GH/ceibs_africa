@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Grades for {{ program.program_name }}</h2>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="{% url 'student_grading:active_programs' %}" class="breadcrumb-link">Programs</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Grades Entry</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global Form: Contains all courses' grade formsets -->
+        <form method="POST" novalidate>
+          {% csrf_token %}
+          {% for course, formset in formset_data %}
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5 class="mb-0">{{ course.course_name }}</h5>
+            </div>
+            <div class="card-body">
+              {{ formset.management_form }}
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Student Name</th>
+                    <th>Unique ID</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for form in formset %}
+                  <tr>
+                    <td>
+                      <a href="#" data-toggle="modal" data-target="#studentModal_{{ course.id }}_{{ forloop.counter }}">
+                        {% if form.instance.student.image %}
+                        <img style="border-radius: 50%; width: 30px" src="{{ form.instance.student.image.url }}" alt="Student Image">
+                        {% else %}
+                        <i class="fa fa-user-circle" style="font-size: 30px;"></i>
+                        {% endif %}
+                      </a>
+                    </td>
+                    <td>{{ form.instance.student.first_name }} {{ form.instance.student.last_name }}</td>
+                    <td>{{ form.instance.student.unique_id }}</td>
+                    <td>
+                      {{ form.student_score }}
+                      {% if form.student_score.errors %}
+                      <div class="text-danger small">{{ form.student_score.errors }}</div>
+                      {% endif %}
+                    </td>
+                    <!-- Hidden fields -->
+                    {{ form.student }}
+                    {{ form.course }}
+                    {{ form.id }}
+                  </tr>
+                  <!-- Modal for Student Details -->
+                  <div class="modal fade" id="studentModal_{{ course.id }}_{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel_{{ course.id }}_{{ forloop.counter }}" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="studentModalLabel_{{ course.id }}_{{ forloop.counter }}">
+                            {{ form.instance.student.first_name }} {{ form.instance.student.last_name }} - Details
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="text-center mb-3">
+                            {% if form.instance.student.image %}
+                            <img style="border-radius: 50%; width: 100px" src="{{ form.instance.student.image.url }}" alt="Student Image">
+                            {% else %}
+                            <i class="fa fa-user-circle" style="font-size: 100px;"></i>
+                            {% endif %}
+                          </div>
+                          <p><strong>Email:</strong> {{ form.instance.student.email }}</p>
+                          <p><strong>Phone:</strong> {{ form.instance.student.phone_number }}</p>
+                          <p><strong>Company:</strong> {{ form.instance.student.company }}</p>
+                          <p><strong>Position:</strong> {{ form.instance.student.position }}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- Global Save Button -->
+          <div class="row mb-4">
+            <div class="col-12 text-end">
+              <button type="submit" name="save_all_grades" class="btn btn-success">Save All Grades</button>
+            </div>
+          </div>
+        </form>
+
+      </div> <!-- Dashboard Content End -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

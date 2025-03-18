@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="page-header-title">Courses for {{ program.program_name }}</h2>
+            <p>Select a course to take attendance:</p>
+          </div>
+        </div>
+        <div class="row">
+          {% for course in courses %}
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <div class="card-body text-center">
+                <h5>{{ course.course_name }}</h5>
+                <a href="{% url 'take_attendance_for_course' program.id course.id %}" class="btn btn-primary">
+                  Take Attendance
+                </a>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <div class="col-12">
+            <p>No courses available for this program.</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

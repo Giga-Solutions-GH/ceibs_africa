@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to CEIBS Africa Online</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #ffffff; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .header { text-align: center; padding-bottom: 20px; }
+        .content { padding: 20px; }
+        .footer { text-align: center; font-size: 12px; color: #888; padding-top: 20px; border-top: 1px solid #ddd; }
+        .btn { background-color: #d60000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+        .logo-footer { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://ab71-41-215-169-36.ngrok-free.app/static/assets/images/ceibs_on_white.png" alt="CEIBS Africa Online" style="max-width: 150px;">
+            <h2>Welcome to CEIBS Africa Online!</h2>
+        </div>
+        <div class="content">
+            <p>Dear {{ user.first_name }},</p>
+            <p>You have been added to our system with the following roles: <strong>{{ roles }}</strong> in the departments: <strong>{{ departments }}</strong>.</p>
+            <p>To get started, please set your password by clicking the link below. Your email is {{ email }}:</p>
+            <p><a href="{{ password_reset_link }}" class="btn">Set Your Password</a></p>
+            <p>You can access your dashboard anytime using the following link:</p>
+            <p><a href="{{ dashboard_link }}">{{ dashboard_link }}</a></p>
+            <p>If you have any questions, please contact our support team.</p>
+            <p>Best regards,<br>The CEIBS Africa Online Team</p>
+        </div>
+        <div class="footer">
+            <p>Powered by CEIBS Africa Online © {{ current_time|date:"Y" }}</p>
+            <div class="logo-footer">
+                <img src="https://ab71-41-215-169-36.ngrok-free.app/static/assets/images/ceibs_on_white.png" alt="CEIBS Africa Online" style="max-width: 100px;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

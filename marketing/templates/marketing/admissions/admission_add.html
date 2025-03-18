@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Add New Admission</h2>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="{% url 'marketing:admissions_list' %}" class="breadcrumb-link">Admissions</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Admission</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admission Form -->
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+              {% endfor %}
+            {% endif %}
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">Enter Admission Details</h5>
+              </div>
+              <div class="card-body">
+                <form method="post" action="{% url 'marketing:add_admission_prospect' %}">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                    <label for="id_first_name" class="form-label">First Name</label>
+                    {{ form.first_name }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="id_last_name" class="form-label">Last Name</label>
+                    {{ form.last_name }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="id_other_names" class="form-label">Other Names</label>
+                    {{ form.other_names }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="id_phone_number" class="form-label">Phone Number</label>
+                    {{ form.phone_number }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="id_email" class="form-label">Email</label>
+                    {{ form.email }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="id_company" class="form-label">Company/Organization</label>
+                    {{ form.company }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="id_position" class="form-label">Position</label>
+                    {{ form.position }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="id_comments" class="form-label">Comments</label>
+                    {{ form.comments }}
+                  </div>
+                  <button type="submit" class="btn btn-primary">Add Admission</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- container-fluid end -->
+    </div> <!-- dashboard-ecommerce end -->
+  </div> <!-- dashboard-wrapper end -->
+</div> <!-- dashboard-main-wrapper end -->
+{% endblock %}
+
+{% block scripts %}
+<!-- Additional scripts if needed -->
+<script>
+// Optional: You can add JS here for client-side validation or UI effects.
+</script>
+{% endblock %}

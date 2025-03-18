@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+              <div class="col-12" style="display: flex; justify-content: space-between">
+                <div>
+                  <h2 class="pageheader-title">Student Finance Overview</h2>
+                </div>
+              </div>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Finance</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Overview</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Form -->
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+              <div class="card-body">
+                <form method="get" class="form-inline">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="program" class="sr-only">Program</label>
+                    <select id="program" name="program" class="form-control">
+                      <option value="">All Programs</option>
+                      {% for prog in programs %}
+                        <option value="{{ prog.id }}" {% if request.GET.program == prog.id|stringformat:"s" %}selected{% endif %}>
+                          {{ prog.program_name }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="gender" class="sr-only">Gender</label>
+                    <select id="gender" name="gender" class="form-control">
+                      <option value="">All Genders</option>
+                      {% for value, display in genders %}
+                        <option value="{{ value }}" {% if request.GET.gender == value %}selected{% endif %}>{{ display }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="company" class="sr-only">Company</label>
+                    <input type="text" id="company" name="company" class="form-control" placeholder="Company" value="{{ request.GET.company }}">
+                  </div>
+                  <button type="submit" class="btn btn-primary mb-2">Filter</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Percentage Graph -->
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+              <h5 class="card-header">Payment Percentage Distribution</h5>
+              <div class="card-body">
+                <div style="position: relative; width: 100%; height: 300px;">
+                  <canvas id="paymentPercentageChart" width="400" height="300"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finance Table: One row per finance record -->
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+              <h5 class="card-header">Student Finance Table</h5>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table" id="myTable">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Program</th>
+                        <th>Program Status</th>
+                        <th>Fees</th>
+                        <th>Fees Paid</th>
+                        <th>Percentage Cleared</th>
+                        <th>Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for student in students %}
+                        {% for finance in student.finance_records %}
+                          {% with prog=finance.fees.program_fees.program %}
+                          <tr>
+                            <td>
+                              {% if student.image %}
+                                <img src="{{ student.image.url }}" alt="{{ student.first_name }}'s image" style="width: 50px; height: 50px; object-fit: cover;">
+                              {% else %}
+                                <i class="fa fa-user"></i>
+                              {% endif %}
+                            </td>
+                            <td>{{ student.unique_id }}</td>
+                            <td>{{ student.first_name }}</td>
+                            <td>{{ student.last_name }}</td>
+                            <td>{{ student.email }}</td>
+                            <td>{{ prog.program_name }}</td>
+                            <td>
+                              {% if prog.program_ended or prog.end_date and prog.end_date < today %}
+                                <span class="text-danger">Ended</span>
+                              {% else %}
+                                <span class="text-success">Ongoing</span>
+                              {% endif %}
+                            </td>
+                            <td>${{ finance.fees.program_fees.fee|floatformat:2 }}</td>
+                            <td>${{ finance.fees_paid|floatformat:2 }}</td>
+                            <td>{{ finance.percentage_cleared|floatformat:2 }}%</td>
+                            <td>
+                              <a href="{% url 'student_finance:student_finance_detail' student.id %}" class="btn btn-info btn-sm">
+                                View Details
+                              </a>
+                            </td>
+                          </tr>
+                          {% endwith %}
+                        {% endfor %}
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- Dashboard Content End -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var ctx = document.getElementById('paymentPercentageChart').getContext('2d');
+    var percentageData = {{ percentage_data|safe }};
+    var chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['100% Paid', '50% Paid', 'Other'],
+            datasets: [{
+                data: [percentageData['100'], percentageData['50'], percentageData['other']],
+                backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw + ' student(s)';
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

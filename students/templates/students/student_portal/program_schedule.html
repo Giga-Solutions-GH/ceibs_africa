@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <div class="page-header">
+              <h2 class="pageheader-title">Program Schedule for {{ program.program_name }}</h2>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="#" class="breadcrumb-link">Program Schedule</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Details</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule Table -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header">Course Schedule Details</h5>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Course Name</th>
+                        <th>Location</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for schedule in program_schedule %}
+                        <tr>
+                          <td>{{ schedule.course.course_name }}</td>
+                          <td>{{ schedule.location }}</td>
+                          <td>
+                            {{ schedule.start_time|time:"H:i" }} <b>to</b> {{ schedule.end_time|time:"H:i" }}
+                          </td>
+                          <td>
+                            {{ schedule.start_date|date:"Y-m-d" }} <b>to</b> {{ schedule.end_date|date:"Y-m-d" }}
+                          </td>
+                          <td>
+                            <a href="{% url 'students:add_to_calendar' schedule.id %}" class="btn btn-outline-primary btn-sm">
+                              Add to Calendar
+                            </a>
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#scheduleModal{{ schedule.id }}">
+                              View Sessions
+                            </button>
+                          </td>
+                        </tr>
+
+                        <!-- Modal for Session Dates -->
+                        <div class="modal fade" id="scheduleModal{{ schedule.id }}" tabindex="-1" aria-labelledby="scheduleModalLabel{{ schedule.id }}" aria-hidden="true">
+                          <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="scheduleModalLabel{{ schedule.id }}">
+                                  Session Dates for {{ schedule.course.course_name }}
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                {% if schedule.schedule_dates.all %}
+                                  {# Group session dates by month using regroup #}
+                                  {% regroup schedule.schedule_dates.all by session_date|date:"F" as dates_by_month %}
+                                  {% for group in dates_by_month %}
+                                    <h6>{{ group.grouper }}</h6>
+                                    <ul class="list-unstyled">
+                                      {% for item in group.list %}
+                                        <li>{{ item.session_date|date:"Y-m-d" }} ({{ item.session_date|date:"l" }})</li>
+                                      {% endfor %}
+                                    </ul>
+                                  {% endfor %}
+                                {% else %}
+                                  <p>No individual session dates added. (Overall range: {{ schedule.start_date|date:"Y-m-d" }} to {{ schedule.end_date|date:"Y-m-d" }})</p>
+                                {% endif %}
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a href="" target="_blank" class="btn btn-primary">
+                                  Print / Save as PDF
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      {% empty %}
+                        <tr>
+                          <td colspan="5" class="text-center">No schedule available for this program.</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- Dashboard Content End -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Include any additional scripts if needed; Bootstrap JS must be loaded for modals -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

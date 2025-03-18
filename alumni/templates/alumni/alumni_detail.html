@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Alumni Details</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =============== Alumni Info Edit Card =============== -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header">Edit Alumni Information</h5>
+                            <img class="m-3" style="border-radius: 100%; width: 100px; height: 100px; object-fit: cover; cursor: zoom-in"
+                                                                 src="{{ alumni.student.image.url }}"
+                                                                 alt="">
+                            <div class="card-body">
+                                <form method="POST" enctype="multipart/form-data" class="row">
+                                    {% csrf_token %}
+
+                                    <!-- Left Column (col-lg-6) -->
+                                    <div class="col-lg-6">
+                                        {{ form.first_name.label_tag }}
+                                        {{ form.first_name }}
+
+                                        {{ form.last_name.label_tag }}
+                                        {{ form.last_name }}
+
+                                        {{ form.email.label_tag }}
+                                        {{ form.email }}
+
+                                        {{ form.nationality.label_tag }}
+                                        {{ form.nationality }}
+
+                                        {{ form.picture.label_tag }}
+                                        {{ form.picture }}
+                                    </div>
+
+                                    <!-- Right Column (col-lg-6) -->
+                                    <div class="col-lg-6">
+                                        {{ form.program.label_tag }}
+                                        {{ form.program }}
+
+                                        {{ form.year_of_completion.label_tag }}
+                                        {{ form.year_of_completion }}
+
+                                        {{ form.current_position.label_tag }}
+                                        {{ form.current_position }}
+
+                                        {{ form.company.label_tag }}
+                                        {{ form.company }}
+
+                                        {{ form.country_of_residence.label_tag }}
+                                        {{ form.country_of_residence }}
+                                    </div>
+
+                                    <!-- Submit / Cancel Buttons -->
+                                    <div class="col-12 mt-3">
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        <a href="{% url 'alumni:all_alumni' %}" class="btn btn-secondary">Cancel</a>
+                                    </div>
+                                </form>
+                            </div> <!-- card-body -->
+                        </div> <!-- card -->
+                    </div> <!-- col-12 -->
+                </div> <!-- row end -->
+
+                <!-- =============== Programs Taken Card =============== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header">
+                                Programs Taken by {{ alumni.first_name }} {{ alumni.last_name }}
+                            </h5>
+                            <div class="card-body">
+                                {% if enrollments %}
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Program</th>
+                                                    <th>Status</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Finances</th>
+                                                    <th>Grades</th>
+                                                    <th>Courses</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for enrollment in enrollments %}
+                                                <tr>
+                                                    <td>{{ enrollment.program.program_name }}</td>
+                                                    <td>{{ enrollment.status }}</td>
+                                                    <td>{{ enrollment.start_date }}</td>
+                                                    <td>{{ enrollment.end_date }}</td>
+                                                    <td>
+                                                        <!-- Placeholder link for Finances -->
+                                                        <a href="{% url 'student_finance:student_finance_detail' student_id=enrollment.student.id %}"
+                                                           class="btn btn-sm btn-info">
+                                                            View Finances
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <!-- Placeholder link for Grades -->
+                                                        <a href="{% url 'student_grading:student_grades' student_id=enrollment.student.id program_id=enrollment.program.id %}"
+                                                           class="btn btn-sm btn-info">
+                                                            View Grades
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <!-- Button to open modal showing courses -->
+                                                        <button type="button"
+                                                                class="btn btn-sm btn-primary"
+                                                                data-toggle="modal"
+                                                                data-target="#coursesModal{{ enrollment.id }}">
+                                                            View Courses
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- Modal for listing courses of this enrollment -->
+                                                <div class="modal fade"
+                                                     id="coursesModal{{ enrollment.id }}"
+                                                     tabindex="-1"
+                                                     role="dialog"
+                                                     aria-labelledby="coursesModalLabel{{ enrollment.id }}"
+                                                     aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title"
+                                                                    id="coursesModalLabel{{ enrollment.id }}">
+                                                                    Courses for {{ enrollment.program.program_name }}
+                                                                </h5>
+                                                                <button type="button"
+                                                                        class="close"
+                                                                        data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <!-- We attached the courses as 'enrollment.courses' in the view -->
+                                                                {% if enrollment.courses %}
+                                                                    <ul>
+                                                                        {% for c in enrollment.courses %}
+                                                                        <li>{{ c.course_name }}</li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                {% else %}
+                                                                    <p>No courses found for this enrollment.</p>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button"
+                                                                        class="btn btn-secondary"
+                                                                        data-dismiss="modal">
+                                                                    Close
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- table-responsive -->
+                                {% else %}
+                                    <p>No program enrollments found.</p>
+                                {% endif %}
+                            </div> <!-- card-body -->
+                        </div> <!-- card -->
+                    </div> <!-- col-12 -->
+                </div> <!-- row end -->
+
+            </div> <!-- container-fluid -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- If using Bootstrap modals, ensure JS is loaded -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

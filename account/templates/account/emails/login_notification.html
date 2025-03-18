@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Login Detected</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #333;">
+    <h2>New Login Detected on Your Account</h2>
+    <p>Hello {{ user.email }},</p>
+
+    <p>We noticed a new login to your account.</p>
+
+    <p><strong>Details:</strong><br>
+    IP Address: {{ ip_address }}<br>
+    Date & Time: {{ current_time|date:"Y-m-d H:i:s" }}</p>
+
+    <p>If this was you, no further action is required. If this login attempt seems suspicious and wasn't initiated by you, we strongly recommend changing your password immediately.</p>
+
+    <p>You can reset your password by clicking
+    <a href="{{ password_reset_link }}" style="color: #1a73e8;">here</a>.</p>
+
+    <p>Thank you for helping us keep your account secure.</p>
+
+    <p>Best regards,<br>
+    CEIBS Africa</p>
+
+<div class="footer">
+    </div>
+</body>
+</html>

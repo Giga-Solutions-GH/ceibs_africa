@@ -1,0 +1,315 @@
+{# templates/students/grade_analytics.html #}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+
+        <!-- ===================== PAGE HEADER ===================== -->
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="pageheader-title">God Mode Grade Analytics</h2>
+          </div>
+        </div>
+
+        <!-- ===================== 1) Program Bar Chart (Avg Score) ===================== -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header d-flex justify-content-between align-items-center">
+                <span>Average Score by Program</span>
+                {% if top_program_data %}
+                  <small class="text-success">
+                    Top Program: {{ top_program_data.program__program_name }}
+                    ({{ top_program_data.avg_score|floatformat:2 }})
+                  </small>
+                {% endif %}
+              </h5>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px;">
+                  <canvas id="programBarChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================== 2) Multi-Program Over Time (Line Chart) ===================== -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <!-- Filter in the card header -->
+              <form method="get" class="card-header d-flex flex-wrap align-items-center">
+                <div class="me-2 fw-bold">Average Scores Over Time</div>
+                <select name="line_program_ids" multiple size="3" class="form-select me-2" style="width:250px;">
+                  {% for prog in all_programs %}
+                    <option value="{{ prog.id }}"
+                      {% if prog.id|stringformat:"s" in line_program_ids %}selected{% endif %}>
+                      {{ prog.program_name }}
+                    </option>
+                  {% endfor %}
+                </select>
+                <button class="btn btn-primary" type="submit">Apply</button>
+              </form>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px;">
+                  <canvas id="multiProgramLineChart"></canvas>
+                </div>
+                <small class="text-muted">
+                  Hold Ctrl/Command to select multiple programs. If none selected, all are displayed.
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================== 3) Grade Distribution (Pie Chart) ===================== -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <!-- Single program filter in the card header -->
+              <form method="get" class="card-header d-flex flex-wrap align-items-center">
+                <div class="me-2 fw-bold">Grade Distribution (Pie Chart)</div>
+                <select name="dist_program_id" class="form-select me-2" style="width:250px;">
+                  <option value="">All Programs</option>
+                  {% for prog in all_programs %}
+                    <option value="{{ prog.id }}"
+                      {% if dist_program_id|default_if_none:'' == prog.id|stringformat:"s" %}selected{% endif %}>
+                      {{ prog.program_name }}
+                    </option>
+                  {% endfor %}
+                </select>
+                <button class="btn btn-primary" type="submit">Apply</button>
+              </form>
+              <div class="card-body">
+                <div class="chart-container" style="height:300px;">
+                  <canvas id="gradeDistChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================== 4) Ranking Table (AJAX-based) ===================== -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header fw-bold">Ranking Table (AJAX-based)</div>
+              <div class="card-body">
+                <div class="row mb-3">
+                  <!-- Program select -->
+                  <div class="col-md-6">
+                    <label for="ajaxProgram" class="form-label">Program:</label>
+                    <select id="ajaxProgram" class="form-select">
+                      <option value="">-- select program --</option>
+                      {% for prog in all_programs %}
+                        <option value="{{ prog.id }}">{{ prog.program_name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <!-- Course select -->
+                  <div class="col-md-6">
+                    <label for="ajaxCourse" class="form-label">Course:</label>
+                    <select id="ajaxCourse" class="form-select" disabled>
+                      <option value="">-- select course --</option>
+                      <!-- Populated by AJAX -->
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Table for ranking results -->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Student</th>
+                      <th>Score</th>
+                    </tr>
+                  </thead>
+                  <tbody id="rankingTableBody">
+                    <tr><td colspan="3">Select a program and course.</td></tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- container-fluid end -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+  .chart-container {
+    width: 100%;
+    height: 300px;
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- jQuery for AJAX calls -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // ========== (1) Bar Chart: Average Score by Program ==========
+    let programBarLabels = {{ program_bar_labels|safe }};
+    let programBarData = {{ program_bar_data|safe }};
+    let ctxBar = document.getElementById('programBarChart').getContext('2d');
+    new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: programBarLabels,
+            datasets: [{
+                label: 'Avg Score',
+                data: programBarData,
+                backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // ========== (2) Multi-Program Over Time (Line) ==========
+    let lineDatasets = [];
+    {% for ds in line_datasets %}
+      lineDatasets.push({
+        label: "{{ ds.program_name }}",
+        data: {{ ds.data|safe }},
+        borderColor: getRandomColor(),
+        backgroundColor: 'rgba(0,0,0,0)',
+        tension: 0.2
+      });
+    {% endfor %}
+    let unifiedYears = {{ line_years|safe }};
+    let multiCtx = document.getElementById('multiProgramLineChart').getContext('2d');
+    new Chart(multiCtx, {
+        type: 'line',
+        data: {
+            labels: unifiedYears,
+            datasets: lineDatasets
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } },
+            plugins: {
+                legend: { position: 'top' }
+            }
+        }
+    });
+
+    function getRandomColor() {
+      let r = Math.floor(Math.random()*255);
+      let g = Math.floor(Math.random()*255);
+      let b = Math.floor(Math.random()*255);
+      return `rgba(${r}, ${g}, ${b}, 0.7)`;
+    }
+
+    // ========== (3) Grade Distribution (Pie) ==========
+    let gradeDistLabels = {{ grade_labels|safe }};
+    let gradeDistData = {{ grade_counts|safe }};
+    let gradeCtx = document.getElementById('gradeDistChart').getContext('2d');
+    new Chart(gradeCtx, {
+        type: 'pie',
+        data: {
+            labels: gradeDistLabels,
+            datasets: [{
+                data: gradeDistData,
+                backgroundColor: ['#FF6384','#36A2EB','#FFCE56','#4BC0C0','#9966FF']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' }
+            }
+        }
+    });
+
+    // ========== (4) Ranking Table via AJAX ==========
+
+    // On program select => fetch courses
+    $('#ajaxProgram').on('change', function(){
+        let programId = $(this).val();
+        if(!programId) {
+            // No program selected
+            $('#ajaxCourse').empty().append('<option value="">-- select course --</option>').prop('disabled', true);
+            $('#rankingTableBody').html('<tr><td colspan="3">Select a program and course.</td></tr>');
+            return;
+        }
+        // AJAX to load courses
+        $.ajax({
+            url: "{% url 'student_grading:ajax_load_courses' %}",
+            data: { 'program_id': programId },
+            dataType: 'json',
+            success: function(resp){
+                let courses = resp.courses || [];
+                let $courseSel = $('#ajaxCourse');
+                $courseSel.empty();
+                if(courses.length === 0) {
+                    $courseSel.append('<option value="">No courses found</option>');
+                    $courseSel.prop('disabled', true);
+                    $('#rankingTableBody').html('<tr><td colspan="3">No courses available.</td></tr>');
+                } else {
+                    $courseSel.append('<option value="">-- select course --</option>');
+                    $.each(courses, function(idx, c){
+                        $courseSel.append('<option value="'+c.id+'">'+c.name+'</option>');
+                    });
+                    $courseSel.prop('disabled', false);
+                }
+                // Clear table
+                $('#rankingTableBody').html('<tr><td colspan="3">Select a program and course.</td></tr>');
+            },
+            error: function(err){
+                console.error(err);
+            }
+        });
+    });
+
+    // On course select => fetch ranking
+    $('#ajaxCourse').on('change', function(){
+        let programId = $('#ajaxProgram').val();
+        let courseId = $(this).val();
+        if(!programId || !courseId) {
+            $('#rankingTableBody').html('<tr><td colspan="3">Select a program and course.</td></tr>');
+            return;
+        }
+        // AJAX to load ranking
+        $.ajax({
+            url: "{% url 'student_grading:ajax_load_ranking' %}",
+            data: { 'program_id': programId, 'course_id': courseId },
+            dataType: 'json',
+            success: function(resp){
+                let htmlSnippet = resp.html || '<tr><td colspan="3">No data</td></tr>';
+                $('#rankingTableBody').html(htmlSnippet);
+            },
+            error: function(err){
+                console.error(err);
+            }
+        });
+    });
+
+});
+</script>
+{% endblock %}

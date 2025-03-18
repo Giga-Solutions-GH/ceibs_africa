@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title mt-2">Transcript Requests</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="#" class="breadcrumb-link">Dashboard</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">Transcript Requests</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="card mt-4">
+                    <div class="card-header">Filter Transcript Requests</div>
+                    <div class="card-body">
+                        <form method="GET" class="form-row">
+                            <!-- Filter by Generated Status -->
+                            <div class="form-group col-md-3">
+                                <label for="filter_status">Status</label>
+                                <select id="filter_status" name="filter_status" class="form-control">
+                                    <option value="all" {% if filter_status == 'all' %}selected{% endif %}>All</option>
+                                    <option value="true" {% if filter_status == 'true' %}selected{% endif %}>Generated</option>
+                                    <option value="false" {% if filter_status == 'false' %}selected{% endif %}>Not Generated</option>
+                                </select>
+                            </div>
+
+                            <!-- Filter by Year of Completion -->
+                            <div class="form-group col-md-3">
+                                <label for="filter_year">Year of Completion</label>
+                                <select id="filter_year" name="filter_year" class="form-control">
+                                    <option value="">All</option>
+                                    {% for year in distinct_years %}
+                                        <option value="{{ year }}" {% if filter_year == year %}selected{% endif %}>
+                                            {{ year }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Filter by Program -->
+                            <div class="form-group col-md-3">
+                                <label for="filter_program">Program</label>
+                                <select id="filter_program" name="filter_program" class="form-control">
+                                    <option value="">All</option>
+                                    {% for prog in programs %}
+                                        <option value="{{ prog.id }}" {% if filter_program == prog.id|stringformat:"s" %}selected{% endif %}>
+                                            {{ prog.program_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group col-md-3 align-self-end">
+                                <button type="submit" class="btn btn-primary btn-block">Apply Filters</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Transcript Requests Table -->
+                <div class="card mt-4">
+                    <h5 class="card-header">Transcript Requests</h5>
+                    <div class="card-body">
+                        {% if requests %}
+                        <table class="table table-striped" id="transcript-table myTable">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Program</th>
+                                    <th>Year of Completion</th>
+                                    <th>Status</th>
+                                    <th>Transcript</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for request in requests %}
+                                <tr>
+                                    <td>{{ request.student }}</td>
+                                    <td>{{ request.student.email }}</td>
+                                    <td>{{ request.student.phone_number }}</td>
+                                    <td>{{ request.program }}</td>
+                                    <td>{{ request.year_of_completion }}</td>
+                                    <td>{{ request.generated|yesno:"Generated,Not Generated" }}</td>
+                                    <td>
+                                        {% if request.generated %}
+                                            {% with transcript=request.generatedtranscriptrequest_set.first %}
+                                                {% if transcript %}
+                                                    <a href="{{ transcript.transcript_file.url }}" target="_blank">View Transcript</a>
+                                                {% else %}
+                                                    No Transcript Available
+                                                {% endif %}
+                                            {% endwith %}
+                                        {% else %}
+                                            No Transcript Available
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <form action="{% url 'students:generate_transcript' request.id %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-primary btn-sm">Generate</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                            <div class="alert alert-info">
+                                No transcript requests match the selected filters.
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- If you want to add any custom JS, you can include it here -->
+{% endblock %}

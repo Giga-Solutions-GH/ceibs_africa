@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- main wrapper -->
+<!-- ============================================================== -->
+<div class="dashboard-main-wrapper">
+    <!-- ============================================================== -->
+    <!-- navbar -->
+    <!-- ============================================================== -->
+    {% include 'inc/header.html' %}
+    <!-- ============================================================== -->
+    <!-- end navbar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- left sidebar -->
+    <!-- ============================================================== -->
+    {% include 'inc/sidenav.html' %}
+    <!-- ============================================================== -->
+    <!-- end left sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader  -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Welcome to CEIBS Manager</h2>
+                            <span>Happy Managing!</span>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Summary</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader  -->
+                <!-- ============================================================== -->
+                <div class="ecommerce-widget">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-inline-block">
+                                        <h5 class="text-muted">School Calendar - General Events</h5>
+                                    </div>
+                                    <div id="calendar" style="max-width: 100%; height: 400px;"></div> <!-- Calendar container -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-inline-block">
+                                        <h5 class="text-muted">Quick Links</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- ============================================================== -->
+                        <!-- recent orders  -->
+                        <!-- ============================================================== -->
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Students Overview</h5>
+                                <div class="card-body p-2">
+                                    <div class="table-responsive">
+                                        <table class="table" id="myTable">
+                                            <thead class="bg-light">
+                                                <tr class="border-0">
+                                                    <th class="border-0">Image</th>
+                                                    <th class="border-0">Student ID</th>
+                                                    <th class="border-0">Student Name</th>
+                                                    <th class="border-0">Phone Number</th>
+                                                    <th class="border-0">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-body">
+                                                {% for student in students %}
+                                                <tr>
+                                                    {% if student.image %}
+                                                    <td><img style="border-radius: 100%; width: 50px; height: 50px; object-fit: cover" src="{{ student.image.url }}" alt=""></td>
+                                                    {% else %}
+                                                    <td><i class="fa fa-user"></i></td>
+                                                    {% endif %}
+                                                    <td>{{ student.unique_id }}</td>
+                                                    <td>{{ student.first_name }} {{ student.last_name }} {{ student.other_names }}</td>
+                                                    <td>{{ student.phone_number }}</td>
+                                                    <td>{{ student.status }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Program Size Overview</h5>
+                                <div class="card-body">
+                                    <canvas id="barChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            {% include 'inc/footer.html' %}
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- end main wrapper -->
+<!-- ============================================================== -->
+{% endblock %}
+
+{% block scripts %}
+<!-- Load FullCalendar CSS and JS -->
+<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.global.min.js'></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get data from Django template tags
+        const labels = {{ labels | safe }};
+        const data = {{ data }};
+        const events = {{ events_json|safe }};
+
+        const backgroundColors = Array.from({ length: data.length }, () => getRandomColor());
+
+        // Create bar chart
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Student Count',
+                    data: data,
+                    backgroundColor: backgroundColors,
+                    borderColor: 'rgb(255,255,255)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Initialize FullCalendar
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: events, // Pass events to FullCalendar
+            aspectRatio: 2, // Adjust aspect ratio to fit the card
+            eventClick: function(info) {
+                info.jsEvent.preventDefault(); // Prevent browser from navigating to the event URL
+                if (info.event.url) {
+                    window.open(info.event.url); // Open the URL in a new tab/window
+                }
+            }
+        });
+        calendar.render();
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <!-- ============================================================== -->
+                <!-- Page header  -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <div class="col-12" style="display: flex; justify-content: space-between">
+                                <div>
+                                   <h2 class="pageheader-title">
+                                       Take Attendance for {{ program }} - {{ course }}
+                                   </h2>
+                                </div>
+                            </div>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="#" class="breadcrumb-link">Program Management</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            {{ program }}
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Courses
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Attendance
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Attendance Form -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                        {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                              <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                              </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="card">
+                            <h5 class="card-header">Attendance for {{ course }}</h5>
+                            <div class="card-body">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="date_posted">Select Date</label>
+                                        <input
+                                            name="date_posted"
+                                            type="date"
+                                            class="form-control mb-3"
+                                            required
+                                            value="{{ default_date }}"
+                                        >
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Student Name</th>
+                                                    <th>Present?</th>
+                                                    <th>Comment</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for enrolment, form in attendance_forms %}
+                                                <tr>
+                                                    <td>
+                                                        {{ enrolment.student.first_name }}
+                                                        {{ enrolment.student.last_name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ form.is_present }}
+                                                    </td>
+                                                    <td>
+                                                        {{ form.comment }}
+                                                    </td>
+                                                    <!-- The hidden student field: -->
+                                                    {{ form.student }}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit Attendance
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row end -->
+
+            </div> <!-- .container-fluid -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- If you have custom scripts, place them here -->
+{% endblock %}
