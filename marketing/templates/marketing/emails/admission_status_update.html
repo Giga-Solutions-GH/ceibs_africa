@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admission Status Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .content {
+            padding: 20px 0;
+        }
+        .progress-container {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            height: 20px;
+            background: #d60000;
+            width: {{ progress }}%;
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
+            line-height: 20px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Admission Status Update</h2>
+        </div>
+        <div class="content">
+            <p>Dear {{ admission.first_name }},</p>
+            <p>Your admission status has been updated to <strong>{{ admission.get_status_display }}</strong>.</p>
+            <p>Please see your progress below:</p>
+            <div class="progress-container">
+                <div class="progress-bar">{{ progress }}%</div>
+            </div>
+            <p>If you have any questions or require further assistance, please contact our admissions office.</p>
+            <p>Best regards,</p>
+            <p>The CEIBS Africa Online Admissions Team</p>
+        </div>
+        <div class="footer">
+            <p>Powered by CEIBS Africa Online © {{ admission.date_submitted|date:"Y" }}</p>
+            <img src="{% static 'assets/images/ceibs_on_white.png' %}" alt="CEIBS Africa Online" style="max-width:150px; margin-top:10px;">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,10 +1,12 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
-from academic_program.models import Program
+from academic_program.models import Program, ProgramCover
 from finance.models import FinanceStatement, StudentFinance, ProgramFees, PaymentTrail
+from marketing.models import Admission
 from students.models import StudentDetail, StudentEnrollment
 
 
@@ -156,3 +158,47 @@ def student_finance_detail(request, student_id):
     }
     return render(request, 'finance/layouts/student_finance_detail.html', context)
 
+
+@login_required(login_url='account:login')
+def admission_list(request):
+    # Retrieve all admissions, ordered by date_submitted (latest first)
+    admissions = Admission.objects.filter(
+        status__in=[
+            'awaiting_financial_clearance',
+            'student_cleared_financially',
+            'admission_completed',
+            'rejected'
+        ]
+    ).order_by('-date_submitted')
+
+    # Retrieve filter parameters from GET request
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+    status_filter = request.GET.get('status')
+    program_filter = request.GET.get('program')
+
+    # Apply filters if provided
+    if start_date:
+        admissions = admissions.filter(date_submitted__gte=start_date)
+    if end_date:
+        admissions = admissions.filter(date_submitted__lte=end_date)
+    if status_filter:
+        admissions = admissions.filter(status=status_filter)
+    if program_filter:
+        admissions = admissions.filter(program_of_interest__id=program_filter)
+
+    # Get all possible filter options
+    all_statuses = Admission.STATUS_CHOICES  # List of tuples (key, value)
+    # Get all ProgramCover objects for the "program of interest" filter
+    program_covers = ProgramCover.objects.all()
+
+    context = {
+        'admissions': admissions,
+        'start_date': start_date,
+        'end_date': end_date,
+        'status_filter': status_filter,
+        'program_filter': program_filter,
+        'all_statuses': all_statuses,
+        'program_covers': program_covers,
+    }
+    return render(request, 'finance/layouts/admissions.html', context)

@@ -129,7 +129,7 @@ def send_event_contact_email(event_id):
         event = Event.objects.get(id=event_id)
     except Event.DoesNotExist:
         return
-    domain = "ab71-41-215-169-36.ngrok-free.app"
+    domain = "33e2-41-215-171-159.ngrok-free.app"
     # Build the student portal link (if needed)
     # portal_link = f"https://{domain}" + reverse('event:events_overview')
 
@@ -138,7 +138,7 @@ def send_event_contact_email(event_id):
         'event': event,
         # 'portal_link': portal_link,
         'current_time': timezone.now(),
-        'ceibs_logo_url': "https://ab71-41-215-169-36.ngrok-free.app/static/assets/images/ceibs_on_white.png",
+        'ceibs_logo_url': "https://33e2-41-215-171-159.ngrok-free.app/static/assets/images/ceibs_on_white.png",
     }
     email_body = render_to_string('events/emails/event_contact_email.html', context)
     email = EmailMessage(
@@ -170,7 +170,7 @@ def send_event_contact_email(event_id):
     # Build the context for the email template.
     context = {
         'event': event,
-        'ceibs_logo_url': 'https://ab71-41-215-169-36.ngrok-free.app/static/assets/images/ceibs_on_white.png',
+        'ceibs_logo_url': 'https://33e2-41-215-171-159.ngrok-free.app/static/assets/images/ceibs_on_white.png',
         'current_time': timezone.now(),
     }
     # Render the email body from the template.

@@ -48,7 +48,7 @@ def send_enrollment_notification_email(student_email, course_list, program_name,
     Sends an email to the student listing the courses they've been enrolled in,
     the program name, and a rendered schedule table (if any).
     """
-    domain = "ab71-41-215-169-36.ngrok-free.app"
+    domain = "33e2-41-215-171-159.ngrok-free.app"
     dashboard_link = f"https://{domain}" + reverse('students:student_portal')
 
     context = {
@@ -79,7 +79,7 @@ def send_student_welcome_email(user_id, uidb64, token):
     except CustomUser.DoesNotExist:
         return  # User no longer exists
 
-    domain = "ab71-41-215-169-36.ngrok-free.app"
+    domain = "33e2-41-215-171-159.ngrok-free.app"
     # Build the password reset (set password) URL.
     reset_link = f"https://{domain}" + reverse('account:password_reset')
     # Build the student portal link.

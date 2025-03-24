@@ -3,94 +3,271 @@
 
 {% block content %}
 <div class="dashboard-main-wrapper">
-  {% include 'inc/header.html' %}
-  {% include 'inc/sidenav.html' %}
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
 
-  <div class="dashboard-wrapper">
-    <div class="dashboard-ecommerce">
-      <div class="container-fluid dashboard-content">
-        <!-- Page Header -->
-        <div class="row mb-4">
-          <div class="col-12">
-            <div class="page-header text-center">
-              <h2 class="pageheader-title">Add New Admission</h2>
-              <div class="page-breadcrumb">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                      <a href="{% url 'marketing:admissions_list' %}" class="breadcrumb-link">Admissions</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Admission</li>
-                  </ol>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
 
-        <!-- Admission Form -->
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            {% if messages %}
-              {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-              {% endfor %}
-            {% endif %}
-            <div class="card">
-              <div class="card-header">
-                <h5 class="mb-0">Enter Admission Details</h5>
-              </div>
-              <div class="card-body">
-                <form method="post" action="{% url 'marketing:add_admission_prospect' %}">
-                  {% csrf_token %}
-                  <div class="mb-3">
-                    <label for="id_first_name" class="form-label">First Name</label>
-                    {{ form.first_name }}
-                  </div>
-                  <div class="mb-3">
-                    <label for="id_last_name" class="form-label">Last Name</label>
-                    {{ form.last_name }}
-                  </div>
-                  <div class="mb-3">
-                    <label for="id_other_names" class="form-label">Other Names</label>
-                    {{ form.other_names }}
-                  </div>
-                  <div class="mb-3">
-                    <label for="id_phone_number" class="form-label">Phone Number</label>
-                    {{ form.phone_number }}
-                  </div>
-                  <div class="mb-3">
-                    <label for="id_email" class="form-label">Email</label>
-                    {{ form.email }}
-                  </div>
-                  <div class="mb-3">
-                    <label for="id_company" class="form-label">Company/Organization</label>
-                    {{ form.company }}
-                  </div>
-                  <div class="mb-3">
-                    <label for="id_position" class="form-label">Position</label>
-                    {{ form.position }}
-                  </div>
-                  <div class="mb-3">
-                    <label for="id_comments" class="form-label">Comments</label>
-                    {{ form.comments }}
-                  </div>
-                  <button type="submit" class="btn btn-primary">Add Admission</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="page-header text-center">
+                            <h2 class="pageheader-title">Add New Admission</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb justify-content-center">
+                                        <li class="breadcrumb-item">
+                                            <a href="{% url 'marketing:admissions_list' %}" class="breadcrumb-link">Admissions</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">Add Admission</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      </div> <!-- container-fluid end -->
-    </div> <!-- dashboard-ecommerce end -->
-  </div> <!-- dashboard-wrapper end -->
+                <!-- Success/Error Messages -->
+                {% if messages %}
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <!-- Admission Form Card -->
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h5>Enter Admission Details &amp; Upload Documents</h5>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+
+                                    {# Display non-field errors for the admission form #}
+                                    {% if admission_form.non_field_errors %}
+                                        <div class="alert alert-danger">
+                                            {{ admission_form.non_field_errors }}
+                                        </div>
+                                    {% endif %}
+
+                                    <!-- Admission Details -->
+                                    <h6 class="mb-3">Personal Information</h6>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="id_first_name">First Name</label>
+                                            {{ admission_form.first_name }}
+                                            {% if admission_form.first_name.errors %}
+                                                <div class="text-danger">{{ admission_form.first_name.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="id_last_name">Last Name</label>
+                                            {{ admission_form.last_name }}
+                                            {% if admission_form.last_name.errors %}
+                                                <div class="text-danger">{{ admission_form.last_name.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="id_other_names">Other Names</label>
+                                            {{ admission_form.other_names }}
+                                            {% if admission_form.other_names.errors %}
+                                                <div class="text-danger">{{ admission_form.other_names.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                     <div class="form-group col-md-6">
+                                            <label for="id_other_names">Date of Birth</label>
+                                            {{ admission_form.date_of_birth }}
+                                            {% if admission_form.date_of_birth.errors %}
+                                                <div class="text-danger">{{ admission_form.date_of_birth.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="id_email">Email</label>
+                                            {{ admission_form.email }}
+                                            {% if admission_form.email.errors %}
+                                                <div class="text-danger">{{ admission_form.email.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="id_phone_number">Phone Number</label>
+                                            {{ admission_form.phone_number }}
+                                            {% if admission_form.phone_number.errors %}
+                                                <div class="text-danger">{{ admission_form.phone_number.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="id_company">Company/Organization</label>
+                                            {{ admission_form.company }}
+                                            {% if admission_form.company.errors %}
+                                                <div class="text-danger">{{ admission_form.company.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="id_position">Position</label>
+                                            {{ admission_form.position }}
+                                            {% if admission_form.position.errors %}
+                                                <div class="text-danger">{{ admission_form.position.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    <div class="form-group col-md-6">
+                                            <label for="id_position">Program of Interest</label>
+                                            {{ admission_form.program_of_interest }}
+                                            {% if admission_form.program_of_interest.errors %}
+                                                <div class="text-danger">{{ admission_form.program_of_interest.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="id_comments">Comments</label>
+                                            {{ admission_form.comments }}
+                                            {% if admission_form.comments.errors %}
+                                                <div class="text-danger">{{ admission_form.comments.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Document Uploads (Single) -->
+                                    <h6 class="mt-4 mb-3">Upload Essential Documents</h6>
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="id_passport_picture">Passport Picture</label>
+                                            {{ admission_form.passport_picture }}
+                                            {% if admission_form.passport_picture.errors %}
+                                                <div class="text-danger">{{ admission_form.passport_picture.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="id_passport_front_page">Passport Front Page</label>
+                                            {{ admission_form.passport_front_page }}
+                                            {% if admission_form.passport_front_page.errors %}
+                                                <div class="text-danger">{{ admission_form.passport_front_page.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="id_cv">CV</label>
+                                            {{ admission_form.cv }}
+                                            {% if admission_form.cv.errors %}
+                                                <div class="text-danger">{{ admission_form.cv.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <!-- Transcript Formset -->
+                                    <h6 class="mt-4 mb-3">Upload Transcript Document</h6>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                                <small class="text-success mb-1">Compress multiple files to a zip file before uploading, or join them as one pdf file</small>
+                                                <div class="row mb-2">
+                                                    <div class="form-group col-md-10">
+                                                        {{ admission_form.transcript_files }}
+                                                        {% if admission_form.transcript_files.errors %}
+                                                            <div class="text-danger">{{ admission_form.transcript_files.errors }}</div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Certificate Formset -->
+                                    <h6 class="mt-4 mb-3">Upload Certificate Documents</h6>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                                <small class="text-success mb-1">Compress multiple files to a zip file before uploading, or join them as one pdf file</small>
+                                                <div class="row mb-2">
+                                                    <div class="form-group col-md-10">
+                                                        {{ admission_form.certificate_files }}
+                                                        {% if admission_form.certificate_files.errors %}
+                                                            <div class="text-danger">{{ admission_form.certificate_files.errors }}</div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Certificate Formset -->
+                                    <h6 class="mt-4 mb-3">Upload Other Documents</h6>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                                <small class="text-success mb-1">Compress multiple files to a zip file before uploading, or join them as one pdf file.</small>
+                                                <div class="row mb-2">
+                                                    <div class="form-group col-md-10">
+                                                        {{ admission_form.other_files }}
+                                                        {% if admission_form.other_files.errors %}
+                                                            <div class="text-danger">{{ admission_form.other_files.errors }}</div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit Admission</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CEIBS Logo & Footer Section (Static) -->
+                <div class="text-center mt-5">
+                    <img src="{% static 'assets/images/ceibs_on_white.png' %}" alt="CEIBS Africa Online" style="max-width: 150px;">
+                    <p class="mt-2">Powered by CEIBS Africa Online © {{ now|date:"Y" }}</p>
+                </div>
+            </div> <!-- container-fluid end -->
+        </div> <!-- dashboard-ecommerce end -->
+    </div> <!-- dashboard-wrapper end -->
 </div> <!-- dashboard-main-wrapper end -->
 {% endblock %}
 
 {% block scripts %}
-<!-- Additional scripts if needed -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-// Optional: You can add JS here for client-side validation or UI effects.
+function addTranscriptRow() {
+    // Find the transcript card-body container by prefix.
+    var container = $(".card:has(.card-body:has(#id_transcripts-TOTAL_FORMS)) .card-body");
+    var totalFormsInput = container.find("#id_transcripts-TOTAL_FORMS");
+    var currentFormCount = parseInt(totalFormsInput.val());
+    var newFormHtml = container.find("div.row").last().clone();
+    newFormHtml.find("input").each(function() {
+        $(this).val("");
+    });
+    newFormHtml.find("input[type=checkbox]").prop("checked", false);
+    // Update the form index in the cloned HTML.
+    var regex = new RegExp("transcripts-(\\d+)", "g");
+    newFormHtml.html(newFormHtml.html().replace(regex, "transcripts-" + currentFormCount));
+    totalFormsInput.val(currentFormCount + 1);
+    container.append(newFormHtml);
+}
+
+function addCertificateRow() {
+    // Find the certificate card-body container by prefix.
+    var container = $(".card:has(.card-body:has(#id_certificates-TOTAL_FORMS)) .card-body");
+    var totalFormsInput = container.find("#id_certificates-TOTAL_FORMS");
+    var currentFormCount = parseInt(totalFormsInput.val());
+    var newFormHtml = container.find("div.row").last().clone();
+    newFormHtml.find("input").each(function() {
+        $(this).val("");
+    });
+    newFormHtml.find("input[type=checkbox]").prop("checked", false);
+    // Update the form index in the cloned HTML.
+    var regex = new RegExp("certificates-(\\d+)", "g");
+    newFormHtml.html(newFormHtml.html().replace(regex, "certificates-" + currentFormCount));
+    totalFormsInput.val(currentFormCount + 1);
+    container.append(newFormHtml);
+}
 </script>
 {% endblock %}

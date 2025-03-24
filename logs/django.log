@@ -18960,3 +18960,2023 @@ TypeError: send_password_reset_code_email() missing 1 required positional argume
 2025-03-18 07:09:04,282 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\academic_program\lecturers\lecturer_views.py changed, reloading.
 2025-03-18 07:09:09,878 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2025-03-18 08:10:20,703 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-18 13:43:13,164 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-18 13:43:22,505 [ERROR] django.request: Internal Server Error: /events/events_overview/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 1035, in find_library
+    return parser.libraries[name]
+           ~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'custom_filters'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\events\views.py", line 82, in event_overview
+    return render(request, 'events/event_overview.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 1097, in load
+    lib = find_library(parser, name)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 1037, in find_library
+    raise TemplateSyntaxError(
+    ...<5 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: 'custom_filters' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+humanize
+i18n
+jazzmin
+l10n
+log
+static
+tz
+2025-03-18 13:43:22,530 [ERROR] django.server: "GET /events/events_overview/ HTTP/1.1" 500 267698
+2025-03-18 13:43:24,305 [WARNING] django.request: Not Found: /favicon.ico
+2025-03-18 13:43:24,306 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3881
+2025-03-18 13:48:53,476 [ERROR] django.request: Internal Server Error: /events/events_overview/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 1035, in find_library
+    return parser.libraries[name]
+           ~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'custom_filters'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\events\views.py", line 82, in event_overview
+    return render(request, 'events/event_overview.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 1097, in load
+    lib = find_library(parser, name)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 1037, in find_library
+    raise TemplateSyntaxError(
+    ...<5 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: 'custom_filters' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+humanize
+i18n
+jazzmin
+l10n
+log
+static
+tz
+2025-03-18 13:48:53,487 [ERROR] django.server: "GET /events/events_overview/ HTTP/1.1" 500 267963
+2025-03-18 13:48:57,207 [WARNING] django.request: Not Found: /favicon.ico
+2025-03-18 13:48:57,208 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3881
+2025-03-18 13:50:29,783 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-18 13:51:04,737 [INFO] django.server: "GET /events/events_overview/ HTTP/1.1" 200 18143
+2025-03-18 13:51:05,796 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-18 14:21:50,007 [INFO] django.server: "GET /finance/student-finance-overview/ HTTP/1.1" 200 22293
+2025-03-18 14:21:50,647 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 06:38:46,947 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 06:45:43,668 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 21091
+2025-03-19 06:45:46,092 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 06:47:28,467 [INFO] django.server: "GET /marketing/add_prospect HTTP/1.1" 200 22191
+2025-03-19 06:47:29,115 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 06:48:04,108 [INFO] django.server: "POST /marketing/add_prospect HTTP/1.1" 302 0
+2025-03-19 06:48:04,464 [INFO] django.server: "GET /marketing/add_prospect HTTP/1.1" 200 22366
+2025-03-19 06:48:04,924 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 06:48:10,836 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 22169
+2025-03-19 06:48:11,336 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 07:14:32,018 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-19 07:14:36,786 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 07:35:20,951 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-19 07:35:24,789 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 07:40:39,440 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-19 07:40:43,155 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 07:43:30,078 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-19 07:43:32,512 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 07:43:59,565 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 21957
+2025-03-19 07:44:00,676 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 07:47:10,195 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 22146
+2025-03-19 07:47:10,618 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 08:53:17,245 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\tasks.py changed, reloading.
+2025-03-19 08:53:26,196 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 08:55:17,037 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 08:55:20,579 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 08:59:48,528 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 08:59:51,836 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:11:37,402 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 09:11:42,360 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:14:37,000 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 09:14:40,370 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:15:58,993 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\tasks.py changed, reloading.
+2025-03-19 09:16:02,840 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:17:14,861 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 09:17:19,568 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:30:47,793 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\urls.py changed, reloading.
+2025-03-19 09:30:53,055 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:43:44,534 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 09:43:53,988 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:45:12,650 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 09:45:15,811 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:45:56,087 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 09:45:58,391 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 09:50:18,494 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 09:50:30,129 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 11:07:14,886 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 11:07:42,552 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 11:09:40,584 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 11:09:45,453 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 11:10:29,284 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 11:12:19,978 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 22191
+2025-03-19 11:12:21,132 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:08:14,337 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:08:16,032 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-19 14:08:17,678 [INFO] django.server: "GET /elevated/account/customuser/19/change/ HTTP/1.1" 200 65585
+2025-03-19 14:08:19,844 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-03-19 14:08:20,899 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-03-19 14:08:21,049 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-03-19 14:08:21,112 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-03-19 14:08:21,200 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+2025-03-19 14:08:22,087 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 304 0
+2025-03-19 14:08:22,089 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+2025-03-19 14:08:22,645 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-03-19 14:08:22,678 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+2025-03-19 14:08:22,802 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+2025-03-19 14:08:22,802 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+2025-03-19 14:08:22,803 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+2025-03-19 14:08:22,804 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+2025-03-19 14:08:23,172 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-19 14:08:23,172 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-03-19 14:08:23,375 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-19 14:08:23,821 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+2025-03-19 14:08:23,934 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+2025-03-19 14:10:40,449 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 22746
+2025-03-19 14:10:41,324 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:12:50,883 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 22518
+2025-03-19 14:12:52,008 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:13:50,400 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23034
+2025-03-19 14:13:52,972 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:18:12,900 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23034
+2025-03-19 14:18:19,249 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:27:09,725 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23034
+2025-03-19 14:27:10,646 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:29:10,492 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23050
+2025-03-19 14:29:11,239 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:32:29,367 [INFO] django.server: "GET /marketing/prospect/prospect_feedbacks/3 HTTP/1.1" 200 19173
+2025-03-19 14:32:30,724 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:32:42,077 [INFO] django.server: "GET /marketing/prospect_feedback/3 HTTP/1.1" 200 20417
+2025-03-19 14:32:42,895 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:34:26,791 [INFO] django.server: "GET /marketing/prospect/3/send-admission-request/ HTTP/1.1" 302 0
+2025-03-19 14:34:27,183 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23265
+2025-03-19 14:34:27,779 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:36:25,653 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23050
+2025-03-19 14:36:27,021 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:39:34,545 [INFO] django.server: "GET /marketing/prospect/3/send-admission-request/ HTTP/1.1" 302 0
+2025-03-19 14:39:35,022 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23265
+2025-03-19 14:39:35,693 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 14:44:07,618 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-19 14:44:11,523 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 14:44:54,246 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-19 14:44:58,115 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 14:48:01,512 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-19 14:48:04,012 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 14:49:47,635 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-19 14:49:50,252 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 15:01:30,483 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 15:03:00,809 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-19 15:03:06,679 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 15:28:44,266 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 15:29:28,630 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-19 15:29:32,995 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 15:30:08,481 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 15:30:32,952 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23050
+2025-03-19 15:30:33,642 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 15:34:28,406 [INFO] django.server: "GET /marketing/prospect/3/send-admission-request/ HTTP/1.1" 302 0
+2025-03-19 15:34:28,911 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23265
+2025-03-19 15:34:29,708 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 15:49:44,460 [INFO] django.server: "GET /marketing/admission-request/3/3:1tuvR6:wApGaf-d3RIPfyakhNW-FDRTFftapMO5-aoLuLivl7E/ HTTP/1.1" 200 11664
+2025-03-19 15:49:45,076 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 15:49:45,262 [INFO] django.server: "GET /static/assets/images/ceibs_on_white.png HTTP/1.1" 200 433212
+2025-03-19 15:49:45,857 [INFO] django.server: "GET /static/assets/images/down-arrow.png HTTP/1.1" 200 1015
+2025-03-19 15:53:40,781 [INFO] django.server: "GET /marketing/admission/add_prospect HTTP/1.1" 200 21233
+2025-03-19 15:53:42,802 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:02:10,279 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-19 16:02:42,842 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 16:07:06,510 [INFO] django.server: "GET /marketing/admission/add_prospect HTTP/1.1" 200 29749
+2025-03-19 16:07:09,328 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1896
+2025-03-19 16:07:09,480 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:07:28,151 [INFO] django.server: "GET /marketing/admission/add_prospect HTTP/1.1" 200 29749
+2025-03-19 16:07:29,078 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:07:29,326 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1896
+2025-03-19 16:09:24,076 [INFO] django.server: "GET /marketing/admission/add_prospect HTTP/1.1" 200 29791
+2025-03-19 16:09:25,212 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:09:25,357 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1896
+2025-03-19 16:14:45,032 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 20033
+2025-03-19 16:14:45,617 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:15:46,322 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\urls.py changed, reloading.
+2025-03-19 16:16:00,585 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-19 16:21:05,911 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 19597
+2025-03-19 16:21:07,260 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:21:29,506 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 19597
+2025-03-19 16:21:30,181 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:23:15,941 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 19597
+2025-03-19 16:23:16,638 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-19 16:24:31,430 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 19688
+2025-03-19 16:24:31,965 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 10:06:33,566 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-20 10:06:39,005 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:08:30,626 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-20 10:08:38,354 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:11:13,756 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-20 10:11:16,204 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:22:40,195 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-20 10:23:10,194 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:23:34,022 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-20 10:23:41,121 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:25:44,401 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-20 10:25:48,693 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:26:28,530 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 19672
+2025-03-20 10:26:30,259 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 10:31:01,465 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-20 10:31:07,496 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:31:14,010 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 19672
+2025-03-20 10:31:14,493 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 10:36:58,088 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-20 10:37:06,902 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 10:37:13,793 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 23690
+2025-03-20 10:37:14,275 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 10:38:16,305 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 23729
+2025-03-20 10:38:17,870 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 10:41:07,965 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 23729
+2025-03-20 10:41:08,460 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:09:07,000 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\utils.py changed, reloading.
+2025-03-20 11:09:39,155 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 11:10:10,120 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-20 11:10:13,595 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 11:11:41,145 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\utils.py changed, reloading.
+2025-03-20 11:11:44,914 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 11:20:25,973 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-20 11:20:29,660 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 11:22:15,387 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\urls.py changed, reloading.
+2025-03-20 11:22:19,247 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 11:23:34,308 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 23729
+2025-03-20 11:23:35,213 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:23:47,957 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 29806
+2025-03-20 11:23:48,538 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:23:48,881 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1896
+2025-03-20 11:24:31,336 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 11:24:31,637 [INFO] django.server: "GET /elevated/account/customuser/19/change/ HTTP/1.1" 200 66375
+2025-03-20 11:24:51,216 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 11:24:51,410 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 40194
+2025-03-20 11:24:52,326 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-20 11:24:52,327 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+2025-03-20 11:24:52,412 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-20 11:24:52,653 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+2025-03-20 11:24:52,744 [INFO] django.server: "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+2025-03-20 11:27:47,349 [INFO] django.server: "POST /marketing/add_admission HTTP/1.1" 200 30440
+2025-03-20 11:27:48,616 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:27:48,793 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1896
+2025-03-20 11:33:31,952 [INFO] django.server: "GET /static/assets/images/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-20 11:33:31,974 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:35:22,935 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 30556
+2025-03-20 11:35:23,702 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:35:23,803 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1896
+2025-03-20 11:35:52,143 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 30567
+2025-03-20 11:35:54,117 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:35:54,273 [INFO] django.server: "GET /static/assets/images/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-20 11:39:59,922 [INFO] django.server: "POST /marketing/add_admission HTTP/1.1" 200 31201
+2025-03-20 11:40:01,072 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:47:27,439 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-20 11:47:32,267 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 11:48:35,791 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 30567
+2025-03-20 11:48:37,207 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:48:41,042 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 30567
+2025-03-20 11:48:44,081 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:55:54,068 [INFO] django.server: "POST /marketing/add_admission HTTP/1.1" 200 31182
+2025-03-20 11:55:54,849 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 11:58:17,877 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 31022
+2025-03-20 11:58:18,905 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 13:38:19,884 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 31022
+2025-03-20 13:38:21,327 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 13:38:22,313 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 13:38:22,436 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 40194
+2025-03-20 13:38:28,430 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 13:38:28,453 [INFO] django.server: "GET /elevated/academic_program/programcover/ HTTP/1.1" 200 31619
+2025-03-20 13:38:29,316 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-20 13:38:31,989 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 13:38:32,164 [INFO] django.server: "GET /elevated/academic_program/programcover/add/ HTTP/1.1" 200 47292
+2025-03-20 13:38:32,943 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-20 13:38:32,973 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+2025-03-20 13:38:33,164 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+2025-03-20 13:38:33,167 [INFO] django.server: "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+2025-03-20 13:38:33,544 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+2025-03-20 13:38:33,573 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+2025-03-20 13:38:33,960 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 304 0
+2025-03-20 13:38:34,067 [INFO] django.server: "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+2025-03-20 13:38:34,068 [INFO] django.server: "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+2025-03-20 13:38:34,071 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+2025-03-20 13:38:42,803 [INFO] django.server: "POST /elevated/academic_program/programcover/add/ HTTP/1.1" 302 0
+2025-03-20 13:38:43,372 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 13:38:43,418 [INFO] django.server: "GET /elevated/academic_program/programcover/add/ HTTP/1.1" 200 47917
+2025-03-20 13:38:44,141 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-20 13:38:48,515 [INFO] django.server: "POST /elevated/academic_program/programcover/add/ HTTP/1.1" 302 0
+2025-03-20 13:38:48,955 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 13:38:48,998 [INFO] django.server: "GET /elevated/academic_program/programcover/ HTTP/1.1" 200 35070
+2025-03-20 13:38:49,739 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-20 13:38:58,601 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 31093
+2025-03-20 13:38:59,512 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 13:41:50,743 [INFO] django.server: "POST /marketing/add_admission HTTP/1.1" 302 0
+2025-03-20 13:41:52,245 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26663
+2025-03-20 13:41:55,644 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 13:43:20,856 [INFO] django.server: "GET /marketing/admissions/all?start_date=&end_date=&status=&program=7 HTTP/1.1" 200 24186
+2025-03-20 13:43:21,677 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 13:43:33,090 [INFO] django.server: "GET /marketing/admissions/all?start_date=&end_date=&status=&program=8 HTTP/1.1" 200 26445
+2025-03-20 13:43:34,669 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
+2025-03-20 14:52:25,990 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 15:52:11,016 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+2025-03-20 15:52:11,964 [WARNING] django.request: Bad Request: /
+2025-03-20 15:52:11,991 [WARNING] django.server: "GET / HTTP/1.1" 400 78737
+2025-03-20 15:52:13,916 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+2025-03-20 15:52:14,074 [WARNING] django.request: Bad Request: /favicon.ico
+2025-03-20 15:52:14,076 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 400 78442
+2025-03-20 15:52:45,927 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\ceibs_management\settings.py changed, reloading.
+2025-03-20 15:52:51,180 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 15:54:42,436 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-03-20 15:54:45,427 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-03-20 15:54:47,988 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-03-20 15:54:51,130 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-03-20 15:54:52,012 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-03-20 15:54:52,013 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-03-20 15:54:52,015 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-03-20 15:54:55,566 [INFO] django.server: - Broken pipe from ('127.0.0.1', 53314)
+2025-03-20 15:56:16,246 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-03-20 15:56:17,245 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-03-20 15:56:17,255 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-03-20 15:56:17,258 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-03-20 15:56:18,977 [INFO] django.server: "GET /elevated HTTP/1.1" 301 0
+2025-03-20 15:56:20,102 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-03-20 15:56:20,316 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-03-20 15:56:23,550 [INFO] django.server: "GET /elevated/ HTTP/1.1" 302 0
+2025-03-20 15:56:24,996 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-03-20 15:56:25,064 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-03-20 15:56:25,471 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3057
+2025-03-20 15:56:42,646 [INFO] django.server: - Broken pipe from ('127.0.0.1', 53386)
+2025-03-20 15:56:56,392 [WARNING] django.security.csrf: Forbidden (Origin checking failed - https://33e2-41-215-171-159.ngrok-free.app does not match any trusted origins.): /account/login/
+2025-03-20 15:56:56,393 [WARNING] django.server: "POST /account/login/?next=/ HTTP/1.1" 403 2575
+2025-03-20 15:57:16,591 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\ceibs_management\settings.py changed, reloading.
+2025-03-20 15:57:19,972 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 15:57:31,811 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 302 0
+2025-03-20 15:57:32,752 [INFO] django.server: "GET / HTTP/1.1" 200 26826
+2025-03-20 15:57:34,569 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-03-20 15:57:34,611 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-03-20 15:57:34,612 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-03-20 15:57:34,738 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 15:57:34,742 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-03-20 15:57:34,749 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-03-20 15:57:35,532 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 200 2559
+2025-03-20 15:57:35,533 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-03-20 15:57:36,519 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-03-20 15:57:36,521 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-03-20 15:57:36,679 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-03-20 15:57:36,726 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-03-20 15:57:37,138 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-03-20 15:57:37,155 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-03-20 15:57:37,160 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-03-20 15:57:37,161 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-03-20 15:57:39,173 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-03-20 15:57:43,576 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 200 44004
+2025-03-20 15:57:45,585 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 200 40840
+2025-03-20 15:57:48,319 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-03-20 15:58:21,164 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26445
+2025-03-20 15:58:22,360 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 15:58:22,712 [INFO] django.server: "GET /static/assets/images/down-arrow.png HTTP/1.1" 200 1015
+2025-03-20 15:58:34,529 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 452, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admission_edit' not found. 'admission_edit' is not a valid view function or pattern name.
+2025-03-20 15:58:34,560 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 179631
+2025-03-20 16:00:20,824 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 25029
+2025-03-20 16:00:21,448 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:00:21,535 [INFO] django.server: "GET /media/admissions/passport_pictures/ceibs_favicon.png HTTP/1.1" 200 199286
+2025-03-20 16:00:21,540 [INFO] django.server: "GET /media/admissions/passport_front_pages/ceibs_on_white.png HTTP/1.1" 200 433212
+2025-03-20 16:00:24,324 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 302 0
+2025-03-20 16:00:28,198 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 16:00:28,216 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 82950
+2025-03-20 16:00:29,000 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+2025-03-20 16:00:29,029 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+2025-03-20 16:00:29,066 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+2025-03-20 16:00:29,166 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+2025-03-20 16:00:29,210 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+2025-03-20 16:00:29,236 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+2025-03-20 16:00:29,247 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+2025-03-20 16:00:33,448 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+2025-03-20 16:00:33,463 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+2025-03-20 16:08:39,786 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 27188
+2025-03-20 16:08:40,320 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:08:40,370 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1897
+2025-03-20 16:09:16,941 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 452, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admission_edit' not found. 'admission_edit' is not a valid view function or pattern name.
+2025-03-20 16:09:16,950 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 179435
+2025-03-20 16:09:29,459 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 25126
+2025-03-20 16:09:30,279 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:17:56,545 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-20 16:18:00,570 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 16:18:20,027 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 38109
+2025-03-20 16:18:21,217 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:18:21,750 [INFO] django.server: "GET /media/admissions/passport_pictures/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-20 16:18:21,751 [INFO] django.server: "GET /media/admissions/passport_front_pages/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-20 16:18:21,785 [WARNING] django.server: "GET /static/images/ceibs_logo.png HTTP/1.1" 404 1897
+2025-03-20 16:19:57,805 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 38114
+2025-03-20 16:19:59,458 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:19:59,652 [INFO] django.server: "GET /static/assets/images/ceibs-logo.png HTTP/1.1" 200 47238
+2025-03-20 16:21:25,666 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 38114
+2025-03-20 16:21:27,170 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:21:41,686 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 38101
+2025-03-20 16:21:43,164 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:22:00,789 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26445
+2025-03-20 16:22:01,975 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:22:06,217 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 38101
+2025-03-20 16:22:07,958 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:47:46,364 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-20 16:47:51,484 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 16:49:56,595 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:49:56,710 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-03-20 16:49:58,625 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 39004
+2025-03-20 16:49:59,155 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:49:59,309 [INFO] django.server: "GET /media/admissions/passport_pictures/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-20 16:49:59,313 [INFO] django.server: "GET /media/admissions/passport_front_pages/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-20 16:50:28,151 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-20 16:50:31,787 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-20 16:50:38,220 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 39025
+2025-03-20 16:50:38,664 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:51:23,916 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 200 38953
+2025-03-20 16:51:24,757 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:51:40,748 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 39025
+2025-03-20 16:51:41,570 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:51:56,020 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 200 38739
+2025-03-20 16:51:57,266 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 16:52:13,748 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 39025
+2025-03-20 16:52:14,562 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-20 20:51:50,961 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-20 20:51:51,052 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 82906
+2025-03-21 07:03:12,289 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 07:03:15,812 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 07:11:54,427 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 07:22:54,585 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:29:11,993 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:29:51,042 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:30:18,182 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 08:30:20,227 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:31:01,368 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 08:31:03,604 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:31:44,980 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 08:31:47,370 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:33:00,710 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 08:33:05,481 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:33:13,561 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 08:33:17,246 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:34:19,099 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 507, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1073, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1050, in render_value_in_context
+    value = str(value)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\utils.py", line 54, in render
+    context = context or self.get_context()
+                         ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\forms.py", line 227, in get_context
+    if bf.is_hidden:
+       ^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 236, in is_hidden
+    return self.field.widget.is_hidden
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MultipleFileField' object has no attribute 'is_hidden'
+2025-03-21 08:34:19,124 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 203884
+2025-03-21 08:34:26,265 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 507, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1073, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1050, in render_value_in_context
+    value = str(value)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\utils.py", line 54, in render
+    context = context or self.get_context()
+                         ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\forms.py", line 227, in get_context
+    if bf.is_hidden:
+       ^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 236, in is_hidden
+    return self.field.widget.is_hidden
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MultipleFileField' object has no attribute 'is_hidden'
+2025-03-21 08:34:26,276 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 203867
+2025-03-21 08:35:00,368 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 507, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1073, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1050, in render_value_in_context
+    value = str(value)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 95, in as_widget
+    attrs = self.build_widget_attrs(attrs, widget)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 270, in build_widget_attrs
+    widget.use_required_attribute(self.initial)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MultipleFileField' object has no attribute 'use_required_attribute'
+2025-03-21 08:35:00,378 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 203412
+2025-03-21 08:35:38,644 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 08:35:41,404 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:35:44,562 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 507, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1073, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1050, in render_value_in_context
+    value = str(value)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 95, in as_widget
+    attrs = self.build_widget_attrs(attrs, widget)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 270, in build_widget_attrs
+    widget.use_required_attribute(self.initial)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MultipleFileField' object has no attribute 'use_required_attribute'
+2025-03-21 08:35:44,584 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 203429
+2025-03-21 08:35:47,278 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 507, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1073, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1050, in render_value_in_context
+    value = str(value)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 95, in as_widget
+    attrs = self.build_widget_attrs(attrs, widget)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 270, in build_widget_attrs
+    widget.use_required_attribute(self.initial)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MultipleFileField' object has no attribute 'use_required_attribute'
+2025-03-21 08:35:47,302 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 203429
+2025-03-21 08:35:51,190 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 507, in admission_detail
+    return render(request, 'marketing/admissions/admission_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1073, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1050, in render_value_in_context
+    value = str(value)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 95, in as_widget
+    attrs = self.build_widget_attrs(attrs, widget)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\forms\boundfield.py", line 270, in build_widget_attrs
+    widget.use_required_attribute(self.initial)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MultipleFileField' object has no attribute 'use_required_attribute'
+2025-03-21 08:35:51,199 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 203677
+2025-03-21 08:35:53,134 [WARNING] django.request: Not Found: /favicon.ico
+2025-03-21 08:35:53,135 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-03-21 08:37:33,297 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 08:37:36,604 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:37:51,005 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 08:37:53,134 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 08:37:56,562 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34740
+2025-03-21 08:37:58,149 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 08:37:58,152 [INFO] django.server: "GET /media/admissions/passport_pictures/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-21 08:37:58,237 [INFO] django.server: "GET /media/admissions/passport_front_pages/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-21 08:41:18,587 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 33935
+2025-03-21 08:41:20,095 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 08:41:20,861 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-21 08:43:16,635 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34105
+2025-03-21 08:43:17,404 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 08:46:41,403 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34105
+2025-03-21 08:46:41,517 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 08:46:41,542 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 82950
+2025-03-21 08:46:45,065 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 08:47:14,699 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34945
+2025-03-21 08:47:15,723 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:35:54,634 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34945
+2025-03-21 09:35:55,381 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:36:32,281 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34974
+2025-03-21 09:36:32,916 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:37:25,284 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 35003
+2025-03-21 09:37:26,768 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:40:18,128 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 09:40:25,904 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 09:40:37,890 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 35021
+2025-03-21 09:40:38,652 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:41:17,788 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 200 35535
+2025-03-21 09:41:18,642 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:42:45,210 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 09:42:51,249 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 09:43:00,345 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 35021
+2025-03-21 09:43:00,826 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:43:18,124 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 200 35535
+2025-03-21 09:43:18,686 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:43:39,434 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 35021
+2025-03-21 09:43:51,143 [INFO] django.server: "GET / HTTP/1.1" 200 26633
+2025-03-21 09:44:18,149 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26445
+2025-03-21 09:44:18,713 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:44:23,441 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 35021
+2025-03-21 09:44:24,133 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:45:59,751 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 35553
+2025-03-21 09:46:01,254 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:49:53,286 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 35558
+2025-03-21 09:49:54,407 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:50:12,655 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 477, in admission_detail
+    if f'delete_transcript_{t.id}' in request.POST:
+                            ^^^^
+AttributeError: 'InMemoryUploadedFile' object has no attribute 'id'
+2025-03-21 09:50:12,664 [ERROR] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 500 89262
+2025-03-21 09:50:40,673 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 09:50:44,904 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 09:51:25,852 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-21 09:51:26,543 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 37036
+2025-03-21 09:51:27,137 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 09:51:48,999 [INFO] django.server: "GET /media/admissions/transcripts/AutoDash_Invoice_2_Prb44Ag.pdf HTTP/1.1" 200 2098
+2025-03-21 10:09:31,372 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 10:09:43,953 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:10:31,672 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 10:10:34,374 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:13:43,460 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:13:57,437 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 10:14:03,229 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:14:33,749 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 36184
+2025-03-21 10:14:33,753 [INFO] django.server: - Broken pipe from ('127.0.0.1', 64001)
+2025-03-21 10:14:35,410 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 10:15:31,801 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 10:15:31,832 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 82952
+2025-03-21 10:15:38,755 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 10:15:38,882 [INFO] django.server: "GET /elevated/students/studentdetail/ HTTP/1.1" 200 33372
+2025-03-21 10:15:41,927 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+2025-03-21 10:15:42,052 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+2025-03-21 10:15:42,086 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+2025-03-21 10:15:42,091 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-21 10:15:42,166 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+2025-03-21 10:15:42,172 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+2025-03-21 10:15:42,457 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+2025-03-21 10:15:42,462 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+2025-03-21 10:15:42,697 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+2025-03-21 10:15:43,027 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+2025-03-21 10:15:43,099 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+2025-03-21 10:15:47,027 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 10:15:47,213 [INFO] django.server: "GET /elevated/students/studentdetail/add/ HTTP/1.1" 200 61243
+2025-03-21 10:15:48,404 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+2025-03-21 10:15:48,421 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-21 10:15:48,460 [INFO] django.server: "GET /static/admin/js/inlines.js HTTP/1.1" 200 15526
+2025-03-21 10:15:48,474 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+2025-03-21 10:15:48,873 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+2025-03-21 10:15:48,897 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+2025-03-21 10:15:49,058 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+2025-03-21 10:15:49,112 [INFO] django.server: "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+2025-03-21 10:15:49,177 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2025-03-21 10:15:49,178 [INFO] django.server: "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+2025-03-21 10:20:48,369 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-21 10:20:52,105 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:22:38,749 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-21 10:22:42,664 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:25:36,898 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 10:25:42,364 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:25:53,099 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 10:25:56,430 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:45:03,227 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 10:45:07,019 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:56:30,470 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 10:56:34,451 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 10:56:49,855 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: marketing_admission.certificate_files
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 386, in admission_detail
+    admission = get_object_or_404(Admission, id=admission_id)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 86, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: marketing_admission.certificate_files
+2025-03-21 10:56:49,885 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 164524
+2025-03-21 10:58:03,256 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-21 10:58:08,232 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 11:00:56,949 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 400, in admission_detail
+    admission_form = AdmissionForm(instance=admission)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py", line 280, in __init__
+    self.fields['certificate_files'].required = True
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'certificate_files'
+2025-03-21 11:00:56,964 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 88559
+2025-03-21 11:01:54,913 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 400, in admission_detail
+    admission_form = AdmissionForm(instance=admission)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py", line 280, in __init__
+    self.fields['certificate_files'].required = True
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'certificate_files'
+2025-03-21 11:01:54,937 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 88559
+2025-03-21 11:02:31,951 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 400, in admission_detail
+    admission_form = AdmissionForm(instance=admission)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py", line 280, in __init__
+    self.fields['certificate_files'].required = True
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'certificate_files'
+2025-03-21 11:02:31,953 [ERROR] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 500 88559
+2025-03-21 11:03:16,679 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 11:03:21,704 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 11:03:53,420 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34340
+2025-03-21 11:03:54,536 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 11:03:54,552 [INFO] django.server: "GET /media/admissions/passport_pictures/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-21 11:03:54,555 [INFO] django.server: "GET /media/admissions/passport_front_pages/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-21 11:23:55,040 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34340
+2025-03-21 11:23:55,579 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 11:29:22,770 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34353
+2025-03-21 11:29:23,303 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 11:31:27,116 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34570
+2025-03-21 11:31:28,237 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 11:31:36,680 [WARNING] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js.map HTTP/1.1" 404 2002
+2025-03-21 11:31:36,681 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 11:31:36,745 [WARNING] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js.map HTTP/1.1" 404 1984
+2025-03-21 11:31:37,630 [WARNING] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css.map HTTP/1.1" 404 2083
+2025-03-21 11:31:37,689 [WARNING] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css.map HTTP/1.1" 404 1993
+2025-03-21 11:31:37,690 [WARNING] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 404 1981
+2025-03-21 11:58:09,605 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 34138
+2025-03-21 11:58:10,447 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 11:58:11,362 [WARNING] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 404 1981
+2025-03-21 11:58:11,404 [WARNING] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css.map HTTP/1.1" 404 2083
+2025-03-21 11:58:11,559 [WARNING] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css.map HTTP/1.1" 404 1993
+2025-03-21 11:58:11,626 [WARNING] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js.map HTTP/1.1" 404 2002
+2025-03-21 11:58:11,644 [WARNING] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js.map HTTP/1.1" 404 1984
+2025-03-21 12:07:29,837 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 28450
+2025-03-21 12:07:32,048 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:08:38,186 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-03-21 12:08:39,406 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-03-21 12:08:39,418 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-03-21 12:08:39,423 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-03-21 12:08:41,850 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-03-21 12:08:43,584 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-03-21 12:08:44,892 [WARNING] django.request: Not Found: /favicon.ico
+2025-03-21 12:08:44,895 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-03-21 12:13:08,471 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 28476
+2025-03-21 12:13:09,074 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:15:06,462 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 12:15:15,307 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 12:17:14,704 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 12:17:18,718 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 12:17:34,457 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 12:17:42,989 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 12:17:46,961 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 28449
+2025-03-21 12:17:47,838 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:18:11,248 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-21 12:18:11,873 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 29928
+2025-03-21 12:18:12,401 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:19:35,851 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 29469
+2025-03-21 12:19:36,819 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:19:59,270 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 29521
+2025-03-21 12:19:59,924 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:24:11,874 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 12:24:12,013 [INFO] django.server: "GET /elevated/students/studentdetail/add/ HTTP/1.1" 200 61243
+2025-03-21 12:24:14,686 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 29909
+2025-03-21 12:24:16,335 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:29:33,135 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 31399
+2025-03-21 12:29:33,872 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:31:41,981 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-21 12:31:42,355 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 31820
+2025-03-21 12:31:43,020 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:32:04,639 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-21 12:32:05,175 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 31811
+2025-03-21 12:32:05,706 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:36:15,325 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-21 12:36:19,359 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 12:36:23,639 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30101
+2025-03-21 12:36:25,324 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:37:07,819 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30088
+2025-03-21 12:37:09,303 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:38:58,806 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30161
+2025-03-21 12:38:59,987 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:39:22,431 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30197
+2025-03-21 12:39:23,534 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:39:49,670 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30166
+2025-03-21 12:39:51,118 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:40:11,840 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30168
+2025-03-21 12:40:12,472 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:40:51,630 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30210
+2025-03-21 12:40:52,357 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:41:08,193 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30178
+2025-03-21 12:41:09,106 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:42:56,960 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30178
+2025-03-21 12:42:57,878 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:43:34,402 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30147
+2025-03-21 12:43:35,177 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:43:43,004 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30147
+2025-03-21 12:43:43,941 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:44:00,888 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30146
+2025-03-21 12:44:01,767 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-03-21 12:44:01,802 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-03-21 12:44:02,011 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-03-21 12:44:02,014 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-03-21 12:44:02,016 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-03-21 12:44:02,022 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-03-21 12:44:02,026 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-03-21 12:44:02,028 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-03-21 12:44:02,074 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:44:02,076 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-03-21 12:44:02,934 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 200 2559
+2025-03-21 12:44:02,941 [INFO] django.server: "GET /static/assets/images/ceibs-logo.png HTTP/1.1" 200 47238
+2025-03-21 12:44:03,498 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-03-21 12:44:03,503 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-03-21 12:44:03,870 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-03-21 12:44:03,937 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-03-21 12:44:03,966 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-03-21 12:44:03,982 [INFO] django.server: "GET /static/assets/images/down-arrow.png HTTP/1.1" 200 1015
+2025-03-21 12:44:04,860 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-03-21 12:44:04,881 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-03-21 12:44:04,882 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-03-21 12:44:05,059 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-03-21 12:44:05,506 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-03-21 12:44:05,584 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-03-21 12:44:05,635 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-03-21 12:44:08,263 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 200 44004
+2025-03-21 12:44:14,452 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-03-21 12:45:01,833 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 29928
+2025-03-21 12:45:03,000 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:45:05,418 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 29928
+2025-03-21 12:45:06,169 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:46:05,287 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30151
+2025-03-21 12:46:06,002 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:46:58,941 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30188
+2025-03-21 12:46:59,600 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:47:52,079 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30256
+2025-03-21 12:47:53,084 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:49:05,216 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30188
+2025-03-21 12:49:07,045 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 12:50:25,349 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30148
+2025-03-21 12:50:27,889 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:08:37,820 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30132
+2025-03-21 13:08:39,095 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:08:52,823 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30133
+2025-03-21 13:08:53,191 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:09:55,657 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30140
+2025-03-21 13:09:57,362 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:23:19,137 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 13:23:19,462 [INFO] django.server: "GET /elevated/students/studentdetail/add/ HTTP/1.1" 200 61243
+2025-03-21 13:23:23,438 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30289
+2025-03-21 13:23:24,117 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:25:49,979 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30324
+2025-03-21 13:25:50,492 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:30:13,124 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-21 13:30:18,326 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 13:31:43,897 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-21 13:31:49,023 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 13:32:21,275 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-21 13:32:25,014 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 13:32:52,539 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-21 13:32:56,778 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 13:41:24,410 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:41:25,026 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 13:41:25,162 [INFO] django.server: "GET /elevated/students/studentdetail/add/ HTTP/1.1" 200 61243
+2025-03-21 13:41:25,770 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30324
+2025-03-21 13:41:26,586 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:41:44,865 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30324
+2025-03-21 13:41:46,067 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:45:05,660 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-21 13:45:06,046 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30789
+2025-03-21 13:45:06,537 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:45:54,411 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-21 13:45:58,378 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30789
+2025-03-21 13:46:00,563 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:53:48,948 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 29997
+2025-03-21 13:53:49,957 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:53:50,037 [INFO] django.server: "GET /static/assets/images/ceibs_on_white.png HTTP/1.1" 200 433212
+2025-03-21 13:56:25,516 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 30523
+2025-03-21 13:56:26,006 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:57:56,213 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 30519
+2025-03-21 13:57:56,892 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:58:41,059 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 30520
+2025-03-21 13:58:41,624 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:59:22,854 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26447
+2025-03-21 13:59:24,128 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:59:34,788 [INFO] django.server: "GET /marketing/prospect_stats HTTP/1.1" 200 23628
+2025-03-21 13:59:37,889 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 13:59:46,769 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23065
+2025-03-21 13:59:47,347 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:00:32,321 [INFO] django.server: "GET /marketing/prospect/3/send-admission-request/ HTTP/1.1" 302 0
+2025-03-21 14:00:32,840 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23280
+2025-03-21 14:00:34,087 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:01:35,992 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\tasks.py changed, reloading.
+2025-03-21 14:01:39,095 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 14:01:57,068 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\account\tasks.py changed, reloading.
+2025-03-21 14:01:59,689 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 14:03:02,884 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\students\tasks.py changed, reloading.
+2025-03-21 14:03:05,093 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 14:03:38,825 [INFO] django.server: "GET /marketing/prospect/3/send-admission-request/ HTTP/1.1" 302 0
+2025-03-21 14:03:39,354 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23280
+2025-03-21 14:03:39,840 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:04:53,346 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23065
+2025-03-21 14:04:54,236 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-03-21 14:04:54,400 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-03-21 14:04:54,419 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-03-21 14:04:54,423 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-03-21 14:04:54,561 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-03-21 14:04:54,568 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-03-21 14:04:54,569 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-03-21 14:04:54,572 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-03-21 14:04:54,654 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:04:54,656 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-03-21 14:04:56,196 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 200 2559
+2025-03-21 14:04:56,197 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-03-21 14:04:56,486 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-03-21 14:04:56,499 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-03-21 14:04:56,500 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-03-21 14:04:56,643 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-03-21 14:04:56,891 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-03-21 14:04:57,019 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-03-21 14:04:57,020 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-03-21 14:04:57,038 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-03-21 14:04:57,981 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-03-21 14:04:58,024 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-03-21 14:04:58,032 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-03-21 14:05:00,331 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 200 44004
+2025-03-21 14:05:00,632 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 200 40840
+2025-03-21 14:05:05,187 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-03-21 14:05:43,308 [INFO] django.server: "GET /marketing/prospect/3/send-admission-request/ HTTP/1.1" 302 0
+2025-03-21 14:05:43,764 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23280
+2025-03-21 14:05:44,484 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:06:37,050 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 14:06:44,932 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 14:08:16,186 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23065
+2025-03-21 14:08:17,028 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:08:24,767 [INFO] django.server: "GET /marketing/prospect/3/send-admission-request/ HTTP/1.1" 302 0
+2025-03-21 14:08:25,183 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23280
+2025-03-21 14:08:25,801 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:08:48,801 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 11067
+2025-03-21 14:08:49,458 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-03-21 14:08:49,614 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-03-21 14:08:49,617 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-03-21 14:08:49,622 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-03-21 14:08:49,626 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-03-21 14:08:49,630 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-03-21 14:08:49,638 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-03-21 14:08:49,639 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-03-21 14:08:49,645 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-03-21 14:08:49,840 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:08:49,847 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-03-21 14:08:49,867 [INFO] django.server: "GET /static/assets/images/ceibs_on_white.png HTTP/1.1" 200 433212
+2025-03-21 14:08:50,878 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-03-21 14:08:51,117 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-03-21 14:08:51,176 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-03-21 14:08:51,194 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-03-21 14:08:51,202 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-03-21 14:08:51,216 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-03-21 14:08:51,219 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-03-21 14:08:51,536 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-03-21 14:08:51,556 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-03-21 14:08:51,560 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-03-21 14:08:51,563 [INFO] django.server: "GET /static/assets/images/down-arrow.png HTTP/1.1" 200 1015
+2025-03-21 14:08:51,597 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-03-21 14:08:53,772 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-03-21 14:11:06,325 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 10850
+2025-03-21 14:11:06,776 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:18:21,183 [ERROR] django.request: Internal Server Error: /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 276, in admission_request
+    return render(request, 'marketing/admissions/admission_request.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 745, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\account\templatetags\custom_filters.py", line 27, in has_role
+    return user.has_role(role_name, dept_name)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'has_role'
+2025-03-21 14:18:21,197 [ERROR] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 500 224717
+2025-03-21 14:18:26,110 [WARNING] django.request: Not Found: /favicon.ico
+2025-03-21 14:18:26,112 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-03-21 14:20:19,575 [ERROR] django.request: Internal Server Error: /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 276, in admission_request
+    return render(request, 'marketing/admissions/admission_request.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 745, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\account\templatetags\custom_filters.py", line 27, in has_role
+    return user.has_role(role_name, dept_name)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'has_role'
+2025-03-21 14:20:19,581 [ERROR] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 500 224717
+2025-03-21 14:21:04,182 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py changed, reloading.
+2025-03-21 14:21:09,134 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 14:21:12,589 [ERROR] django.request: Internal Server Error: /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 275, in admission_request
+    return render(request, 'marketing/admissions/admission_request.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 745, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\account\templatetags\custom_filters.py", line 27, in has_role
+    return user.has_role(role_name, dept_name)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'has_role'
+2025-03-21 14:21:12,603 [ERROR] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 500 224717
+2025-03-21 14:22:06,054 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 14209
+2025-03-21 14:22:06,602 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:24:22,787 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 14344
+2025-03-21 14:24:23,291 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:24:38,508 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 14372
+2025-03-21 14:24:39,679 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:25:13,252 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 14397
+2025-03-21 14:25:14,391 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:25:19,993 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 14397
+2025-03-21 14:25:20,532 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:25:31,006 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 14400
+2025-03-21 14:25:31,537 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:25:35,206 [INFO] django.server: "GET /marketing/admission-request/3/3:1tvd2u:pEfVciDrQ2nCSWTc2Q9pQNu863puDUn_eu-RzZbktVQ/ HTTP/1.1" 200 14400
+2025-03-21 14:25:35,648 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:29:50,776 [INFO] django.server: "GET /marketing/add_prospect HTTP/1.1" 200 22320
+2025-03-21 14:29:51,567 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:29:59,525 [INFO] django.server: "GET /marketing/prospect_stats HTTP/1.1" 200 23628
+2025-03-21 14:30:00,606 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:30:16,895 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23065
+2025-03-21 14:30:18,131 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:30:30,826 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26447
+2025-03-21 14:30:31,422 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:30:51,775 [INFO] django.server: "GET /finance/student-finance-overview/ HTTP/1.1" 200 22308
+2025-03-21 14:30:52,573 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 14:41:10,348 [INFO] django.server: "GET /finance/student-finance-overview/ HTTP/1.1" 200 22517
+2025-03-21 14:41:12,315 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 15:59:53,834 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-21 16:00:00,181 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 16:50:01,125 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-21 16:50:05,342 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 16:53:10,680 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-21 16:53:17,966 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 16:58:34,343 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\urls.py changed, reloading.
+2025-03-21 16:58:37,223 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 16:59:13,619 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 16:59:13,940 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-21 16:59:14,055 [INFO] django.server: "GET /elevated/students/studentdetail/add/ HTTP/1.1" 200 61243
+2025-03-21 16:59:14,824 [INFO] django.server: "GET /finance/student-finance-overview/ HTTP/1.1" 200 22522
+2025-03-21 16:59:15,460 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 17:02:34,939 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24400
+2025-03-21 17:02:36,009 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 17:03:21,024 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24400
+2025-03-21 17:03:22,150 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 17:03:41,072 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24400
+2025-03-21 17:03:41,642 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 17:04:11,494 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-21 17:04:14,878 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-21 17:04:19,736 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24446
+2025-03-21 17:04:20,269 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 17:04:28,115 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24446
+2025-03-21 17:04:28,773 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 17:04:50,288 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24456
+2025-03-21 17:04:51,760 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-21 17:07:30,034 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24480
+2025-03-21 17:07:31,456 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:15:36,451 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\ceibs_management\settings.py changed, reloading.
+2025-03-24 11:15:42,949 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 11:16:51,556 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 24480
+2025-03-24 11:16:52,525 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:17:01,827 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26661
+2025-03-24 11:17:02,554 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:17:09,967 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30567
+2025-03-24 11:17:10,636 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:21:00,909 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-24 11:21:01,300 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 31008
+2025-03-24 11:21:02,005 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:24:23,543 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-24 11:24:27,463 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 11:26:31,838 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-24 11:26:37,366 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 11:27:37,305 [ERROR] django.request: Internal Server Error: /marketing/admission_detail/1
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: marketing_admission.date_of_birth
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\views.py", line 385, in admission_detail
+    admission = get_object_or_404(Admission, id=admission_id)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 86, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: marketing_admission.date_of_birth
+2025-03-24 11:27:37,328 [ERROR] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 500 168181
+2025-03-24 11:27:40,806 [WARNING] django.request: Not Found: /favicon.ico
+2025-03-24 11:27:40,807 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-03-24 11:28:19,438 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-24 11:28:19,902 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 31010
+2025-03-24 11:28:21,187 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:29:11,086 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-24 11:29:16,786 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

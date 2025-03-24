@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body text-center">
+          <img src="{% static 'assets/images/ceibs_on_white.png' %}" alt="CEIBS Africa Logo" style="max-width: 150px;" class="mb-4">
+          <h1 class="mb-3">Admission Documents Submitted</h1>
+          <p class="lead">
+            Thank you for submitting your admission documents. Your application is now under review.
+            We will contact you once the review process is complete.
+          </p>
+          <p class="text-muted">
+            Please note: This submission link has now expired and cannot be used again.
+            If any mistakes were made in submission, contact admissions to send you another link for submission.
+            For any further inquiries, please contact our admissions office.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

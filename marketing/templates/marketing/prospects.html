@@ -1,117 +1,146 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="dashboard-main-wrapper">
+    {% include 'inc/header.html' %}
+    {% include 'inc/sidenav.html' %}
 
-        <div class="dashboard-main-wrapper">
-            {% include 'inc/header.html' %}
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content">
+                <!-- Page Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="page-header text-center">
+                            <h2 class="pageheader-title">Prospects List</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Prospects</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Prospect List</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            {% include 'inc/sidenav.html' %}
-
-            <div class="dashboard-wrapper">
-                <div class="dashboard-ecommerce">
-                    <div class="container-fluid dashboard-content ">
-                        <!-- ============================================================== -->
-                        <!-- pageheader  -->
-                        <!-- ============================================================== -->
-                        <div class="row">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="page-header">
-                                    <div class="col-12" style="display: flex; justify-content: space-between">
-                                        <div>
-                                           <h2 class="pageheader-title">Prospects List</h2>
-                                        </div>
-                                    </div>
-                                    <div class="page-breadcrumb">
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Prospects</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Prospect List</li>
-                                            </ol>
-                                        </nav>
-                                    </div>
+                <!-- Prospects Count Card -->
+                <div class="row mb-4">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Prospects Count</h5>
+                                    <h2 class="mb-0">{{ count }}</h2>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-inline-block">
-                                            <h5 class="text-muted">Prospects Count</h5>
-                                            <h2 class="mb-0">{{ count }}</h2>
-                                        </div>
-                                        <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
-{#                                            <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>#}
-                                        </div>
-                                    </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-inline-block">
+                                    <h5 class="text-muted">Converted Count</h5>
+                                    <h2 class="mb-0">0</h2>
                                 </div>
                             </div>
-{#                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">#}
-{#                                <div class="card">#}
-{#                                    <div class="card-body">#}
-{#                                        <div class="d-inline-block">#}
-{#                                            <h5 class="text-muted">No. of goods sold</h5>#}
-{#                                            <h2 class="mb-0"> 30</h2>#}
-{#                                        </div>#}
-{#                                        <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">#}
-{#                                            <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>#}
-{#                                        </div>#}
-{#                                    </div>#}
+                        </div>
+                    </div>
+{#                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">#}
+{#                        <div class="card">#}
+{#                            <div class="card-body">#}
+{#                                <div class="d-inline-block">#}
+{#                                    <h5 class="text-muted">Prospects Count</h5>#}
+{#                                    <h2 class="mb-0">{{ count }}</h2>#}
 {#                                </div>#}
 {#                            </div>#}
-                        </div>
+{#                        </div>#}
+{#                    </div>#}
+                </div>
 
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Prospects</h5>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table" id="myTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Phone Number</th>
-                                                    <th>Email</th>
-                                                    <th>No. of Times Reached</th>
-                                                    <th>Prospect Status</th>
-                                                    <th>Feedback</th>
-                                                    <th>View Feedback</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
+                <!-- Prospects Table -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Prospects</h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Phone Number</th>
+                                                <th>Email</th>
+                                                <th>No. of Times Reached</th>
+                                                <th>Prospect Status</th>
+                                                <th>Feedback</th>
+                                                <th>View Feedback</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             {% for prospect in prospects %}
-                                                <tr>
-                                                    <td>{{ prospect.first_name }}</td>
-                                                    <td>{{ prospect.phone_number }}</td>
-                                                    <td>{{ prospect.email }}</td>
-                                                    <td>{{ prospect.num_of_times_reached }}</td>
-                                                    {% if prospect.converted %}
-                                                        <td>Converted</td>
-                                                    {% else %}
-                                                        <td>Not Converted</td>
-                                                    {% endif %}
-                                                    <td><a class="btn btn-sm btn-primary" href="{% url 'marketing:prospect_feedback' pk=prospect.id %}">Add Feedback</a></td>
-                                                    <td><a class="btn btn-sm btn-primary" href="{% url 'marketing:view_feedbacks' pk=prospect.id %}">View Feedback</a></td>
-                                                    <td><a class="btn btn-sm btn-primary" href="{% url 'marketing:convert_prospect' pk=prospect.id %}">Convert</a></td>
-                                                </tr>
+                                            <tr>
+                                                <td>{{ prospect.first_name }}</td>
+                                                <td>{{ prospect.phone_number }}</td>
+                                                <td>{{ prospect.email }}</td>
+                                                <td>{{ prospect.num_of_times_reached }}</td>
+                                                {% if prospect.converted %}
+                                                    <td>Converted</td>
+                                                {% else %}
+                                                    <td>Not Converted</td>
+                                                {% endif %}
+                                                <td>
+                                                    <a class="btn btn-sm btn-outline-primary" href="{% url 'marketing:prospect_feedback' pk=prospect.id %}">Add Feedback</a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-outline-primary" href="{% url 'marketing:view_feedbacks' pk=prospect.id %}">View Feedback</a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-outline-success send-request" href="{% url 'marketing:send_admission_request_email' prospect_id=prospect.id %}">Send Request</a>
+                                                </td>
+                                            </tr>
                                             {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-
-
-                    </div> <!-- Dashboard Content End -->
+                    </div>
                 </div>
-            </div>
 
+            </div> <!-- Dashboard Content End -->
         </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
+<!-- Include SweetAlert2 from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Attach event listener to all links with class 'send-request'
+    document.querySelectorAll('.send-request').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.href;
+            Swal.fire({
+                title: 'Confirm Admission Request',
+                text: 'Are you sure you want to send the admission request email to this prospect?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, send it',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = href;
+                }
+            });
+        });
+    });
+});
+</script>
 {% endblock %}

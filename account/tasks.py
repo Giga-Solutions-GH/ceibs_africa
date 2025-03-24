@@ -11,7 +11,7 @@ User = get_user_model()
 
 
 def get_domain():
-    return 'ab71-41-215-169-36.ngrok-free.app'
+    return '33e2-41-215-171-159.ngrok-free.app'
 
 
 @shared_task(name="account.send_login_notification")

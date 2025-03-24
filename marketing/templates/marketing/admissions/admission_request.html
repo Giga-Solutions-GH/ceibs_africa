@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header text-center">
+            <img src="{% static 'assets/images/ceibs_on_white.png' %}" alt="CEIBS Africa Online" style="max-width: 150px;">
+            <h3 class="mt-3">Admission Documents Submission</h3>
+        </div>
+        <div class="card-body">
+            <p>Dear {{ prospect.first_name }},</p>
+            <p>Please complete the form below and upload the required documents. You are requested to submit your personal information along with the following documents:</p>
+            <ul>
+                <li>Passport Photo</li>
+                <li>Passport Front Page</li>
+                <li>Curriculum Vitae (CV)</li>
+                <li>Transcripts (you may upload multiple files)</li>
+                <li>Certificates (you may upload multiple files)</li>
+            </ul>
+            <i style="text-decoration: underline" class="text-success">If you have multiple certificates or transcripts, zip them and upload as one file or combine them into one pdf file</i>
+            <!-- Admission Form -->
+        <form method="post" enctype="multipart/form-data" novalidate>
+          {% csrf_token %}
+          <div class="row">
+            <!-- Left Column: Personal Information -->
+            <div class="col-lg-6 mb-4">
+              <div class="card shadow-sm">
+                <div class="card-header">
+                  <h5>Personal Information</h5>
+                </div>
+                <div class="card-body">
+                  <!-- First Name -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.first_name.id_for_label }}" class="form-label"><strong>First Name</strong></label>
+                    {{ admission_form.first_name }}
+                    {% for error in admission_form.first_name.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Last Name -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.last_name.id_for_label }}" class="form-label"><strong>Last Name</strong></label>
+                    {{ admission_form.last_name }}
+                    {% for error in admission_form.last_name.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Other Names -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.other_names.id_for_label }}" class="form-label"><strong>Other Names</strong></label>
+                    {{ admission_form.other_names }}
+                    {% for error in admission_form.other_names.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                <!-- Date of Birth  -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.date_of_birth.id_for_label }}" class="form-label"><strong>Date of Birth</strong></label>
+                    {{ admission_form.date_of_birth }}
+                    {% for error in admission_form.date_of_birth.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Email -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.email.id_for_label }}" class="form-label"><strong>Email</strong></label>
+                    {{ admission_form.email }}
+                    {% for error in admission_form.email.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Phone Number -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.phone_number.id_for_label }}" class="form-label"><strong>Phone Number</strong></label>
+                    {{ admission_form.phone_number }}
+                    {% for error in admission_form.phone_number.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Company -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.company.id_for_label }}" class="form-label"><strong>Company/Organization</strong></label>
+                    {{ admission_form.company }}
+                    {% for error in admission_form.company.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Position -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.position.id_for_label }}" class="form-label"><strong>Position</strong></label>
+                    {{ admission_form.position }}
+                    {% for error in admission_form.position.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Program of Interest -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.program_of_interest.id_for_label }}" class="form-label"><strong>Program of Interest</strong></label>
+                    {{ admission_form.program_of_interest }}
+                    {% for error in admission_form.program_of_interest.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Comments -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.comments.id_for_label }}" class="form-label"><strong>Comments</strong></label>
+                    {{ admission_form.comments }}
+                    {% for error in admission_form.comments.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Document Uploads -->
+            <div class="col-lg-6 mb-4">
+              <div class="card shadow-sm">
+                <div class="card-header">
+                  <h5>Upload Documents</h5>
+                </div>
+                <div class="card-body">
+                  <!-- Passport Picture -->
+                  <div class="mb-3 text-center">
+                    <label for="{{ admission_form.passport_picture.id_for_label }}" class="form-label"><strong>Passport Photo</strong></label>
+                    {{ admission_form.passport_picture }}
+                    {% if admission.passport_picture %}
+                      <br>
+                      <small>Current File:</small>
+                      <div class="mt-2">
+                        <img src="{{ admission.passport_picture.url }}" alt="Passport Photo" class="img-fluid rounded" style="max-height:100px;">
+                      </div>
+                    {% endif %}
+                    {% for error in admission_form.passport_picture.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Passport Front Page -->
+                  <div class="mb-3 text-center">
+                    <label for="{{ admission_form.passport_front_page.id_for_label }}" class="form-label"><strong>Passport Front Page</strong></label>
+                    {{ admission_form.passport_front_page }}
+                    {% if admission.passport_front_page %}
+                      <br>
+                      <small>Current File:</small>
+                      <div class="mt-2">
+                        <img src="{{ admission.passport_front_page.url }}" alt="Passport Front Page" class="img-fluid rounded" style="max-height:100px;">
+                      </div>
+                    {% endif %}
+                    {% for error in admission_form.passport_front_page.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Curriculum Vitae -->
+                  <div class="mb-3 text-center">
+                    <label for="{{ admission_form.cv.id_for_label }}" class="form-label"><strong>Curriculum Vitae (CV)</strong></label>
+                    {{ admission_form.cv }}
+                    {% if admission.cv %}
+                      <br>
+                      <small>Current File:</small>
+                      <div class="mt-2">
+                        <a href="{{ admission.cv.url }}" target="_blank" class="btn btn-outline-primary btn-sm">Download CV</a>
+                      </div>
+                    {% endif %}
+                    {% for error in admission_form.cv.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Additional Documents: Transcripts -->
+                  <div class="mb-3 text-center">
+                    <label for="{{ admission_form.transcript_files.id_for_label }}" class="form-label"><strong>Upload Transcripts</strong></label>
+                    <small class="form-text text-muted">Allowed file types: PDF, ZIP. Maximum size: 10MB each.</small>
+                    {{ admission_form.transcript_files }}
+                    {% if admission.transcript_files %}
+                      <br>
+                      <small>Current File:</small>
+                      <div class="mt-2">
+                        <a href="{{ admission.transcript_files.url }}" target="_blank">{{ admission.transcript_files.name }}</a>
+                      </div>
+                    {% endif %}
+                    {% for error in admission_form.transcript_files.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Additional Documents: Certificates -->
+                  <div class="mb-3 text-center">
+                    <label for="{{ admission_form.certificate_files.id_for_label }}" class="form-label"><strong>Upload Certificates</strong></label>
+                    <small class="form-text text-muted">Allowed file types: PDF, ZIP. Maximum size: 10MB each.</small>
+                    {{ admission_form.certificate_files }}
+                    {% if admission.certificate_files %}
+                      <br>
+                      <small>Current File:</small>
+                      <div class="mt-2">
+                        <a href="{{ admission.certificate_files.url }}" target="_blank">{{ admission.certificate_files.name }}</a>
+                      </div>
+                    {% endif %}
+                    {% for error in admission_form.certificate_files.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <!-- Additional Documents: Other Files -->
+                  <div class="mb-3 text-center">
+                    <label for="{{ admission_form.other_files.id_for_label }}" class="form-label"><strong>Upload Other Documents</strong></label>
+                    <small class="form-text text-muted">Allowed file types: PDF, ZIP. Maximum size: 10MB each.</small>
+                    {{ admission_form.other_files }}
+                    {% if admission.other_files %}
+                      <br>
+                      <small>Current File:</small>
+                      <div class="mt-2">
+                        <a href="{{ admission.other_files.url }}" target="_blank">{{ admission.other_files.name }}</a>
+                      </div>
+                    {% endif %}
+                    {% for error in admission_form.other_files.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                </div><!-- card-body end -->
+              </div><!-- card end -->
+            </div><!-- col-lg-6 end -->
+          </div><!-- row end -->
+
+          <!-- Save Changes Button -->
+          <div class="row mt-4 mb-5">
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+            </div>
+          </div>
+        </form>
+        <!-- Main Form End -->
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-0">Powered by CEIBS Africa Online</p>
+            <img src="{% static 'assets/images/ceibs_on_white.png' %}" alt="CEIBS Africa Logo" style="max-width: 100px;">
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,379 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+
+        <!-- ===================== Page Header ===================== -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h4 class="pageheader-title">Admission Details</h4>
+              <p>Review and update your admission information and uploaded documents.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================== Progress Bar at the Top ===================== -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="progress border" style="height: 20px;">
+              <div class="progress-bar" role="progressbar"
+                   style="width: {{ progress }}%;"
+                   aria-valuenow="{{ progress }}" aria-valuemin="0"
+                   aria-valuemax="100">
+                {{ progress }}%
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================== Display Messages ===================== -->
+        {% if messages %}
+          <div class="row mb-3">
+            <div class="col-12">
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- ===================== Main Form ===================== -->
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <!-- Applicant Information Column -->
+            <div class="col-lg-6 mb-4">
+              <div class="card shadow-sm">
+                <div class="card-header">
+                  <h5>Applicant Information</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="id_first_name"><strong>First Name</strong></label>
+                      {{ admission_form.first_name }}
+                      {% for error in admission_form.first_name.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="col-md-6">
+                      <label for="id_last_name"><strong>Last Name</strong></label>
+                      {{ admission_form.last_name }}
+                      {% for error in admission_form.last_name.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="id_other_names"><strong>Other Names</strong></label>
+                      {{ admission_form.other_names }}
+                      {% for error in admission_form.other_names.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="col-md-6">
+                      <label for="id_email"><strong>Email</strong></label>
+                      {{ admission_form.email }}
+                      {% for error in admission_form.email.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="id_phone_number"><strong>Phone Number</strong></label>
+                      {{ admission_form.phone_number }}
+                      {% for error in admission_form.phone_number.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="col-md-6">
+                      <label for="id_company"><strong>Company/Organization</strong></label>
+                      {{ admission_form.company }}
+                      {% for error in admission_form.company.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="id_position"><strong>Position</strong></label>
+                      {{ admission_form.position }}
+                      {% for error in admission_form.position.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="col-md-6">
+                      <label for="id_program_of_interest"><strong>Program of Interest</strong></label>
+                      {{ admission_form.program_of_interest }}
+                      {% for error in admission_form.program_of_interest.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-12">
+                      <label for="id_comments"><strong>Comments</strong></label>
+                      {{ admission_form.comments }}
+                      {% for error in admission_form.comments.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="id_status"><strong>Status</strong></label>
+                    {{ admission_form.status }}
+                    {% for error in admission_form.status.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+
+                  <hr class="my-3">
+                  <p><strong>Date Submitted:</strong> {{ admission.date_submitted|date:"Y-m-d H:i" }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Document Upload Column -->
+            <div class="col-lg-6 mb-4">
+              <div class="card shadow-sm">
+                <div class="card-header">
+                  <h5>Upload Documents</h5>
+                </div>
+                <div class="card-body">
+                  <!-- Passport Photo sub-card -->
+                  <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                      <label for="id_passport_picture" class="form-label"><strong>Passport Photo</strong></label>
+
+                      <div class="input-group mb-2">
+                        <p>{{ admission_form.passport_picture }}</p>
+                        {% if admission.passport_picture %}
+
+                          <span class="">
+                            <a class="btn btn-outline-dark" href="{{ admission.passport_picture.url }}"
+                               download="Passport_Photo.jpg"
+                               title="Download Passport Photo">
+                              <i class="fa fa-download"></i> Download Existing File
+                            </a>
+                          </span>
+                        {% endif %}
+                      </div>
+                      {% if admission_form.passport_picture.clear_checkbox %}
+                        <!-- Custom styled clear checkbox -->
+                        <div class="form-check">
+                          {{ admission_form.passport_picture.clear_checkbox }}
+                          <label class="form-check-label"
+                                 for="{{ admission_form.passport_picture.clear_checkbox.id_for_label }}">
+                            Remove existing file
+                          </label>
+                        </div>
+                      {% endif %}
+                      {% for error in admission_form.passport_picture.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <!-- Passport Page sub-card -->
+                  <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                      <label for="id_passport_front_page" class="form-label"><strong>Passport Page</strong></label>
+                      <div class="input-group mb-2">
+                        <p>{{ admission_form.passport_front_page }}</p>
+                        {% if admission.passport_front_page %}
+
+                          <span class="">
+                            <a class="btn btn-outline-dark" href="{{ admission.passport_front_page.url }}"
+                               download="Passport_Front_Page.jpg"
+                               title="Download Passport Front Page">
+                              <i class="fa fa-download"></i> Download Existing File
+                            </a>
+                          </span>
+                        {% endif %}
+                      </div>
+                      {% if admission_form.passport_front_page.clear_checkbox %}
+                        <div class="form-check">
+                          {{ admission_form.passport_front_page.clear_checkbox }}
+                          <label class="form-check-label"
+                                 for="{{ admission_form.passport_front_page.clear_checkbox.id_for_label }}">
+                            Remove existing file
+                          </label>
+                        </div>
+                      {% endif %}
+                      {% for error in admission_form.passport_front_page.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <!-- CV sub-card -->
+                  <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                      <label for="id_cv" class="form-label"><strong>Curriculum Vitae (CV)</strong></label>
+                      <div class="input-group mb-2">
+                        <p>{{ admission_form.cv }}</p>
+                        {% if admission.cv %}
+
+                          <span class="">
+                            <a class="btn btn-outline-dark" href="{{ admission.cv.url }}"
+                               download="CV.pdf"
+                               title="Download CV">
+                              <i class="fa fa-download"></i> Download Existing File
+                            </a>
+                          </span>
+                        {% endif %}
+                      </div>
+                      {% if admission_form.cv.clear_checkbox %}
+                        <div class="form-check">
+                          {{ admission_form.cv.clear_checkbox }}
+                          <label class="form-check-label"
+                                 for="{{ admission_form.cv.clear_checkbox.id_for_label }}">
+                            Remove existing file
+                          </label>
+                        </div>
+                      {% endif %}
+                      {% for error in admission_form.cv.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <!-- Certificates sub-card -->
+                  <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                      <label for="id_certificate_files" class="form-label"><strong>Certificates</strong></label>
+                      <div class="input-group mb-2">
+                        <p>{{ admission_form.certificate_files }}</p>
+                        {% if admission.certificate_files %}
+
+                          <span class="">
+                            <a class="btn btn-outline-dark" href="{{ admission.certificate_files.url }}"
+                               download="Certificate"
+                               title="Download Certificates">
+                              <i class="fa fa-download"></i> Download Existing File
+                            </a>
+                          </span>
+                        {% endif %}
+                      </div>
+                      {% if admission_form.certificate_files.clear_checkbox %}
+                        <div class="form-check">
+                          {{ admission_form.certificate_files.clear_checkbox }}
+                          <label class="form-check-label"
+                                 for="{{ admission_form.certificate_files.clear_checkbox.id_for_label }}">
+                            Remove existing file
+                          </label>
+                        </div>
+                      {% endif %}
+                      {% for error in admission_form.certificate_files.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <!-- Transcripts sub-card -->
+                  <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                      <label for="id_transcript_files" class="form-label"><strong>Transcripts</strong></label>
+                      <div class="input-group mb-2">
+                        <p>{{ admission_form.transcript_files }}</p>
+                        {% if admission.transcript_files %}
+
+                          <span class="">
+                            <a class="btn btn-outline-dark" href="{{ admission.transcript_files.url }}"
+                               download="Transcript"
+                               title="Download Transcript">
+                              <i class="fa fa-download"></i> Download Existing File
+                            </a>
+                          </span>
+                        {% endif %}
+                      </div>
+                      {% if admission_form.transcript_files.clear_checkbox %}
+                        <div class="form-check">
+                          {{ admission_form.transcript_files.clear_checkbox }}
+                          <label class="form-check-label"
+                                 for="{{ admission_form.transcript_files.clear_checkbox.id_for_label }}">
+                            Remove existing file
+                          </label>
+                        </div>
+                      {% endif %}
+                      {% for error in admission_form.transcript_files.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <!-- Other Documents sub-card -->
+                  <div class="card mb-4 border-0 shadow-sm">
+                    <div class="card-body">
+                      <label for="id_other_files" class="form-label"><strong>Additional Documents</strong></label>
+                      <div class="input-group mb-2">
+                        <p>{{ admission_form.other_files }}</p>
+                        {% if admission.other_files %}
+
+                          <span class="">
+                            <a class="btn btn-outline-dark" href="{{ admission.other_files.url }}"
+                               download="Other Files"
+                               title="Download Other Files">
+                              <i class="fa fa-download"></i> Download Existing File
+                            </a>
+                          </span>
+                        {% endif %}
+                      </div>
+                      {% if admission_form.other_files.clear_checkbox %}
+                        <div class="form-check">
+                          {{ admission_form.other_files.clear_checkbox }}
+                          <label class="form-check-label"
+                                 for="{{ admission_form.other_files.clear_checkbox.id_for_label }}">
+                            Remove existing file
+                          </label>
+                        </div>
+                      {% endif %}
+                      {% for error in admission_form.other_files.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                </div><!-- card-body end -->
+              </div><!-- card end -->
+            </div><!-- col-lg-6 end -->
+          </div><!-- row end -->
+
+          <!-- Save Changes Button -->
+          <div class="row mt-4 mb-5">
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+            </div>
+          </div>
+        </form>
+        <!-- ===================== Main Form End ===================== -->
+
+        <!-- CEIBS Logo & Footer Section -->
+        <div class="text-center">
+          <img src="{% static 'assets/images/ceibs-logo.png' %}" alt="CEIBS Africa Online" style="max-width: 150px;">
+          <p class="mt-2">Powered by Giga Solutions GH © {{ now|date:"Y" }}</p>
+        </div>
+      </div> <!-- container-fluid end -->
+    </div> <!-- dashboard-ecommerce end -->
+  </div> <!-- dashboard-wrapper end -->
+</div> <!-- dashboard-main-wrapper end -->
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

@@ -28,12 +28,12 @@ SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY', 'django-insecure-2=%90%y_dk6@
 DEBUG = get_env_variable('DJANGO_DEBUG', 'True') == 'True'
 
 # Define allowed hosts
-ALLOWED_HOSTS = get_env_variable('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,ab71-41-215-169-36.ngrok-free.app').split(',')
+ALLOWED_HOSTS = get_env_variable('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,33e2-41-215-171-159.ngrok-free.app').split(',')
 
 REDIS_URL = get_env_variable('REDIS_URL', 'redis://localhost:6379/0')
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://ab71-41-215-169-36.ngrok-free.app'
+    'https://33e2-41-215-171-159.ngrok-free.app'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CELERY_BROKER_URL = REDIS_URL
@@ -102,7 +102,7 @@ JAZZMIN_SETTINGS = {
 
     # List of model admins to search from the search bar, search bar omitted if excluded
     # If you want to use a single search field you dont need to use a list, you can use a simple string
-    "search_model": ["account.CustomUser"],
+    "search_model": ["account.CustomUser", "academic_program.StudentDetail"],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
     "user_avatar": None,

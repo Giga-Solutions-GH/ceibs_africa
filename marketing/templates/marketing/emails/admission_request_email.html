@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CEIBS Africa Online - Admission Request</title>
+  <style type="text/css">
+    /* Inline CSS for email compatibility */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid #e0e0e0;
+    }
+    .header {
+      background-color: #d60000;
+      padding: 20px;
+      text-align: center;
+    }
+    .header img {
+      max-width: 150px;
+    }
+    .header h1 {
+      color: #ffffff;
+      margin: 10px 0 0 0;
+      font-size: 24px;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content p {
+      line-height: 1.5;
+      margin: 0 0 15px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #d60000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777777;
+      padding: 15px;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{% static 'assets/images/ceibs_on_white.png' %}" alt="CEIBS Africa Online Logo">
+      <h1>Admission Request</h1>
+    </div>
+    <div class="content">
+      <p>Dear {{ prospect.first_name }},</p>
+      <p>
+        Thank you for your interest in joining CEIBS Africa Online. To complete your admission process,
+        we kindly request that you submit the following documents and details:
+      </p>
+      <ul>
+        <li>Your personal details</li>
+        <li>A recent passport‑sized photo.</li>
+        <li>The front page of your passport.</li>
+        <li>Your Curriculum Vitae (CV).</li>
+        <li>Academic transcripts (you may upload multiple files).</li>
+        <li>Certificates and qualifications (you may upload multiple files).</li>
+      </ul>
+      <p>
+        Please click the button below to securely provide your documents and information.
+      </p>
+      <p style="text-align: center;">
+        <a href="{{ admission_request_url }}" class="btn">Submit Your Documents</a>
+      </p>
+      <p>
+        If you have any questions or need assistance, please contact our admissions team at
+        <a href="mailto:support@ceibsonline.africa" style="color: #d60000;">support@ceibsonline.africa</a>.
+      </p>
+      <p>
+        We look forward to receiving your documents and welcoming you to our community.
+      </p>
+      <p>Best regards,<br>The CEIBS Africa Online Admissions Team</p>
+    </div>
+    <div class="footer">
+      <p>Powered by CEIBS Africa Online © {{ current_time|date:"Y" }}</p>
+    </div>
+  </div>
+</body>
+</html>
