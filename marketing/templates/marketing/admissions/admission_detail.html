@@ -24,11 +24,11 @@
         <div class="row mb-4">
           <div class="col-12">
             <div class="progress border" style="height: 20px;">
-              <div class="progress-bar" role="progressbar"
+              <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
                    style="width: {{ progress }}%;"
                    aria-valuenow="{{ progress }}" aria-valuemin="0"
                    aria-valuemax="100">
-                {{ progress }}%
+                Admission Progress: {{ progress }}%
               </div>
             </div>
           </div>
@@ -81,6 +81,13 @@
                         <div class="text-danger">{{ error }}</div>
                       {% endfor %}
                     </div>
+                  <div class="col-md-6">
+                      <label for="id_other_names"><strong>Gender</strong></label>
+                      {{ admission_form.gender }}
+                      {% for error in admission_form.gender.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
                     <div class="col-md-6">
                       <label for="id_email"><strong>Email</strong></label>
                       {{ admission_form.email }}
@@ -95,6 +102,13 @@
                       <label for="id_phone_number"><strong>Phone Number</strong></label>
                       {{ admission_form.phone_number }}
                       {% for error in admission_form.phone_number.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                  <div class="col-md-6">
+                      <label for="id_phone_number"><strong>Nationality</strong></label>
+                      {{ admission_form.nationality }}
+                      {% for error in admission_form.nationality.errors %}
                         <div class="text-danger">{{ error }}</div>
                       {% endfor %}
                     </div>

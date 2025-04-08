@@ -13,7 +13,7 @@
         <div class="row mb-4">
           <div class="col-12">
             <div class="page-header text-center">
-              <h2 class="pageheader-title">Student List - {{ program_name }}</h2>
+              <h2 class="pageheader-title">Participant List - {{ program_name }}</h2>
               <div class="page-breadcrumb">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -73,7 +73,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-inline-block">
-                  <h5 class="text-muted">Active Students</h5>
+                  <h5 class="text-muted">Active Participants</h5>
                   <h2 class="mb-0">{{ active_count }}</h2>
                 </div>
                 <div class="float-end icon-circle-medium icon-box-lg mt-1">
@@ -86,7 +86,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-inline-block">
-                  <h5 class="text-muted">Male Students</h5>
+                  <h5 class="text-muted">Male Participants</h5>
                   <h2 class="mb-0">{{ male_count }}</h2>
                 </div>
                 <div class="float-end icon-circle-medium icon-box-lg mt-1">
@@ -99,7 +99,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-inline-block">
-                  <h5 class="text-muted">Female Students</h5>
+                  <h5 class="text-muted">Female Participants</h5>
                   <h2 class="mb-0">{{ female_count }}</h2>
                 </div>
                 <div class="float-end icon-circle-medium icon-box-lg mt-1">
@@ -114,7 +114,7 @@
         <div class="row mb-4">
           <div class="col-12 text-end">
             <a href="{% url 'academic_program:export_students' program_name=program_name program_type=program_type %}" class="btn btn-outline-primary">
-              Export Students
+              Export Participants
             </a>
           </div>
         </div>

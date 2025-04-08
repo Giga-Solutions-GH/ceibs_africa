@@ -96,6 +96,7 @@
                                                 <th>Position</th>
                                                 <th>Company</th>
                                                 <th>Date Submitted</th>
+                                                <th>Last Update</th>
                                                 <th>Status</th>
                                                 <th>Program of Interest</th>
                                                 <th>Action</th>
@@ -110,6 +111,7 @@
                                                 <td>{{ admission.position }}</td>
                                                 <td>{{ admission.company }}</td>
                                                 <td>{{ admission.date_submitted|date:"Y-m-d H:i" }}</td>
+                                                <td>{{ admission.last_update|date:"Y-m-d H:i" }}</td>
                                                 <td>{{ admission.get_status_display }}</td>
                                                 <td>
                                                     {% if admission.program_of_interest %}
@@ -119,7 +121,7 @@
                                                     {% endif %}
                                                 </td>
                                                 <td>
-                                                    <a href="{% url 'marketing:admission_detail' admission.id %}" class="btn btn-info btn-sm">More Details</a>
+                                                    <a href="{% url 'student_finance:admission_finance_detail' admission.id %}" class="btn btn-info btn-sm">More Details</a>
                                                 </td>
                                             </tr>
                                             {% endfor %}

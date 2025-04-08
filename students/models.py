@@ -24,6 +24,7 @@ class StudentDetail(models.Model):
     status = models.BooleanField(default=True)
     position = models.CharField(max_length=250, null=True, blank=True)
     next_of_kin = models.CharField(max_length=250, null=True, blank=True)
+    next_of_kin_contact = models.CharField(max_length=250, null=True, blank=True)
     nationality = models.CharField(max_length=250, null=True, blank=True)
     flag = models.BooleanField(default=True)
     company = models.CharField(null=True, blank=True, max_length=300)

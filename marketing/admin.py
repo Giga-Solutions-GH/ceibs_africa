@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import csv
 from django.utils.encoding import smart_str
 
-from .models import Prospect, ProspectFeedback
+from .models import Prospect, ProspectFeedback, Admission
 
 
 def export_as_csv(modeladmin, request, queryset):
@@ -49,4 +49,12 @@ class ProspectFeedbackAdmin(admin.ModelAdmin):
     list_display = ['prospect', 'feedback', 'date_added', 'user']
     list_filter = ['date_added', 'user']
     search_fields = ['prospect__first_name', 'prospect__last_name', 'feedback']
+    actions = [export_as_csv]
+
+
+@admin.register(Admission)
+class AdmissionAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name', 'email', 'gender', 'nationality', 'position', 'company', 'status', 'date_submitted']
+    list_filter = ['nationality', 'position', 'company', 'status']
+    search_fields = ['email', 'first_name', 'company']
     actions = [export_as_csv]

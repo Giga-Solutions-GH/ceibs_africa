@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .header img {
+            max-width: 120px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .content h2 {
+            color: #d60000;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .details-table th, .details-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .details-table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #d60000;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ dashboard_link }}{% static 'assets/images/ceibs-logo.png' %}" alt="CEIBS Africa Online Logo">
+            <h1>CEIBS Africa Online</h1>
+        </div>
+        <div class="content">
+            <h2>Payment Receipt</h2>
+            <p>Dear {{ student.first_name }},</p>
+            <p>Thank you for your payment update. Please find below your finance details below as at {{ current_time }}:</p>
+            <table class="details-table">
+                <tr>
+                    <th>Total Fees</th>
+                    <td>${{ total_fee|floatformat:2 }}</td>
+                </tr>
+                <tr>
+                    <th>Fees Paid</th>
+                    <td>${{ fees_paid|floatformat:2 }}</td>
+                </tr>
+                <tr>
+                    <th>Percentage Cleared</th>
+                    <td>{{ percentage|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <th>Balance Remaining</th>
+                    <td>${{ balance|floatformat:2 }}</td>
+                </tr>
+            </table>
+            <p>If you have any questions, please contact our finance department.</p>
+            <p>Thank you for choosing CEIBS Africa Online.</p>
+        </div>
+        <div class="footer">
+            <p>Powered by CEIBS Africa Online © {{ current_time|date:"Y" }}</p>
+        </div>
+    </div>
+</body>
+</html>

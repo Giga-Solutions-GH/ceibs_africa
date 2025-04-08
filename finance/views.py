@@ -1,13 +1,19 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.utils import timezone
 
 from academic_program.models import Program, ProgramCover
-from finance.models import FinanceStatement, StudentFinance, ProgramFees, PaymentTrail
+from finance.models import FinanceStatement, StudentFinance, ProgramFees, PaymentTrail, AdmissionFinance, \
+    AdmissionPaymentTrail
 from marketing.models import Admission
+from marketing.utils import get_progress_for_status
 from students.models import StudentDetail, StudentEnrollment
+from .forms import FinanceAdmissionForm, ProgramFeesForm, FinanceStatementForm
+from .tasks import send_finance_receipt_email, convert_admission_to_student
 
 
 # Create your views here.
@@ -202,3 +208,199 @@ def admission_list(request):
         'program_covers': program_covers,
     }
     return render(request, 'finance/layouts/admissions.html', context)
+
+
+@transaction.atomic
+@login_required(login_url='account:login')
+def admission_finance_detail(request, admission_id):
+    """
+    Displays and updates the finance details for an Admission.
+    It calculates the total fee (via FinanceStatement linked to ProgramFees),
+    updates the fees paid, computes the balance and percentage cleared,
+    and allows finance to update the admission status (only statuses from
+    "awaiting_financial_clearance" downward). If the new status is
+    "student_cleared_financially", a background task is triggered to convert the
+    admission into a student.
+    """
+    # Retrieve the Admission record.
+    admission = get_object_or_404(Admission, id=admission_id)
+
+    # Get the active program under the admission's program of interest.
+    try:
+        active_program = Program.objects.get(
+            program_cover=admission.program_of_interest,
+            flag=True,
+            program_ended=False,
+        )
+    except Program.DoesNotExist:
+        messages.error(request, "No active program found for this admission.")
+        return redirect('student_finance:admission_list_finance')
+
+    try:
+        program_fees = ProgramFees.objects.get(program=active_program)
+        finance_statement = FinanceStatement.objects.get(program_fees=program_fees)
+    except (ProgramFees.DoesNotExist, FinanceStatement.DoesNotExist):
+        messages.error(request, "Finance information is not configured for the selected program.")
+        return redirect('student_finance:admission_list_finance')
+
+    # Get or create the AdmissionFinance record.
+    admission_finance, created = AdmissionFinance.objects.get_or_create(student=admission, fees=finance_statement)
+    total_fee = admission_finance.fees.program_fees.fee or 0.0
+
+    if request.method == 'POST':
+        form = FinanceAdmissionForm(request.POST)
+        if form.is_valid():
+            fees_paid = form.cleaned_data['fees_paid']
+            new_status = form.cleaned_data.get('status_update', '')
+            payment_method = form.cleaned_data.get('payment_method', '')
+
+            # Compute percentage cleared and balance.
+            if total_fee > 0:
+                percentage = (fees_paid / total_fee) * 100
+            else:
+                percentage = 0.0
+            balance = total_fee - fees_paid
+
+            # Update the AdmissionFinance record.
+            admission_finance.fees_paid = fees_paid
+            admission_finance.percentage_cleared = percentage
+            admission_finance.student_balance = balance
+            admission_finance.save()
+
+            # Optionally update the admission status if provided.
+            if new_status:
+                admission.status = new_status
+                admission.last_update = timezone.now()
+                admission.save()
+                # If the new status indicates that the student is cleared financially,
+                # trigger a background task to convert the admission into a student.
+                if new_status == "student_cleared_financially":
+                    convert_admission_to_student.delay(admission.id)
+
+            # Create a new payment trail record.
+            AdmissionPaymentTrail.objects.create(
+                admission_finance=admission_finance,
+                program=active_program,
+                amount_paid=fees_paid,
+                new_balance=balance,
+                payment_method=payment_method,
+                remarks="Payment updated via finance portal."
+            )
+
+            # Trigger background task to send a finance receipt email.
+            send_finance_receipt_email.delay(admission_finance.id)
+
+            messages.success(request, "Financial details updated successfully. A receipt email has been sent.")
+            return redirect('student_finance:admission_finance_detail', admission_id=admission.id)
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        initial_data = {
+            'fees_paid': admission_finance.fees_paid or 0.0,
+            'status_update': admission.status if admission.status in [
+                'awaiting_financial_clearance',
+                'student_cleared_financially',
+                'admission_completed',
+                'rejected'
+            ] else '',
+        }
+        form = FinanceAdmissionForm(initial=initial_data)
+        fees_paid = admission_finance.fees_paid or 0.0
+        percentage = admission_finance.percentage_cleared or 0.0
+        balance = admission_finance.student_balance or (total_fee - fees_paid)
+
+    progress = get_progress_for_status(admission.status)
+
+    context = {
+        'admission': admission,
+        'admission_finance': admission_finance,
+        'total_fee': total_fee,
+        'fees_paid': fees_paid,
+        'percentage': percentage,
+        'balance': balance,
+        'progress': progress,
+        'now': timezone.now(),
+        'finance_form': form,
+    }
+    return render(request, 'finance/layouts/admission_finance_detail.html', context)
+
+
+@transaction.atomic
+@login_required(login_url='account:login')
+def manage_program_fees(request):
+    # Get active programs (active = flag True and program_ended = False)
+    active_programs = Program.objects.filter(flag=True, program_ended=False).order_by('program_name')
+
+    selected_program = None
+    program_fees_form = None
+    finance_statement_form = None
+
+    # If a program is selected (via GET parameter)
+    program_id = request.GET.get('program_id')
+    if program_id:
+        try:
+            selected_program = active_programs.get(id=program_id)
+        except Program.DoesNotExist:
+            messages.error(request, "Selected program not found.")
+        if selected_program:
+            # Get or create the ProgramFees for the selected program.
+            program_fees, _ = ProgramFees.objects.get_or_create(program=selected_program)
+            # Get or create the FinanceStatement using the ProgramFees.
+            finance_statement, _ = FinanceStatement.objects.get_or_create(program_fees=program_fees)
+
+            if request.method == 'POST':
+                # Use two separate forms – both forms should be in the POST data.
+                program_fees_form = ProgramFeesForm(request.POST, instance=program_fees)
+                finance_statement_form = FinanceStatementForm(request.POST, instance=finance_statement)
+                if program_fees_form.is_valid() and finance_statement_form.is_valid():
+                    program_fees_form.save()
+                    finance_statement_form.save()
+                    messages.success(request, "Program fees and payment options updated successfully.")
+                    return redirect(f"{reverse('finance:manage_program_fees')}?program_id={selected_program.id}")
+                else:
+                    messages.error(request, "Please correct the errors below.")
+            else:
+                program_fees_form = ProgramFeesForm(instance=program_fees)
+                finance_statement_form = FinanceStatementForm(instance=finance_statement)
+
+    context = {
+        'active_programs': active_programs,
+        'selected_program': selected_program,
+        'program_fees_form': program_fees_form,
+        'finance_statement_form': finance_statement_form,
+    }
+    return render(request, 'finance/layouts/manage_program_fees.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

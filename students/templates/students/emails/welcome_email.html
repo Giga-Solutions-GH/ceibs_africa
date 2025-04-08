@@ -21,7 +21,6 @@
         <p>Dear {{ user.first_name }},</p>
         <p>
             Congratulations on being successfully registered as a student at CEIBS Africa!
-            Your student ID is <strong>{{ user.username }}</strong>.
         </p>
         <p>
             To get started, please set your password by clicking the link below:
@@ -34,7 +33,7 @@
             After setting your password, you can access your student portal here:
         </p>
         <p>
-            <a class="btn" href="{{ portal_link }}">Go to Student Portal</a>
+            <a class="btn btn-outline-danger my-1" href="{{ portal_link }}">Go to Student Portal</a>
         </p>
         <p>
             If you have any questions, please contact our administration office.

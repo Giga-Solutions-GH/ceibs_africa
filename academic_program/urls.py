@@ -3,6 +3,7 @@ from django.urls import path
 from academic_program import views
 from academic_program.lecturers import lecturer_views
 
+
 app_name = 'academic_program'
 
 urlpatterns = [

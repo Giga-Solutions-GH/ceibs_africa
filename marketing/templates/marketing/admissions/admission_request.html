@@ -62,6 +62,14 @@
                       <div class="text-danger">{{ error }}</div>
                     {% endfor %}
                   </div>
+                <!-- Gender  -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.gender.id_for_label }}" class="form-label"><strong>Gender</strong></label>
+                    {{ admission_form.gender }}
+                    {% for error in admission_form.gender.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
                   <!-- Email -->
                   <div class="mb-3">
                     <label for="{{ admission_form.email.id_for_label }}" class="form-label"><strong>Email</strong></label>
@@ -75,6 +83,14 @@
                     <label for="{{ admission_form.phone_number.id_for_label }}" class="form-label"><strong>Phone Number</strong></label>
                     {{ admission_form.phone_number }}
                     {% for error in admission_form.phone_number.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                <!-- Nationality -->
+                  <div class="mb-3">
+                    <label for="{{ admission_form.nationality.id_for_label }}" class="form-label"><strong>Nationality</strong></label>
+                    {{ admission_form.nationality }}
+                    {% for error in admission_form.nationality.errors %}
                       <div class="text-danger">{{ error }}</div>
                     {% endfor %}
                   </div>

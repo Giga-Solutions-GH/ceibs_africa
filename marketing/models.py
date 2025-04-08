@@ -3,6 +3,8 @@ from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
 from django.utils import timezone
+from django_countries.fields import CountryField
+
 from account.models import CustomUser
 
 
@@ -19,6 +21,8 @@ class Prospect(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     company = models.CharField(max_length=300, blank=True, null=True)
     position = models.CharField(max_length=250, blank=True, null=True)
+    nationality = CountryField(blank_label='(Select country)', null=True, blank=True)
+    gender = models.CharField(max_length=250, null=True, blank=True, choices=(("Male", "Male"), ("Female", "Female")))
     program_of_interest = models.ForeignKey('academic_program.ProgramCover', null=True, blank=True,
                                             on_delete=models.SET_NULL)
     comments = models.TextField(blank=True, null=True)
@@ -102,9 +106,12 @@ class Admission(models.Model):
     email = models.EmailField()
     company = models.CharField(max_length=300, blank=True, null=True)
     position = models.CharField(max_length=250, blank=True, null=True)
+    nationality = CountryField(blank_label='(Select country)', null=True, blank=True)
+    gender = models.CharField(max_length=250, null=True, blank=True, choices=(("Male", "Male"), ("Female", "Female")))
     program_of_interest = models.ForeignKey('academic_program.ProgramCover', null=True, blank=True,
                                             on_delete=models.SET_NULL)
     date_submitted = models.DateTimeField(auto_now_add=True)
+    last_update = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='pending')
     comments = models.TextField(null=True, blank=True)
     # Optionally link to an existing user account if available.
@@ -122,52 +129,6 @@ class Admission(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-# class AdmissionTranscript(models.Model):
-#     """
-#     Model to store transcript documents for an admission.
-#     Multiple transcripts can be uploaded for each admission.
-#     """
-#     admission = models.ForeignKey(Admission, related_name='transcripts', on_delete=models.CASCADE)
-#     transcript = models.FileField(upload_to='admissions/transcripts/')
-#     uploaded_at = models.DateTimeField(auto_now_add=True)
-#     review_status = models.CharField(
-#         max_length=20,
-#         choices=(
-#             ('pending', 'Pending'),
-#             ('under_review', 'Under Review'),
-#             ('approved', 'Approved'),
-#             ('rejected', 'Rejected'),
-#         ),
-#         default='pending'
-#     )
-#
-#     def __str__(self):
-#         return f"Transcript for {self.admission.first_name} {self.admission.last_name}"
-#
-#
-# class AdmissionCertificate(models.Model):
-#     """
-#     Model to store certificate documents for an admission.
-#     Multiple certificates can be uploaded for each admission.
-#     """
-#     admission = models.ForeignKey(Admission, related_name='certificates', on_delete=models.CASCADE)
-#     certificate = models.FileField(upload_to='admissions/certificates/')
-#     uploaded_at = models.DateTimeField(auto_now_add=True)
-#     review_status = models.CharField(
-#         max_length=20,
-#         choices=(
-#             ('pending', 'Pending'),
-#             ('under_review', 'Under Review'),
-#             ('approved', 'Approved'),
-#             ('rejected', 'Rejected'),
-#         ),
-#         default='pending'
-#     )
-#
-#     def __str__(self):
-#         return f"Certificate for {self.admission.first_name} {self.admission.last_name}"
-
-
 @receiver(pre_save, sender=Admission)
 def admission_pre_save(sender, instance, **kwargs):
     if instance.pk:
@@ -183,3 +144,5 @@ def admission_post_save(sender, instance, created, **kwargs):
     if created or instance.status != instance._old_status:
         from marketing.tasks import send_admission_status_update_email
         send_admission_status_update_email.delay(instance.id)
+    admission = Admission.objects.get(id=instance.id)
+    admission.last_update = timezone.now()

@@ -17,6 +17,8 @@ class AddProspectForm(forms.ModelForm):
             'email',
             'company',
             'position',
+            'nationality',
+            'gender',
             'comments'
         ]
         widgets = {
@@ -35,6 +37,11 @@ class AddProspectForm(forms.ModelForm):
                 'autocomplete': 'off',
                 'placeholder': 'Other Names'
             }),
+            'gender': forms.Select(attrs={
+                'class': 'form-control',
+                'autocomplete': 'off',
+                'placeholder': 'Gender'
+            }),
             'phone_number': forms.NumberInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Phone Number'
@@ -42,6 +49,11 @@ class AddProspectForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Email'
+            }),
+            'nationality': forms.TextInput(attrs={
+                'class': 'form-control',
+                'autocomplete': 'off',
+                'placeholder': 'Nationality'
             }),
             'company': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -72,6 +84,8 @@ class AddProspectForm(forms.ModelForm):
         self.fields['phone_number'].required = False
         self.fields['company'].required = False
         self.fields['position'].required = False
+        self.fields['nationality'].required = False
+        self.fields['gender'].required = True
         self.fields['comments'].required = False
 
 
@@ -195,9 +209,11 @@ class AdmissionForm(forms.ModelForm):
             'first_name',
             'last_name',
             'other_names',
+            'gender',
             'date_of_birth',
             'phone_number',
             'email',
+            'nationality',
             'company',
             'position',
             'comments',
@@ -223,6 +239,10 @@ class AdmissionForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Enter other names (optional)'
             }),
+            'gender': forms.Select(attrs={
+                'class': 'form-control',
+                'placeholder': 'Select Gender'
+            }),
             'date_of_birth': forms.DateInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Enter your date of birth'
@@ -234,6 +254,10 @@ class AdmissionForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Enter email address'
+            }),
+            'nationality': forms.Select(attrs={
+                'class': 'form-control',
+                'placeholder': 'Select Country'
             }),
             'company': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -284,6 +308,8 @@ class AdmissionForm(forms.ModelForm):
         self.fields['position'].required = True
         self.fields['program_of_interest'].required = True
         self.fields['comments'].required = False
+        self.fields['nationality'].required = True
+        self.fields['gender'].required = True
         self.fields['passport_picture'].required = True
         self.fields['passport_front_page'].required = True
         self.fields['certificate_files'].required = False

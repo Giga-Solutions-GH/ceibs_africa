@@ -207,25 +207,6 @@ def process_excel_import_task(file_path, program_id):
                 program=program
             )
 
-            # If the program is active, create user account or not as desired
-            if program_is_active:
-                # Create a random password or store if needed
-                random_pwd = get_random_string(12)
-                new_user = CustomUser.objects.create_user(
-                    username=row['email'],
-                    email=row['email'],
-                    password=random_pwd,
-                    first_name=participant.first_name,
-                    last_name=participant.last_name
-                )
-                new_user.save()
-
-                # Optionally send a welcome mail or password reset if you like
-                send_password_reset_email(new_user)
-            else:
-                # Program ended or not active => no user creation or email
-                pass
-
             counter += 1
 
     # Optionally, remove the file after processing

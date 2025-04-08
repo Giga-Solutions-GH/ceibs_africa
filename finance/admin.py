@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import csv
 from django.utils.encoding import smart_str
 
-from .models import ProgramFees, FinanceStatement, StudentFinance, PaymentTrail
+from .models import ProgramFees, FinanceStatement, StudentFinance, PaymentTrail, AdmissionFinance, AdmissionPaymentTrail
 
 
 def export_as_csv(modeladmin, request, queryset):
@@ -51,5 +51,13 @@ class StudentFinanceAdmin(admin.ModelAdmin):
     actions = [export_as_csv]
 
 
-admin.site.register(PaymentTrail)
+@admin.register(AdmissionFinance)
+class AdmissionFinanceAdmin(admin.ModelAdmin):
+    list_display = ['student', 'fees_paid', 'fees', 'percentage_cleared']
+    list_filter = ['fees__program_fees__program__program_name']
+    search_fields = ['student__unique_id', 'student__first_name', 'student__last_name']
+    actions = [export_as_csv]
 
+
+admin.site.register(PaymentTrail)
+admin.site.register(AdmissionPaymentTrail)

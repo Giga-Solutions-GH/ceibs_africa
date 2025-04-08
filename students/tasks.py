@@ -70,7 +70,7 @@ def send_enrollment_notification_email(student_email, course_list, program_name,
 
 
 @shared_task
-def send_student_welcome_email(user_id, uidb64, token):
+def send_student_welcome_email(user_id):
     """
     Sends an official welcome email to the new student, asking them to set their password.
     """

@@ -1,0 +1,99 @@
+{# finance/templates/finance/manage_program_fees.html #}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-main-wrapper">
+  {% include 'inc/header.html' %}
+  {% include 'inc/sidenav.html' %}
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+        <!-- Page Header -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="page-header text-center">
+              <h2 class="pageheader-title">Manage Program Fees</h2>
+              <p>Set fees and payment options for active programs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program Selector -->
+        <div class="row mb-4">
+          <div class="col-md-6 offset-md-3">
+            <form method="get" class="input-group">
+              <select name="program_id" class="form-select" onchange="this.form.submit()">
+                <option value="">-- Select Program --</option>
+                {% for program in active_programs %}
+                  <option value="{{ program.id }}" {% if selected_program and selected_program.id == program.id %}selected{% endif %}>
+                    {{ program.program_name }}
+                  </option>
+                {% endfor %}
+              </select>
+              <button type="submit" class="btn btn-primary">Select</button>
+            </form>
+          </div>
+        </div>
+
+        {% if selected_program %}
+        <!-- Tabs for Program Fees and Payment Options -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5>{{ selected_program.program_name }}</h5>
+            <p>Set the fees and payment options for this program.</p>
+          </div>
+          <div class="card-body">
+            <ul class="nav nav-tabs" id="feesTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="fees-tab" data-bs-toggle="tab" data-bs-target="#fees" type="button" role="tab" aria-controls="fees" aria-selected="true">
+                  Program Fees
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="payment-options-tab" data-bs-toggle="tab" data-bs-target="#payment-options" type="button" role="tab" aria-controls="payment-options" aria-selected="false">
+                  Payment Options
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content mt-3" id="feesTabContent">
+              <div class="tab-pane fade show active" id="fees" role="tabpanel" aria-labelledby="fees-tab">
+                <form method="post" action="?program_id={{ selected_program.id }}">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                    {{ program_fees_form.fee.label_tag }}
+                    {{ program_fees_form.fee }}
+                    {% for error in program_fees_form.fee.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save Fees</button>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="payment-options" role="tabpanel" aria-labelledby="payment-options-tab">
+                <form method="post" action="?program_id={{ selected_program.id }}">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                    {{ finance_statement_form.payment_options.label_tag }}
+                    {{ finance_statement_form.payment_options }}
+                    {% for error in finance_statement_form.payment_options.errors %}
+                      <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save Payment Options</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+      </div> <!-- container-fluid end -->
+    </div> <!-- dashboard-ecommerce end -->
+  </div> <!-- dashboard-wrapper end -->
+</div> <!-- dashboard-main-wrapper end -->
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

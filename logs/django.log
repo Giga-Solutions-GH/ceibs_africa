@@ -20980,3 +20980,1270 @@ django.db.utils.OperationalError: no such column: marketing_admission.date_of_bi
 2025-03-24 11:28:21,187 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
 2025-03-24 11:29:11,086 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
 2025-03-24 11:29:16,786 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 11:35:39,735 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26752
+2025-03-24 11:35:40,504 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:41:06,974 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-24 11:41:09,274 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 11:43:33,111 [ERROR] django.request: Internal Server Error: /finance/admissions_cleared_for_finance
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: marketing_admission.last_update
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 204, in admission_list
+    return render(request, 'finance/layouts/admissions.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    if match:
+       ^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 414, in __bool__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: marketing_admission.last_update
+2025-03-24 11:43:33,133 [ERROR] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 500 234867
+2025-03-24 11:44:36,026 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26879
+2025-03-24 11:44:37,099 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:47:03,165 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30574
+2025-03-24 11:47:04,125 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:53:33,878 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30617
+2025-03-24 11:53:35,644 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:55:57,284 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 30617
+2025-03-24 11:55:58,280 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 11:55:59,433 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-24 12:15:50,927 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 12:15:55,152 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 12:16:54,043 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 12:16:59,194 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 12:21:00,436 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 12:21:03,514 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 12:26:02,819 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-24 12:26:05,165 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 12:26:27,124 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-24 12:26:29,877 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 12:27:34,020 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-24 12:27:36,060 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 12:47:15,393 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-24 12:47:19,659 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 12:52:24,586 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-24 12:52:27,050 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 13:27:37,120 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 13:27:41,103 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 13:36:21,889 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 13:36:25,584 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 13:36:50,114 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-24 13:36:53,190 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 13:39:39,647 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-24 13:39:42,359 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 13:39:56,132 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26887
+2025-03-24 13:39:57,540 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 13:43:31,799 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: finance_admissionfinance
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 224, in admission_finance_detail
+    admission_finance = AdmissionFinance.objects.get(student=admission)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: finance_admissionfinance
+2025-03-24 13:43:31,814 [ERROR] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 500 158125
+2025-03-24 13:43:33,556 [WARNING] django.request: Not Found: /favicon.ico
+2025-03-24 13:43:33,558 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-03-24 14:08:40,601 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 224, in admission_finance_detail
+    admission_finance = AdmissionFinance.objects.get(student=admission)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+finance.models.AdmissionFinance.DoesNotExist: AdmissionFinance matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 230, in admission_finance_detail
+    admission_finance = AdmissionFinance.objects.create(
+        student=admission,
+        fees_paid=0.0,
+        fees=finance_statement
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py", line 58, in save
+    total_fee = self.fees.program_fees.fee or 0.0
+                ^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 267, in __get__
+    raise self.RelatedObjectDoesNotExist(
+        "%s has no %s." % (self.field.model.__name__, self.field.name)
+    )
+finance.models.AdmissionFinance.fees.RelatedObjectDoesNotExist: AdmissionFinance has no fees.
+2025-03-24 14:08:40,626 [ERROR] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 500 115774
+2025-03-24 14:09:10,405 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:09:10,416 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:09:10,427 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 14:09:10,436 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:09:10,441 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:09:10,448 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:09:10,799 [INFO] django.server: "GET /elevated/students/studentdetail/add/ HTTP/1.1" 200 61919
+2025-03-24 14:10:03,553 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\admin.py changed, reloading.
+2025-03-24 14:10:09,288 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 14:10:21,495 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:21,526 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:21,530 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 14:10:21,531 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:21,532 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:21,539 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:21,660 [INFO] django.server: "GET /elevated/students/studentdetail/add/ HTTP/1.1" 200 62420
+2025-03-24 14:10:23,362 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-03-24 14:10:23,492 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+2025-03-24 14:10:23,494 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-03-24 14:10:23,542 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-03-24 14:10:23,751 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,762 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,763 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,792 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,897 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,910 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,941 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,975 [INFO] django.server: "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,979 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 14:10:23,996 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,997 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+2025-03-24 14:10:23,997 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,461 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,464 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,690 [INFO] django.server: "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+2025-03-24 14:10:24,695 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,705 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,719 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,719 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,726 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+2025-03-24 14:10:24,762 [INFO] django.server: "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+2025-03-24 14:10:24,771 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+2025-03-24 14:10:28,071 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:28,073 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:28,075 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 14:10:28,076 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:28,077 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:28,177 [INFO] django.server: "GET /elevated/finance/admissionfinance/ HTTP/1.1" 200 33153
+2025-03-24 14:10:28,808 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 14:10:29,039 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+2025-03-24 14:10:30,725 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:30,727 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:30,734 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 14:10:30,735 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:30,736 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:30,740 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:30,776 [INFO] django.server: "GET /elevated/finance/admissionfinance/add/ HTTP/1.1" 200 38330
+2025-03-24 14:10:31,449 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 14:10:49,131 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:49,134 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:49,138 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 14:10:49,140 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:49,142 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:49,148 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 14:10:49,164 [INFO] django.server: "POST /elevated/finance/admissionfinance/add/ HTTP/1.1" 200 38623
+2025-03-24 14:10:49,901 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 14:18:18,529 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-24 14:18:22,706 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:16:21,264 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\apps.py changed, reloading.
+2025-03-24 15:16:27,977 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:17:05,452 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\apps.py changed, reloading.
+2025-03-24 15:17:07,506 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:17:22,685 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:17:22,718 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:17:22,723 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 15:17:22,724 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:17:22,725 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:17:22,728 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:17:22,775 [INFO] django.server: "GET /elevated/finance/admissionfinance/add/ HTTP/1.1" 200 38330
+2025-03-24 15:17:23,630 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 15:17:24,371 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+2025-03-24 15:17:24,409 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+2025-03-24 15:17:31,456 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 224, in admission_finance_detail
+    admission_finance = AdmissionFinance.objects.get(student=admission)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+finance.models.AdmissionFinance.DoesNotExist: AdmissionFinance matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 230, in admission_finance_detail
+    admission_finance = AdmissionFinance.objects.create(
+        student=admission,
+        fees_paid=0.0,
+        fees=finance_statement
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py", line 58, in save
+    total_fee = self.fees.program_fees.fee or 0.0
+                ^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 267, in __get__
+    raise self.RelatedObjectDoesNotExist(
+        "%s has no %s." % (self.field.model.__name__, self.field.name)
+    )
+finance.models.AdmissionFinance.fees.RelatedObjectDoesNotExist: AdmissionFinance has no fees.
+2025-03-24 15:17:31,471 [ERROR] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 500 115774
+2025-03-24 15:22:44,678 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:44,682 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:44,693 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 15:22:44,696 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:44,698 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:44,779 [INFO] django.server: "GET /elevated/finance/programfees/ HTTP/1.1" 200 33098
+2025-03-24 15:22:45,885 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 15:22:49,792 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:49,795 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:49,799 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 15:22:49,801 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:49,803 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:49,808 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 15:22:49,820 [INFO] django.server: "GET /elevated/finance/programfees/add/ HTTP/1.1" 200 35333
+2025-03-24 15:22:50,929 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 15:45:51,771 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 15:45:58,434 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:46:41,399 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 15:46:43,661 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:47:20,760 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 15:47:23,327 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:49:07,986 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 15:49:10,308 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:50:29,529 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 15:50:32,096 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 15:50:41,978 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26887
+2025-03-24 15:50:43,034 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 16:00:34,953 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:00:34,957 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:00:34,964 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:00:34,966 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:00:34,967 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:00:34,973 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:00:35,021 [INFO] django.server: "GET /elevated/finance/programfees/add/ HTTP/1.1" 200 35333
+2025-03-24 16:20:24,038 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:24,044 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:24,057 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:20:24,060 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:24,064 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:24,149 [INFO] django.server: "GET /elevated/academic_program/program/ HTTP/1.1" 200 34906
+2025-03-24 16:20:24,670 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:20:28,195 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:28,197 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:28,201 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:20:28,202 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:28,204 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:28,207 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:28,349 [INFO] django.server: "GET /elevated/academic_program/program/add/ HTTP/1.1" 200 83176
+2025-03-24 16:20:28,848 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:20:29,050 [INFO] django.server: "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+2025-03-24 16:20:52,875 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:52,877 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:20:52,885 [INFO] django.server: "GET /elevated/academic_program/programtype/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6764
+2025-03-24 16:20:53,348 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:21:05,772 [INFO] django.server: "POST /elevated/academic_program/programtype/add/?_to_field=id&_popup=1 HTTP/1.1" 200 399
+2025-03-24 16:21:06,591 [INFO] django.server: "GET /static/admin/js/popup_response.js HTTP/1.1" 200 1535
+2025-03-24 16:21:18,061 [INFO] django.server: "GET /static/jazzmin/img/calendar-icons.svg HTTP/1.1" 200 1094
+2025-03-24 16:21:29,304 [INFO] django.server: "POST /elevated/academic_program/program/add/ HTTP/1.1" 302 0
+2025-03-24 16:21:29,606 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:21:29,611 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:21:29,616 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:21:29,617 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:21:29,618 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:21:29,682 [INFO] django.server: "GET /elevated/academic_program/program/ HTTP/1.1" 200 42096
+2025-03-24 16:21:31,081 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:21:31,152 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2025-03-24 16:22:04,567 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:04,570 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:04,575 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:22:04,577 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:04,577 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:04,593 [INFO] django.server: "GET /elevated/finance/programfees/ HTTP/1.1" 200 33269
+2025-03-24 16:22:05,446 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:22:07,499 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:07,501 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:07,505 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:22:07,506 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:07,507 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:07,510 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:07,515 [INFO] django.server: "GET /elevated/finance/programfees/add/ HTTP/1.1" 200 35374
+2025-03-24 16:22:08,793 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:22:19,105 [INFO] django.server: "POST /elevated/finance/programfees/add/ HTTP/1.1" 302 0
+2025-03-24 16:22:19,514 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:19,524 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:19,535 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:22:19,541 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:19,544 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:19,591 [INFO] django.server: "GET /elevated/finance/programfees/ HTTP/1.1" 200 36779
+2025-03-24 16:22:20,120 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:22:24,668 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:24,671 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:24,676 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:22:24,677 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:24,678 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:24,694 [INFO] django.server: "GET /elevated/finance/financestatement/ HTTP/1.1" 200 33332
+2025-03-24 16:22:25,214 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:22:28,471 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:28,475 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:28,484 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:22:28,487 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:28,490 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:28,500 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:28,523 [INFO] django.server: "GET /elevated/finance/financestatement/add/ HTTP/1.1" 200 35567
+2025-03-24 16:22:28,962 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:22:42,210 [INFO] django.server: "POST /elevated/finance/financestatement/add/ HTTP/1.1" 302 0
+2025-03-24 16:22:42,689 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:42,695 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:42,705 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-24 16:22:42,708 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:42,712 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-24 16:22:42,752 [INFO] django.server: "GET /elevated/finance/financestatement/ HTTP/1.1" 200 36891
+2025-03-24 16:22:43,652 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-24 16:23:45,668 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 16:23:48,721 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 16:26:15,374 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 16:26:18,225 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 16:26:29,156 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 16:26:32,773 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 16:27:03,449 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 16:27:05,632 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26887
+2025-03-24 16:27:06,380 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 16:28:16,208 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 248, in admission_finance_detail
+    total_fee = admission_finance.fees.program_fees.fee or 0.0
+                ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'fees'
+2025-03-24 16:28:16,227 [ERROR] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 500 85239
+2025-03-24 16:28:50,432 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 16:28:54,989 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 16:29:06,481 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 249, in admission_finance_detail
+    total_fee = admission_finance.fees.program_fees.fee or 0.0
+                ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'fees'
+2025-03-24 16:29:06,494 [ERROR] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 500 85029
+2025-03-24 16:31:04,251 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 16:31:10,489 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 17:44:13,577 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22457
+2025-03-24 17:44:14,196 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 17:50:44,080 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 17:50:49,776 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 17:50:57,696 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 293, in admission_finance_detail
+    return render(request, 'finance/layouts/emails/templates/finance/layouts/admission_finance_detail.html', context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: finance/layouts/emails/templates/finance/layouts/admission_finance_detail.html
+2025-03-24 17:50:57,702 [ERROR] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 500 109274
+2025-03-24 17:51:32,252 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 17:51:35,818 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 17:52:11,762 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22544
+2025-03-24 17:52:12,252 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 17:53:44,550 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22528
+2025-03-24 17:53:45,115 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 17:55:07,944 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22548
+2025-03-24 17:55:08,667 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 17:58:59,556 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22558
+2025-03-24 17:59:00,839 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 18:02:14,418 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-24 18:02:19,098 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 18:04:49,217 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-24 18:04:55,893 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 18:26:14,222 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22573
+2025-03-24 18:26:15,195 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 18:28:02,040 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22569
+2025-03-24 18:28:03,549 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 18:31:34,685 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 18:31:38,889 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 18:42:24,615 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 18:42:29,725 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 20:00:49,861 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22569
+2025-03-24 20:00:50,427 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 20:12:22,301 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-24 20:12:35,473 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-24 20:13:54,452 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 22124
+2025-03-24 20:13:59,466 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 20:16:08,300 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 21970
+2025-03-24 20:16:11,357 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 20:43:36,452 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-24 20:43:37,147 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 21970
+2025-03-24 20:43:37,571 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 07:08:29,906 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-25 07:09:03,274 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 07:23:32,933 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-25 07:23:38,473 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 07:24:10,352 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-25 07:24:13,745 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 08:19:18,654 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-25 08:19:23,674 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 08:20:52,895 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-25 08:20:57,376 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 08:21:46,363 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:21:50,648 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23274
+2025-03-25 08:21:51,236 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:21:57,213 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23274
+2025-03-25 08:21:57,652 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:24:23,821 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23274
+2025-03-25 08:24:24,945 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:24:59,160 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23274
+2025-03-25 08:25:00,556 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:25:21,714 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23263
+2025-03-25 08:25:22,331 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:30:00,882 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23263
+2025-03-25 08:30:01,330 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:30:20,758 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: finance_admissionpaymenttrail
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 274, in admission_finance_detail
+    AdmissionPaymentTrail.objects.create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        admission_finance=admission_finance,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        remarks="Payment updated via finance portal."
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py", line 120, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: finance_admissionpaymenttrail
+2025-03-25 08:30:20,790 [ERROR] django.server: "POST /finance/admission/1/finance_details/ HTTP/1.1" 500 186351
+2025-03-25 08:31:02,523 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23263
+2025-03-25 08:31:02,984 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:31:15,441 [ERROR] django.request: Internal Server Error: /finance/admission/1/finance_details/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py", line 286, in admission_finance_detail
+    return redirect('marketing:admission_finance_detail', admission_id=admission.id)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admission_finance_detail' not found. 'admission_finance_detail' is not a valid view function or pattern name.
+2025-03-25 08:31:15,453 [ERROR] django.server: "POST /finance/admission/1/finance_details/ HTTP/1.1" 500 107865
+2025-03-25 08:31:52,418 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-25 08:31:56,706 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 08:32:23,409 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23825
+2025-03-25 08:32:32,052 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23263
+2025-03-25 08:32:32,520 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 08:32:40,305 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:40,308 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:40,311 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-25 08:32:40,312 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:40,313 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:40,376 [INFO] django.server: "GET /elevated/finance/financestatement/ HTTP/1.1" 200 36302
+2025-03-25 08:32:47,930 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:47,933 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:47,938 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-25 08:32:47,939 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:47,940 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:47,948 [INFO] django.server: "GET /elevated/finance/paymenttrail/ HTTP/1.1" 200 32393
+2025-03-25 08:32:48,953 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-25 08:32:55,143 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:55,148 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:55,161 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-25 08:32:55,167 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:55,171 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:55,223 [INFO] django.server: "GET /elevated/finance/admissionfinance/ HTTP/1.1" 200 37139
+2025-03-25 08:32:55,753 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-25 08:32:58,640 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:58,647 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:58,660 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-25 08:32:58,663 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:58,665 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:58,675 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:32:58,796 [INFO] django.server: "GET /elevated/finance/admissionfinance/1/change/ HTTP/1.1" 200 39055
+2025-03-25 08:32:59,663 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-25 08:33:04,082 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:33:04,086 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:33:04,090 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-25 08:33:04,091 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:33:04,092 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-25 08:33:04,109 [INFO] django.server: "GET /elevated/finance/admissionfinance/ HTTP/1.1" 200 37139
+2025-03-25 08:38:19,486 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23263
+2025-03-25 08:38:20,300 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 09:24:52,892 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23263
+2025-03-25 09:24:54,091 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 11:19:02,859 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23263
+2025-03-25 11:19:03,704 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 11:30:54,217 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-25 11:30:59,022 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 11:43:16,119 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\students\models.py changed, reloading.
+2025-03-25 11:43:24,950 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 11:43:48,291 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-25 11:43:54,861 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 11:53:27,186 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-25 11:53:31,141 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 11:55:48,316 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\forms.py changed, reloading.
+2025-03-25 11:55:51,609 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 12:05:11,048 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-25 12:05:16,327 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 13:48:07,110 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23413
+2025-03-25 13:48:07,957 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 13:52:49,695 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23426
+2025-03-25 13:52:51,101 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 13:52:54,683 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-25 14:00:39,735 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23439
+2025-03-25 14:00:40,465 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 14:03:31,658 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 42678
+2025-03-25 14:03:32,730 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-25 14:03:33,271 [INFO] django.server: "GET /static/assets/images/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-25 14:14:30,877 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-25 14:14:35,522 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 14:19:05,458 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-25 14:19:14,350 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 14:27:22,965 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-25 14:27:32,852 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 15:17:22,129 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-25 15:17:26,934 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 15:25:11,726 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-25 15:25:16,227 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-25 15:26:31,550 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-25 15:26:36,481 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:08:08,001 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 42678
+2025-03-26 16:08:08,738 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:23:07,837 [INFO] django.server: "GET /marketing/add_admission HTTP/1.1" 200 42676
+2025-03-26 16:23:08,637 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:23:09,087 [INFO] django.server: "GET /static/assets/images/ceibs_on_white.png HTTP/1.1" 304 0
+2025-03-26 16:23:36,269 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26799
+2025-03-26 16:23:37,033 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:23:48,854 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 41941
+2025-03-26 16:23:49,688 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:24:39,850 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 41971
+2025-03-26 16:24:40,514 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:25:05,590 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-26 16:25:06,302 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 42407
+2025-03-26 16:25:07,006 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:25:22,282 [INFO] django.server: "POST /marketing/admission_detail/1 HTTP/1.1" 302 0
+2025-03-26 16:25:23,206 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 42407
+2025-03-26 16:25:23,920 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:25:30,277 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26799
+2025-03-26 16:25:30,936 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:25:46,527 [ERROR] django.request: Internal Server Error: /elevated/finance/admissionfinance/
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: finance_admissionfinance.active
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\admin\sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\contrib\admin\options.py", line 2140, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: finance_admissionfinance.active
+2025-03-26 16:25:46,563 [ERROR] django.server: "GET /elevated/finance/admissionfinance/ HTTP/1.1" 500 218156
+2025-03-26 16:27:10,905 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:27:10,921 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:27:10,930 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:27:10,934 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:27:10,937 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:27:11,110 [INFO] django.server: "GET /elevated/finance/admissionfinance/ HTTP/1.1" 200 37139
+2025-03-26 16:27:11,953 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:27:12,152 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-26 16:29:26,372 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\admin.py changed, reloading.
+2025-03-26 16:29:34,216 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:30:07,612 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\admin.py changed, reloading.
+2025-03-26 16:30:10,565 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:30:16,714 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:16,751 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:16,756 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:30:16,760 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:16,761 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:16,810 [INFO] django.server: "GET /elevated/finance/admissionfinance/ HTTP/1.1" 200 37627
+2025-03-26 16:30:17,521 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:30:24,285 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:24,288 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:24,292 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:30:24,294 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:24,295 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:30:24,400 [INFO] django.server: "GET /elevated/marketing/admission/ HTTP/1.1" 200 81585
+2025-03-26 16:30:25,035 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:31:08,728 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\admin.py changed, reloading.
+2025-03-26 16:31:12,146 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:31:22,224 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:22,255 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:22,260 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:31:22,262 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:22,263 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:22,384 [INFO] django.server: "GET /elevated/marketing/admission/ HTTP/1.1" 200 82043
+2025-03-26 16:31:23,092 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:31:28,991 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:28,994 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:29,001 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:31:29,003 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:29,005 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:29,014 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:31:29,284 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 68724
+2025-03-26 16:31:31,295 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:32:34,157 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-26 16:32:41,306 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:32:50,521 [INFO] django.server: "POST /elevated/marketing/admission/1/change/ HTTP/1.1" 302 0
+2025-03-26 16:32:51,242 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:51,281 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:51,289 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:32:51,316 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:51,318 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:51,442 [INFO] django.server: "GET /elevated/marketing/admission/ HTTP/1.1" 200 82624
+2025-03-26 16:32:52,051 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:32:56,023 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:56,025 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:56,027 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:32:56,028 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:56,029 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:56,032 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:32:56,166 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 68724
+2025-03-26 16:32:56,954 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:33:28,484 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-26 16:33:33,772 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:33:57,506 [INFO] django.server: "POST /elevated/marketing/admission/1/change/ HTTP/1.1" 302 0
+2025-03-26 16:33:58,119 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:33:58,141 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:33:58,144 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:33:58,145 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:33:58,146 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:33:58,212 [INFO] django.server: "GET /elevated/marketing/admission/ HTTP/1.1" 200 82624
+2025-03-26 16:33:59,064 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:34:16,105 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:34:16,107 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:34:16,112 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:34:16,120 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:34:16,122 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:34:16,129 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:34:16,238 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 68724
+2025-03-26 16:34:16,906 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:34:45,458 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-26 16:34:49,922 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:35:14,765 [INFO] django.server: "POST /elevated/marketing/admission/1/change/ HTTP/1.1" 302 0
+2025-03-26 16:35:15,395 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:15,435 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:15,443 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:35:15,446 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:15,448 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:15,818 [INFO] django.server: "GET /elevated/marketing/admission/ HTTP/1.1" 200 82624
+2025-03-26 16:35:17,095 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:35:29,584 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:29,588 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:29,594 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:35:29,596 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:29,619 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:29,634 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:35:29,848 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 68724
+2025-03-26 16:35:30,588 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:36:11,082 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\marketing\models.py changed, reloading.
+2025-03-26 16:36:15,591 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 16:36:37,134 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:37,182 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:37,188 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:36:37,189 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:37,190 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:37,195 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:37,317 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 68724
+2025-03-26 16:36:37,959 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:36:42,645 [INFO] django.server: "POST /elevated/marketing/admission/1/change/ HTTP/1.1" 302 0
+2025-03-26 16:36:43,343 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:43,350 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:43,368 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:36:43,371 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:43,375 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:43,468 [INFO] django.server: "GET /elevated/marketing/admission/ HTTP/1.1" 200 82624
+2025-03-26 16:36:44,171 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:36:47,931 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:47,939 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:47,949 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-26 16:36:47,955 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:47,961 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:47,981 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-26 16:36:48,079 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 68724
+2025-03-26 16:36:48,819 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-26 16:36:56,128 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 41971
+2025-03-26 16:36:57,019 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:37:13,926 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26887
+2025-03-26 16:37:14,687 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:37:30,435 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26799
+2025-03-26 16:37:31,142 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:38:32,113 [INFO] django.server: "GET /marketing/admissions/all HTTP/1.1" 200 26840
+2025-03-26 16:38:32,795 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:39:53,648 [INFO] django.server: "GET /marketing/admission_detail/1 HTTP/1.1" 200 41971
+2025-03-26 16:39:54,344 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:40:05,644 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26887
+2025-03-26 16:40:06,416 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:40:32,977 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26895
+2025-03-26 16:40:33,617 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:40:50,114 [INFO] django.server: "GET /finance/admissions_cleared_for_finance HTTP/1.1" 200 26895
+2025-03-26 16:40:50,784 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:40:55,558 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23446
+2025-03-26 16:40:56,277 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:43:57,008 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23446
+2025-03-26 16:43:57,772 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 16:44:06,235 [INFO] django.server: "POST /finance/admission/1/finance_details/ HTTP/1.1" 302 0
+2025-03-26 16:44:06,885 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 24014
+2025-03-26 16:44:07,727 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 19:46:39,898 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-26 19:46:44,279 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 19:51:29,616 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23316
+2025-03-26 19:51:32,762 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-26 20:05:02,293 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\tasks.py changed, reloading.
+2025-03-26 20:05:06,876 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-26 20:05:12,983 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23316
+2025-03-26 20:05:14,296 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 08:16:07,281 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23316
+2025-03-27 08:16:10,760 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 08:18:09,137 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23342
+2025-03-27 08:18:09,759 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 08:31:49,521 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-27 08:32:03,130 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 08:37:15,436 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\forms.py changed, reloading.
+2025-03-27 08:37:22,376 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:20:29,168 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\forms.py changed, reloading.
+2025-03-27 09:20:36,376 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:20:50,134 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\forms.py changed, reloading.
+2025-03-27 09:20:53,045 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:21:29,022 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23803
+2025-03-27 09:21:29,798 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 09:22:42,755 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23887
+2025-03-27 09:22:43,402 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 09:22:57,523 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:22:57,526 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:22:57,534 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 09:22:57,539 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:22:57,542 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:22:57,547 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:22:57,929 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 68760
+2025-03-27 09:23:58,705 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\admin.py changed, reloading.
+2025-03-27 09:24:02,353 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:24:05,360 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:05,384 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:05,389 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 09:24:05,391 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:05,392 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:05,395 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:05,505 [INFO] django.server: "GET /elevated/marketing/admission/1/change/ HTTP/1.1" 200 69272
+2025-03-27 09:24:06,566 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 09:24:17,352 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:17,355 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:17,357 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 09:24:17,358 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:17,359 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:17,478 [INFO] django.server: "GET /elevated/finance/admissionpaymenttrail/ HTTP/1.1" 200 35980
+2025-03-27 09:24:18,151 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 09:24:21,902 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:21,904 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:21,908 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 09:24:21,909 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:21,911 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:21,916 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:24:21,938 [INFO] django.server: "GET /elevated/finance/admissionpaymenttrail/1/change/ HTTP/1.1" 200 41984
+2025-03-27 09:24:22,704 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 09:24:51,579 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\models.py changed, reloading.
+2025-03-27 09:24:58,255 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:27:14,846 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:14,898 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:14,909 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 09:27:14,911 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:14,912 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:14,916 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:14,986 [INFO] django.server: "GET /elevated/finance/admissionpaymenttrail/1/change/ HTTP/1.1" 200 43020
+2025-03-27 09:27:15,718 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 09:27:30,133 [INFO] django.server: "POST /elevated/finance/admissionpaymenttrail/1/change/ HTTP/1.1" 302 0
+2025-03-27 09:27:30,735 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:30,737 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:30,739 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 09:27:30,740 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:30,741 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 09:27:30,773 [INFO] django.server: "GET /elevated/finance/admissionpaymenttrail/ HTTP/1.1" 200 36609
+2025-03-27 09:27:31,404 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 09:27:50,226 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23891
+2025-03-27 09:27:50,991 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 09:29:46,052 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-27 09:29:52,958 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:29:57,260 [INFO] django.server: "GET /finance/admission/1/finance_details/ HTTP/1.1" 200 23891
+2025-03-27 09:29:57,906 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 09:45:21,778 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\forms.py changed, reloading.
+2025-03-27 09:45:30,152 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:46:53,854 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-27 09:46:58,846 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 09:47:46,842 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\finance\views.py changed, reloading.
+2025-03-27 09:47:52,483 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 10:06:17,663 [INFO] django.server: "GET /academic_program/program_types HTTP/1.1" 200 20132
+2025-03-27 10:06:18,345 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:06:21,547 [INFO] django.server: "GET /academic_program/program_types/Executive%20Program HTTP/1.1" 200 23495
+2025-03-27 10:06:22,296 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:07:25,420 [INFO] django.server: "GET /academic_program/program_participants/GEMBA-2025/Executive%20Program HTTP/1.1" 200 25941
+2025-03-27 10:07:26,259 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:26:34,600 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:34,669 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:34,678 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 10:26:34,681 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:34,683 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:34,754 [INFO] django.server: "GET /elevated/finance/admissionpaymenttrail/ HTTP/1.1" 200 35980
+2025-03-27 10:26:40,697 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:40,710 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:40,725 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 10:26:40,734 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:40,742 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:40,835 [INFO] django.server: "GET /elevated/academic_program/programtype/ HTTP/1.1" 200 36736
+2025-03-27 10:26:41,613 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-03-27 10:26:41,645 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-03-27 10:26:41,870 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+2025-03-27 10:26:41,893 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-03-27 10:26:41,912 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+2025-03-27 10:26:41,955 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-03-27 10:26:41,955 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 304 0
+2025-03-27 10:26:41,956 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+2025-03-27 10:26:41,959 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+2025-03-27 10:26:41,973 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 10:26:41,976 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+2025-03-27 10:26:41,979 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+2025-03-27 10:26:41,985 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+2025-03-27 10:26:42,141 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-03-27 10:26:42,143 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-03-27 10:26:42,565 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+2025-03-27 10:26:42,566 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+2025-03-27 10:26:42,574 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+2025-03-27 10:26:44,476 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:44,478 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:44,481 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 10:26:44,482 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:44,483 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:44,487 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:26:44,510 [INFO] django.server: "GET /elevated/academic_program/programtype/add/ HTTP/1.1" 200 35427
+2025-03-27 10:26:45,131 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 10:26:45,367 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+2025-03-27 10:26:45,371 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+2025-03-27 10:26:45,721 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 304 0
+2025-03-27 10:27:05,244 [INFO] django.server: "POST /elevated/academic_program/programtype/add/ HTTP/1.1" 302 0
+2025-03-27 10:27:05,942 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:05,946 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:05,952 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 10:27:05,955 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:05,957 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:05,974 [INFO] django.server: "GET /elevated/academic_program/programtype/ HTTP/1.1" 200 37815
+2025-03-27 10:27:06,714 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 10:27:12,402 [INFO] django.server: "GET /academic_program/program_types HTTP/1.1" 200 21137
+2025-03-27 10:27:13,060 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:27:16,592 [INFO] django.server: "GET /academic_program/program-module-overview/ HTTP/1.1" 200 22495
+2025-03-27 10:27:17,358 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:27:24,053 [INFO] django.server: "GET /academic_program/program_types HTTP/1.1" 200 21137
+2025-03-27 10:27:24,734 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:27:27,829 [INFO] django.server: "GET /academic_program/program_types/Company%20Specific%20Program HTTP/1.1" 200 22547
+2025-03-27 10:27:28,535 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:27:43,464 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:43,467 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:43,472 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 10:27:43,474 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:43,476 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:43,528 [INFO] django.server: "GET /elevated/academic_program/program/ HTTP/1.1" 200 42695
+2025-03-27 10:27:44,181 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 10:27:56,528 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:56,530 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:56,533 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 10:27:56,534 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:56,535 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:56,541 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:27:56,709 [INFO] django.server: "GET /elevated/academic_program/program/add/ HTTP/1.1" 200 84279
+2025-03-27 10:27:57,504 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 10:27:57,727 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+2025-03-27 10:27:57,754 [INFO] django.server: "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+2025-03-27 10:27:57,757 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+2025-03-27 10:27:58,374 [INFO] django.server: "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+2025-03-27 10:27:58,378 [INFO] django.server: "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+2025-03-27 10:27:58,383 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+2025-03-27 10:29:27,521 [INFO] django.server: "POST /elevated/academic_program/program/add/ HTTP/1.1" 302 0
+2025-03-27 10:29:28,209 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:29:28,211 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:29:28,216 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-03-27 10:29:28,218 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:29:28,219 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-03-27 10:29:28,237 [INFO] django.server: "GET /elevated/academic_program/program/ HTTP/1.1" 200 44122
+2025-03-27 10:29:28,987 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-03-27 10:29:35,802 [INFO] django.server: "GET /academic_program/program_types/Company%20Specific%20Program HTTP/1.1" 200 23323
+2025-03-27 10:29:36,525 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:30:21,661 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25187
+2025-03-27 10:30:22,389 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 10:33:17,330 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\academic_program\tasks.py changed, reloading.
+2025-03-27 10:33:20,969 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-03-27 11:18:55,809 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25195
+2025-03-27 11:18:56,797 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 11:30:02,049 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25195
+2025-03-27 11:30:02,763 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 11:30:07,809 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25195
+2025-03-27 11:30:09,147 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 11:30:50,186 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25203
+2025-03-27 11:30:50,882 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-27 11:30:59,814 [INFO] django.server: "GET /academic_program/ABSA%20Acceleration/Company%20Specific%20Program/export_students/ HTTP/1.1" 200 63
+2025-03-28 10:42:09,256 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25203
+2025-03-28 10:42:10,273 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-28 10:42:11,642 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-03-28 10:46:13,107 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25207
+2025-03-28 10:46:13,784 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-03-28 10:47:12,987 [INFO] django.server: "GET /academic_program/program/7/add-participant/ HTTP/1.1" 200 21753
+2025-03-28 10:47:13,694 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-04-04 07:50:03,840 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\academic_program\urls.py changed, reloading.
+2025-04-04 07:50:25,329 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
