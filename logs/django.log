@@ -22247,3 +22247,4 @@ django.db.utils.OperationalError: no such column: finance_admissionfinance.activ
 2025-03-28 10:47:13,694 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
 2025-04-04 07:50:03,840 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\academic_program\urls.py changed, reloading.
 2025-04-04 07:50:25,329 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-07 20:48:27,053 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
