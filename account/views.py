@@ -225,7 +225,7 @@ class PasswordResetConfirmView(FormView):
         user = reset_code.user
         user.set_password(new_password)
         user.email_verified = True
-        user.is_active = False
+        user.is_active = True
         user.save()
 
         # Mark the code as used or delete it

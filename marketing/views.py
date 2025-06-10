@@ -223,7 +223,7 @@ def prospect_statistics(request):
 def send_prospect_admission_request_email(request, prospect_id):
     prospect = get_object_or_404(Prospect, id=prospect_id)
     token = generate_admission_token(prospect.id)
-    domain = "33e2-41-215-171-159.ngrok-free.app"  # Replace with your domain or use a function like get_domain()
+    domain = "6295-41-66-237-210.ngrok-free.app"  # Replace with your domain or use a function like get_domain()
     # Build the URL using reverse and the token
     admission_request_url = f"https://{domain}" + reverse('marketing:admission_request', args=[prospect.id, token])
     send_admission_request_email_task.delay(prospect.id, admission_request_url)

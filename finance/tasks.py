@@ -18,7 +18,7 @@ from academic_program.tasks import send_student_enrollment_email
 
 def get_domain():
     # Return your domain; adjust for production.
-    return '33e2-41-215-171-159.ngrok-free.app'
+    return '6295-41-66-237-210.ngrok-free.app'
 
 
 @shared_task(name="send_finance_receipt_email")

@@ -28,12 +28,12 @@ SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY', 'django-insecure-2=%90%y_dk6@
 DEBUG = get_env_variable('DJANGO_DEBUG', 'True') == 'True'
 
 # Define allowed hosts
-ALLOWED_HOSTS = get_env_variable('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,33e2-41-215-171-159.ngrok-free.app').split(',')
+ALLOWED_HOSTS = get_env_variable('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,6295-41-66-237-210.ngrok-free.app').split(',')
 
 REDIS_URL = get_env_variable('REDIS_URL', 'redis://localhost:6379/0')
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://33e2-41-215-171-159.ngrok-free.app'
+    'https://6295-41-66-237-210.ngrok-free.app',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CELERY_BROKER_URL = REDIS_URL
@@ -80,7 +80,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "CEIBS Manager",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "assets/images/ceibs_favicon.png",
+    "site_logo": "assets/images/ceibs-logo-admin.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     "login_logo": None,
@@ -225,11 +225,12 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
-ADMIN_EMAIL = 'geosamscustomercare@gmail.com'
+EMAIL_TIMEOUT = config('EMAIL_TIMEOUT', cast=int, default=10)
+ADMIN_EMAIL = 'gyamfimichael613@gmail.com'
 
 # SECURITY MIDDLEWARE SETTINGS
 

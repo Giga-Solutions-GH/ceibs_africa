@@ -39,7 +39,7 @@ def send_admission_document_request_email(admission_id):
     except Admission.DoesNotExist:
         return  # If admission record no longer exists, do nothing
 
-    domain = "33e2-41-215-171-159.ngrok-free.app"  # e.g. 'ceibs-africa.example.com'
+    domain = "6295-41-66-237-210.ngrok-free.app"  # e.g. 'ceibs-africa.example.com'
     # Build the upload documents URL (make sure you have this URL pattern defined)
     upload_url = f"https://{domain}" + reverse('admission:admissions_document_upload', args=[admission.id])
 
@@ -92,7 +92,7 @@ def send_admission_confirmation_email_task(admission_id):
     except Admission.DoesNotExist:
         return
 
-    domain = "33e2-41-215-171-159.ngrok-free.app"  # Replace with your domain or use get_domain() if defined
+    domain = "6295-41-66-237-210.ngrok-free.app"  # Replace with your domain or use get_domain() if defined
     # dashboard_link = f"https://{domain}" + reverse('marketing:admission_dashboard')
     context = {
         'admission': admission,

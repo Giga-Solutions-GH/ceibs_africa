@@ -19431,7 +19431,7 @@ tz
 2025-03-20 13:43:33,090 [INFO] django.server: "GET /marketing/admissions/all?start_date=&end_date=&status=&program=8 HTTP/1.1" 200 26445
 2025-03-20 13:43:34,669 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1896
 2025-03-20 14:52:25,990 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
-2025-03-20 15:52:11,016 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+2025-03-20 15:52:11,016 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
 Traceback (most recent call last):
   File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
@@ -19441,10 +19441,10 @@ Traceback (most recent call last):
     host = request.get_host()
   File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\http\request.py", line 151, in get_host
     raise DisallowedHost(msg)
-django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
 2025-03-20 15:52:11,964 [WARNING] django.request: Bad Request: /
 2025-03-20 15:52:11,991 [WARNING] django.server: "GET / HTTP/1.1" 400 78737
-2025-03-20 15:52:13,916 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+2025-03-20 15:52:13,916 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
 Traceback (most recent call last):
   File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
@@ -19454,7 +19454,7 @@ Traceback (most recent call last):
     host = request.get_host()
   File "C:\Users\Michael\Documents\new_ceibs_project\ceibs_env\Lib\site-packages\django\http\request.py", line 151, in get_host
     raise DisallowedHost(msg)
-django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-171-159.ngrok-free.app'. You may need to add '33e2-41-215-171-159.ngrok-free.app' to ALLOWED_HOSTS.
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
 2025-03-20 15:52:14,074 [WARNING] django.request: Bad Request: /favicon.ico
 2025-03-20 15:52:14,076 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 400 78442
 2025-03-20 15:52:45,927 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\ceibs_management\settings.py changed, reloading.
@@ -19479,7 +19479,7 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '33e2-41-215-17
 2025-03-20 15:56:25,064 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
 2025-03-20 15:56:25,471 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3057
 2025-03-20 15:56:42,646 [INFO] django.server: - Broken pipe from ('127.0.0.1', 53386)
-2025-03-20 15:56:56,392 [WARNING] django.security.csrf: Forbidden (Origin checking failed - https://33e2-41-215-171-159.ngrok-free.app does not match any trusted origins.): /account/login/
+2025-03-20 15:56:56,392 [WARNING] django.security.csrf: Forbidden (Origin checking failed - https://6295-41-66-237-210.ngrok-free.app does not match any trusted origins.): /account/login/
 2025-03-20 15:56:56,393 [WARNING] django.server: "POST /account/login/?next=/ HTTP/1.1" 403 2575
 2025-03-20 15:57:16,591 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\ceibs_management\settings.py changed, reloading.
 2025-03-20 15:57:19,972 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
@@ -22248,3 +22248,1003 @@ django.db.utils.OperationalError: no such column: finance_admissionfinance.activ
 2025-04-04 07:50:03,840 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\academic_program\urls.py changed, reloading.
 2025-04-04 07:50:25,329 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2025-06-07 20:48:27,053 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:08:40,153 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:09:49,021 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-08 21:09:49,070 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-08 21:09:49,121 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-06-08 21:09:49,122 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-06-08 21:09:49,124 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-06-08 21:09:49,125 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-06-08 21:09:49,139 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-06-08 21:09:49,192 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-06-08 21:09:49,288 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-06-08 21:09:50,528 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-08 21:09:50,528 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3862
+2025-06-08 21:10:37,356 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 200 4381
+2025-06-08 21:10:47,209 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 200 4388
+2025-06-08 21:10:58,555 [WARNING] django.request: Not Found: /admin
+2025-06-08 21:10:58,555 [WARNING] django.server: "GET /admin HTTP/1.1" 404 3844
+2025-06-08 21:11:04,225 [INFO] django.server: "GET /elevated HTTP/1.1" 301 0
+2025-06-08 21:11:04,260 [INFO] django.server: "GET /elevated/ HTTP/1.1" 302 0
+2025-06-08 21:11:04,271 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:11:04,272 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3057
+2025-06-08 21:11:04,287 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+2025-06-08 21:11:04,289 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+2025-06-08 21:11:04,294 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+2025-06-08 21:11:04,294 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+2025-06-08 21:11:04,295 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+2025-06-08 21:11:04,301 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-06-08 21:11:04,305 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+2025-06-08 21:11:04,514 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+2025-06-08 21:12:15,692 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:12:17,563 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:12:23,074 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:12:23,077 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3051
+2025-06-08 21:12:23,094 [WARNING] django.server: "GET /static/assets/images/ceibs_logo.png HTTP/1.1" 404 1898
+2025-06-08 21:12:23,095 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-06-08 21:12:23,096 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-06-08 21:12:23,097 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-06-08 21:12:23,098 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-06-08 21:12:23,099 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-06-08 21:12:23,099 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-06-08 21:12:48,812 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:12:50,348 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:12:53,683 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:12:53,685 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3051
+2025-06-08 21:12:53,704 [INFO] django.server: "GET /static/assets/images/ceibs-logo.png HTTP/1.1" 200 47238
+2025-06-08 21:13:17,519 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:13:19,237 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:13:21,433 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:13:21,436 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3053
+2025-06-08 21:13:21,454 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-06-08 21:13:21,455 [WARNING] django.server: "GET /static/assets/images/ceibs-logo1.png HTTP/1.1" 404 1901
+2025-06-08 21:13:21,456 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-06-08 21:13:21,457 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-06-08 21:13:21,458 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-06-08 21:13:21,459 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-06-08 21:13:21,459 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-06-08 21:13:21,485 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 304 0
+2025-06-08 21:13:36,602 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:13:38,160 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:13:40,331 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:13:40,335 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3059
+2025-06-08 21:13:40,346 [WARNING] django.server: "GET /static/assets/images/ceibs_in_white.png HTTP/1.1" 404 1910
+2025-06-08 21:13:41,366 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:13:41,368 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3059
+2025-06-08 21:13:41,381 [WARNING] django.server: "GET /static/assets/images/ceibs_in_white.png HTTP/1.1" 404 1910
+2025-06-08 21:13:42,279 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:13:42,280 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3059
+2025-06-08 21:13:42,299 [WARNING] django.server: "GET /static/assets/images/ceibs_in_white.png HTTP/1.1" 404 1910
+2025-06-08 21:13:42,301 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+2025-06-08 21:13:42,302 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+2025-06-08 21:13:42,303 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+2025-06-08 21:13:42,306 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+2025-06-08 21:13:42,307 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+2025-06-08 21:13:42,313 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+2025-06-08 21:13:42,348 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+2025-06-08 21:13:42,686 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-06-08 21:16:32,895 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:16:34,457 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:16:38,379 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:38,382 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3063
+2025-06-08 21:16:38,392 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-06-08 21:16:38,394 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-06-08 21:16:38,394 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-06-08 21:16:38,395 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 200 8447
+2025-06-08 21:16:38,396 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-06-08 21:16:38,396 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-06-08 21:16:38,397 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-06-08 21:16:38,424 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+2025-06-08 21:16:49,548 [INFO] django.server: "POST /elevated/login/?next=/elevated/ HTTP/1.1" 302 0
+2025-06-08 21:16:49,579 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:49,589 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:49,591 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:16:49,591 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:49,592 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:49,594 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:49,602 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 82063
+2025-06-08 21:16:49,618 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 304 0
+2025-06-08 21:16:49,619 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+2025-06-08 21:16:49,660 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+2025-06-08 21:16:54,183 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:54,184 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:54,186 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:16:54,187 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:54,188 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:16:54,222 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 42356
+2025-06-08 21:16:54,236 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+2025-06-08 21:16:54,238 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+2025-06-08 21:16:54,239 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+2025-06-08 21:16:54,240 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+2025-06-08 21:16:54,242 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+2025-06-08 21:16:54,245 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+2025-06-08 21:16:54,246 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 304 0
+2025-06-08 21:16:54,247 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+2025-06-08 21:16:54,249 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:16:54,249 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2025-06-08 21:16:54,252 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+2025-06-08 21:16:54,254 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+2025-06-08 21:16:54,255 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+2025-06-08 21:16:54,270 [INFO] django.server: "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+2025-06-08 21:17:02,119 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:02,120 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:02,122 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:17:02,122 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:02,123 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:02,125 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:02,171 [INFO] django.server: "GET /elevated/account/customuser/2/change/ HTTP/1.1" 200 69238
+2025-06-08 21:17:02,184 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 304 0
+2025-06-08 21:17:02,186 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+2025-06-08 21:17:02,187 [INFO] django.server: "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+2025-06-08 21:17:02,188 [INFO] django.server: "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+2025-06-08 21:17:02,189 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+2025-06-08 21:17:02,190 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+2025-06-08 21:17:02,192 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:17:02,192 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+2025-06-08 21:17:02,195 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+2025-06-08 21:17:02,199 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2025-06-08 21:17:02,411 [INFO] django.server: "GET /static/jazzmin/img/selector-icons.svg HTTP/1.1" 200 3291
+2025-06-08 21:17:03,568 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:03,570 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:03,571 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:17:03,572 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:03,572 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:17:03,586 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 42356
+2025-06-08 21:31:56,742 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '99a5-154-161-154-52.ngrok-free.app'. You may need to add '99a5-154-161-154-52.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\http\request.py", line 191, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '99a5-154-161-154-52.ngrok-free.app'. You may need to add '99a5-154-161-154-52.ngrok-free.app' to ALLOWED_HOSTS.
+2025-06-08 21:31:56,769 [WARNING] django.request: Bad Request: /
+2025-06-08 21:31:56,770 [WARNING] django.server: "GET / HTTP/1.1" 400 79990
+2025-06-08 21:31:57,864 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '99a5-154-161-154-52.ngrok-free.app'. You may need to add '99a5-154-161-154-52.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\http\request.py", line 191, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '99a5-154-161-154-52.ngrok-free.app'. You may need to add '99a5-154-161-154-52.ngrok-free.app' to ALLOWED_HOSTS.
+2025-06-08 21:31:57,881 [WARNING] django.request: Bad Request: /favicon.ico
+2025-06-08 21:31:57,882 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 400 79695
+2025-06-08 21:32:26,098 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:32:27,445 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:32:30,059 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-08 21:32:30,410 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-08 21:32:30,769 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-06-08 21:32:30,770 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-06-08 21:32:30,921 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-06-08 21:32:30,923 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-06-08 21:32:30,925 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-06-08 21:32:30,946 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-06-08 21:32:32,470 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-06-08 21:32:32,904 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-08 21:32:32,905 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-06-08 21:32:40,255 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-08 21:32:40,568 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-08 21:32:40,888 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-08 21:32:41,238 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-08 21:33:01,239 [INFO] django.server: "GET /elevated HTTP/1.1" 301 0
+2025-06-08 21:33:01,635 [INFO] django.server: "GET /elevated/ HTTP/1.1" 302 0
+2025-06-08 21:33:01,974 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:01,977 [INFO] django.server: "GET /elevated/login/?next=/elevated/ HTTP/1.1" 200 3063
+2025-06-08 21:33:02,309 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+2025-06-08 21:33:02,325 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 200 8447
+2025-06-08 21:33:02,326 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+2025-06-08 21:33:02,489 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+2025-06-08 21:33:03,262 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+2025-06-08 21:33:03,263 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+2025-06-08 21:33:03,728 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+2025-06-08 21:33:04,377 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+2025-06-08 21:33:04,765 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-06-08 21:33:11,226 [INFO] django.server: "POST /elevated/login/?next=/elevated/ HTTP/1.1" 302 0
+2025-06-08 21:33:11,585 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:11,592 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:11,594 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:33:11,595 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:11,595 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:11,597 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:11,604 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 82063
+2025-06-08 21:33:12,148 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+2025-06-08 21:33:12,316 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+2025-06-08 21:33:23,514 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:23,515 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:23,517 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:33:23,517 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:23,518 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:23,546 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 42356
+2025-06-08 21:33:23,895 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+2025-06-08 21:33:23,897 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+2025-06-08 21:33:24,116 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+2025-06-08 21:33:24,117 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+2025-06-08 21:33:24,119 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+2025-06-08 21:33:24,120 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+2025-06-08 21:33:24,120 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+2025-06-08 21:33:24,123 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:33:24,126 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+2025-06-08 21:33:24,473 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2025-06-08 21:33:24,473 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+2025-06-08 21:33:24,816 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+2025-06-08 21:33:24,832 [INFO] django.server: "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+2025-06-08 21:33:29,146 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:29,147 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:29,149 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:33:29,150 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:29,151 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:29,155 [INFO] django.server: "POST /elevated/account/customuser/ HTTP/1.1" 200 33804
+2025-06-08 21:33:29,560 [INFO] django.server: "GET /static/admin/js/cancel.js HTTP/1.1" 200 564
+2025-06-08 21:33:32,850 [INFO] django.server: "POST /elevated/account/customuser/ HTTP/1.1" 302 0
+2025-06-08 21:33:33,260 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:33,261 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:33,262 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:33:33,263 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:33,264 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:33:33,275 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 41631
+2025-06-08 21:33:33,651 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:34:14,445 [INFO] django.server: "GET /account/password-reset/ HTTP/1.1" 200 2923
+2025-06-08 21:34:14,807 [INFO] django.server: "GET /static/assets/images/ceibs-logo.png HTTP/1.1" 200 47238
+2025-06-08 21:34:19,056 [INFO] django.server: "POST /account/password-reset/ HTTP/1.1" 302 0
+2025-06-08 21:34:19,451 [INFO] django.server: "GET /account/password-reset-confirm/ HTTP/1.1" 200 2927
+2025-06-08 21:35:30,189 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:35:31,504 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:35:52,910 [INFO] django.server: "POST /account/password-reset/ HTTP/1.1" 302 0
+2025-06-08 21:35:53,277 [INFO] django.server: "GET /account/password-reset-confirm/ HTTP/1.1" 200 2927
+2025-06-08 21:37:09,480 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:37:10,713 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:38:05,428 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:38:06,611 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:38:49,762 [INFO] django.server: "POST /account/password-reset/ HTTP/1.1" 302 0
+2025-06-08 21:38:50,159 [INFO] django.server: "GET /account/password-reset-confirm/ HTTP/1.1" 200 2927
+2025-06-08 21:38:50,532 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-08 21:38:50,533 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-08 21:38:50,537 [INFO] django.server: "GET /static/assets/images/ceibs-logo.png HTTP/1.1" 304 0
+2025-06-08 21:38:50,538 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-08 21:38:50,538 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-08 21:38:50,539 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-08 21:38:50,920 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-08 21:39:32,530 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:39:33,792 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:40:18,741 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:40:19,998 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:41:01,144 [INFO] django.server: "POST /account/password-reset/ HTTP/1.1" 302 0
+2025-06-08 21:41:01,521 [INFO] django.server: "GET /account/password-reset-confirm/ HTTP/1.1" 200 2927
+2025-06-08 21:41:29,836 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-08 21:41:31,109 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-08 21:41:44,269 [INFO] django.server: "POST /account/password-reset/ HTTP/1.1" 302 0
+2025-06-08 21:41:44,641 [INFO] django.server: "GET /account/password-reset-confirm/ HTTP/1.1" 200 2927
+2025-06-08 21:42:12,154 [INFO] django.server: "POST /account/password-reset-confirm/ HTTP/1.1" 302 0
+2025-06-08 21:42:12,533 [INFO] django.server: "GET /account/login/ HTTP/1.1" 200 4106
+2025-06-08 21:42:12,902 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 304 0
+2025-06-08 21:42:19,506 [INFO] django.server: "POST /account/login/ HTTP/1.1" 200 4381
+2025-06-08 21:42:24,632 [INFO] django.server: "POST /account/login/ HTTP/1.1" 200 4381
+2025-06-08 21:42:45,624 [INFO] django.server: "GET /account/password-reset/ HTTP/1.1" 200 2923
+2025-06-08 21:42:49,400 [INFO] django.server: "POST /account/password-reset/ HTTP/1.1" 302 0
+2025-06-08 21:42:49,803 [INFO] django.server: "GET /account/password-reset-confirm/ HTTP/1.1" 200 2927
+2025-06-08 21:43:37,594 [INFO] django.server: "POST /account/password-reset-confirm/ HTTP/1.1" 302 0
+2025-06-08 21:43:37,971 [INFO] django.server: "GET /account/login/ HTTP/1.1" 200 4106
+2025-06-08 21:43:38,335 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-08 21:43:38,408 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-08 21:43:38,409 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-08 21:43:38,488 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-08 21:43:38,489 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-08 21:43:38,490 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-08 21:43:49,533 [INFO] django.server: "POST /account/login/ HTTP/1.1" 200 4381
+2025-06-08 21:43:55,222 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:43:55,229 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:43:55,231 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:43:55,232 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:43:55,232 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:43:55,235 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:43:55,281 [INFO] django.server: "GET /elevated/account/customuser/2/change/ HTTP/1.1" 200 69231
+2025-06-08 21:43:55,633 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-06-08 21:43:55,634 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+2025-06-08 21:43:55,652 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,653 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+2025-06-08 21:43:55,655 [INFO] django.server: "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+2025-06-08 21:43:55,656 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:43:55,809 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-06-08 21:43:55,816 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+2025-06-08 21:43:55,816 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,818 [INFO] django.server: "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+2025-06-08 21:43:55,819 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,819 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-06-08 21:43:55,821 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,823 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,824 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,825 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,825 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+2025-06-08 21:43:55,841 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 304 0
+2025-06-08 21:43:55,989 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+2025-06-08 21:43:56,180 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+2025-06-08 21:43:56,213 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-06-08 21:43:56,213 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+2025-06-08 21:43:56,222 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+2025-06-08 21:43:56,222 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+2025-06-08 21:43:56,225 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2025-06-08 21:43:56,225 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+2025-06-08 21:43:56,225 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-06-08 21:43:56,226 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+2025-06-08 21:43:56,623 [INFO] django.server: "GET /static/jazzmin/img/selector-icons.svg HTTP/1.1" 200 3291
+2025-06-08 21:44:00,859 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:00,860 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:00,862 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:44:00,862 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:00,863 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:00,885 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 41134
+2025-06-08 21:44:01,301 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:44:01,624 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+2025-06-08 21:44:01,624 [INFO] django.server: "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+2025-06-08 21:44:01,670 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+2025-06-08 21:44:02,692 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:02,693 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:02,694 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:44:02,695 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:02,696 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:02,698 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:02,727 [INFO] django.server: "GET /elevated/account/customuser/2/change/ HTTP/1.1" 200 69231
+2025-06-08 21:44:03,152 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:44:07,056 [INFO] django.server: "POST /elevated/account/customuser/2/change/ HTTP/1.1" 302 0
+2025-06-08 21:44:07,503 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:07,504 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:07,506 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:44:07,507 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:07,507 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:44:07,518 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 41721
+2025-06-08 21:44:07,910 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 21:44:13,137 [INFO] django.server: "POST /account/login/ HTTP/1.1" 302 0
+2025-06-08 21:44:13,530 [INFO] django.server: "GET / HTTP/1.1" 200 27061
+2025-06-08 21:44:13,954 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-06-08 21:44:13,955 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-06-08 21:44:13,960 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-06-08 21:44:14,110 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-06-08 21:44:14,114 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:44:14,114 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-06-08 21:44:14,662 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 200 2559
+2025-06-08 21:44:14,663 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-06-08 21:44:14,730 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-06-08 21:44:14,731 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-06-08 21:44:14,891 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 200 40840
+2025-06-08 21:44:14,892 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 200 44004
+2025-06-08 21:44:14,893 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-06-08 21:44:14,894 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-06-08 21:44:15,297 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-06-08 21:44:15,376 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-06-08 21:44:15,388 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-06-08 21:44:15,390 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-06-08 21:44:15,410 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-06-08 21:49:38,261 [INFO] django.server: "GET /students/all_students HTTP/1.1" 200 27114
+2025-06-08 21:49:39,175 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,183 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,184 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,186 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,186 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,187 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,613 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,618 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,619 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 304 0
+2025-06-08 21:49:39,619 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:49:40,298 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-08 21:49:40,298 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 304 0
+2025-06-08 21:49:40,459 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 304 0
+2025-06-08 21:49:40,461 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-08 21:49:40,461 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 304 0
+2025-06-08 21:49:40,464 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 304 0
+2025-06-08 21:49:40,466 [INFO] django.server: "GET /static/assets/images/down-arrow.png HTTP/1.1" 200 1015
+2025-06-08 21:49:40,467 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 304 0
+2025-06-08 21:49:40,467 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 304 0
+2025-06-08 21:49:41,313 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 304 0
+2025-06-08 21:49:41,313 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 304 0
+2025-06-08 21:49:41,314 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 304 0
+2025-06-08 21:49:41,664 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 304 0
+2025-06-08 21:49:41,665 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 304 0
+2025-06-08 21:50:12,549 [INFO] django.server: "GET /events/events_overview/ HTTP/1.1" 200 18380
+2025-06-08 21:50:13,382 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:50:20,880 [INFO] django.server: "GET /events/event/statistics HTTP/1.1" 200 23749
+2025-06-08 21:50:21,248 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:50:26,394 [INFO] django.server: "GET /academic_program/lecturer/add/ HTTP/1.1" 200 22842
+2025-06-08 21:50:26,758 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:50:27,762 [INFO] django.server: "GET /academic_program/lecturer_list HTTP/1.1" 200 21734
+2025-06-08 21:50:28,186 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:50:30,578 [INFO] django.server: "GET /academic_program/program_types HTTP/1.1" 200 21137
+2025-06-08 21:50:30,971 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:50:32,793 [INFO] django.server: "GET /academic_program/program_types/Executive%20Program HTTP/1.1" 200 23495
+2025-06-08 21:50:33,206 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:50:36,337 [INFO] django.server: "GET /academic_program/program_participants/GEMBA-2025/Executive%20Program HTTP/1.1" 200 25961
+2025-06-08 21:50:36,709 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:51:11,683 [INFO] django.server: "GET /academic_program/program-module-overview/ HTTP/1.1" 200 23626
+2025-06-08 21:51:12,055 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:51:15,745 [INFO] django.server: "GET /academic_program/program/statistics HTTP/1.1" 200 26352
+2025-06-08 21:51:16,125 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:51:21,345 [INFO] django.server: "GET /academic_program/attendance-overview/ HTTP/1.1" 200 21023
+2025-06-08 21:51:21,715 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:51:24,548 [INFO] django.server: "GET /academic_program/attendance-overview/?program=7&course=&date= HTTP/1.1" 200 21031
+2025-06-08 21:51:24,904 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:51:29,846 [INFO] django.server: "GET /academic_program/attendance-overview/?program=6&course=&date= HTTP/1.1" 200 21031
+2025-06-08 21:51:30,219 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:51:33,701 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23287
+2025-06-08 21:51:34,076 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:51:57,784 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-08 21:51:58,126 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-08 21:51:58,526 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-06-08 21:51:58,540 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-06-08 21:51:58,555 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-06-08 21:51:58,557 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-06-08 21:51:58,707 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-06-08 21:51:58,707 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-06-08 21:51:58,708 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-06-08 21:52:13,904 [INFO] django.server: "GET /academic_program/add-schedule/ HTTP/1.1" 200 22707
+2025-06-08 21:52:14,285 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:52:17,266 [INFO] django.server: "GET /academic_program/add_schedule/7/ HTTP/1.1" 200 25465
+2025-06-08 21:52:17,641 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:52:23,035 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-08 21:52:23,035 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-06-08 21:52:23,239 [INFO] django.server: "GET /students/student_portal/transcripts/all/ HTTP/1.1" 200 21526
+2025-06-08 21:52:23,614 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:52:52,675 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 200 4381
+2025-06-08 21:53:01,934 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 200 4381
+2025-06-08 21:53:10,476 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 200 4381
+2025-06-08 21:53:18,398 [INFO] django.server: "GET /student_grading/overview HTTP/1.1" 200 25715
+2025-06-08 21:53:18,782 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:53:21,119 [INFO] django.server: "GET /student_grading/programs/6/students/ HTTP/1.1" 200 19909
+2025-06-08 21:53:21,553 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:53:22,365 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 200 4381
+2025-06-08 21:53:48,347 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 302 0
+2025-06-08 21:53:48,697 [INFO] django.server: "GET / HTTP/1.1" 200 27061
+2025-06-08 21:53:49,069 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-06-08 21:53:49,079 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:53:49,079 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-06-08 21:53:49,088 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-06-08 21:53:49,091 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 200 2559
+2025-06-08 21:53:49,092 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-06-08 21:53:49,092 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-06-08 21:53:49,346 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-06-08 21:53:58,275 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-06-08 21:53:58,457 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-06-08 21:53:58,476 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-06-08 21:53:58,482 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-06-08 21:53:58,621 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-06-08 21:53:58,639 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-06-08 21:53:58,639 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-06-08 21:53:58,640 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 200 40840
+2025-06-08 21:53:58,640 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 200 44004
+2025-06-08 21:53:58,641 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-06-08 21:53:58,641 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-06-08 21:54:08,107 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-06-08 21:54:58,244 [INFO] django.server: "GET /elevated HTTP/1.1" 301 0
+2025-06-08 21:54:58,628 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:54:58,629 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:54:58,631 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 21:54:58,631 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:54:58,632 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:54:58,634 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 21:54:58,643 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 90600
+2025-06-08 21:54:59,062 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+2025-06-08 21:54:59,255 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 200 8447
+2025-06-08 21:54:59,256 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+2025-06-08 21:54:59,536 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+2025-06-08 21:54:59,548 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+2025-06-08 21:54:59,550 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+2025-06-08 21:54:59,552 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+2025-06-08 21:54:59,975 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+2025-06-08 21:55:01,827 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+2025-06-08 21:55:01,832 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+2025-06-08 21:56:40,493 [INFO] django.server: "GET /events/events_overview/ HTTP/1.1" 200 18380
+2025-06-08 21:56:40,870 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-08 21:56:40,871 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-08 21:56:40,896 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:56:40,896 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 304 0
+2025-06-08 21:56:41,030 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-08 21:56:41,033 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 304 0
+2025-06-08 21:56:41,034 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-08 21:56:41,035 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 304 0
+2025-06-08 21:56:41,036 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 304 0
+2025-06-08 21:56:41,037 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 304 0
+2025-06-08 21:56:41,037 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 304 0
+2025-06-08 21:56:41,390 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,390 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,397 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,397 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,409 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,410 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,410 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,410 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,732 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,733 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,743 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 304 0
+2025-06-08 21:56:41,748 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 304 0
+2025-06-08 21:56:41,749 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 304 0
+2025-06-08 21:56:53,328 [INFO] django.server: "GET /students/all_students HTTP/1.1" 200 27114
+2025-06-08 21:56:53,857 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 21:56:54,210 [INFO] django.server: "GET /static/assets/images/down-arrow.png HTTP/1.1" 200 1015
+2025-06-08 22:02:15,426 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:02:15,428 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:02:15,430 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:02:15,431 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:02:15,432 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:02:15,445 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 41152
+2025-06-08 22:02:15,844 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-06-08 22:02:15,849 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 22:02:16,089 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2025-06-08 22:02:16,092 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+2025-06-08 22:02:16,093 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-06-08 22:02:16,093 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-06-08 22:02:16,094 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+2025-06-08 22:02:16,097 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+2025-06-08 22:02:16,099 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+2025-06-08 22:02:16,101 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-06-08 22:02:16,102 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+2025-06-08 22:02:16,102 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 304 0
+2025-06-08 22:02:16,103 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+2025-06-08 22:02:16,104 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+2025-06-08 22:02:16,106 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+2025-06-08 22:02:16,474 [INFO] django.server: "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+2025-06-08 22:02:16,818 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-06-08 22:02:16,954 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-06-08 22:02:16,970 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+2025-06-08 22:02:16,971 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+2025-06-08 22:02:16,979 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+2025-06-08 22:02:16,980 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+2025-06-08 22:02:16,981 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+2025-06-08 22:28:28,467 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:28:28,468 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:28:28,471 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:28:28,472 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:28:28,472 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:28:28,475 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:28:28,482 [INFO] django.server: "GET /elevated/account/customuser/add/ HTTP/1.1" 200 39623
+2025-06-08 22:28:28,835 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-06-08 22:28:28,845 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-06-08 22:28:29,011 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-06-08 22:28:29,017 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,021 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,023 [INFO] django.server: "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+2025-06-08 22:28:29,025 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,026 [INFO] django.server: "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+2025-06-08 22:28:29,028 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 22:28:29,174 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+2025-06-08 22:28:29,174 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,174 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,175 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,177 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,177 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 304 0
+2025-06-08 22:28:29,178 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,179 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+2025-06-08 22:28:29,509 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+2025-06-08 22:28:29,520 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,521 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,700 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+2025-06-08 22:28:29,703 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,706 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+2025-06-08 22:28:29,707 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+2025-06-08 22:28:29,708 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+2025-06-08 22:28:29,708 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2025-06-08 22:28:30,035 [INFO] django.server: "GET /static/jazzmin/img/selector-icons.svg HTTP/1.1" 200 3291
+2025-06-08 22:30:43,577 [INFO] django.server: "POST /elevated/account/customuser/add/ HTTP/1.1" 302 0
+2025-06-08 22:30:43,959 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:43,960 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:43,962 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:30:43,963 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:43,963 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:43,966 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:43,995 [INFO] django.server: "GET /elevated/account/customuser/20/change/ HTTP/1.1" 200 69821
+2025-06-08 22:30:44,375 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+2025-06-08 22:30:44,393 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 22:30:44,524 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+2025-06-08 22:30:51,291 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:51,291 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:51,293 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:30:51,293 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:51,294 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:51,296 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:51,301 [INFO] django.server: "GET /elevated/account/ HTTP/1.1" 200 42913
+2025-06-08 22:30:56,541 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:56,542 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:56,544 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:30:56,544 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:56,545 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:30:56,556 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 41761
+2025-06-08 22:30:57,065 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 22:30:57,281 [INFO] django.server: "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+2025-06-08 22:30:57,282 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+2025-06-08 22:30:57,431 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+2025-06-08 22:31:05,814 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:05,815 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:05,817 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:31:05,817 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:05,818 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:05,820 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:05,848 [INFO] django.server: "GET /elevated/account/customuser/20/change/ HTTP/1.1" 200 69209
+2025-06-08 22:31:06,291 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 22:31:14,466 [INFO] django.server: "POST /elevated/account/customuser/20/change/ HTTP/1.1" 302 0
+2025-06-08 22:31:14,821 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:14,822 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:14,824 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:31:14,825 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:14,825 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:31:14,837 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 42346
+2025-06-08 22:31:15,225 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 22:34:35,209 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:34:35,210 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:34:35,211 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-08 22:34:35,212 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:34:35,213 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:34:35,215 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-08 22:34:35,242 [INFO] django.server: "GET /elevated/account/customuser/20/change/ HTTP/1.1" 200 69225
+2025-06-08 22:34:35,637 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-08 22:37:10,979 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-08 22:37:11,309 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-08 22:37:11,844 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-06-08 22:37:11,844 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-06-08 22:37:11,845 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-06-08 22:37:11,847 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-06-08 22:37:11,995 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-06-08 22:37:11,995 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-06-08 22:37:11,996 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-06-08 22:37:14,126 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-08 22:37:14,127 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-06-08 22:57:40,365 [INFO] django.server: "GET / HTTP/1.1" 200 26868
+2025-06-08 22:57:41,432 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-08 22:57:41,433 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,261 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,263 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,264 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,265 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,265 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,267 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,268 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 304 0
+2025-06-08 22:57:42,273 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,273 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-08 22:57:42,274 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 304 0
+2025-06-08 22:57:42,936 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,936 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,939 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,940 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,943 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,943 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,943 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,944 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,945 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,948 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,948 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 304 0
+2025-06-08 22:57:42,949 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 304 0
+2025-06-08 22:57:42,949 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 304 0
+2025-06-09 07:10:27,783 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 10:09:56,581 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-09 10:09:56,896 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-09 10:09:57,410 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-09 10:09:57,559 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-09 10:09:57,561 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-09 10:09:57,562 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-09 10:09:57,562 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-09 10:09:57,708 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 304 0
+2025-06-09 10:09:57,898 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-09 10:10:05,233 [INFO] django.server: "GET / HTTP/1.1" 200 26868
+2025-06-09 10:10:05,656 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,668 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,669 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,677 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,677 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 10:10:05,817 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,824 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,826 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 304 0
+2025-06-09 10:10:05,831 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,832 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,833 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 304 0
+2025-06-09 10:10:05,898 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,151 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,171 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,212 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,315 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,316 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,334 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,334 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,334 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,377 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,378 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,381 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 304 0
+2025-06-09 10:10:06,383 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 304 0
+2025-06-09 10:10:06,481 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 304 0
+2025-06-09 10:10:09,139 [INFO] django.server: "GET / HTTP/1.1" 200 26868
+2025-06-09 10:10:09,506 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-06-09 10:10:09,512 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-06-09 10:10:09,513 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-06-09 10:10:09,661 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-06-09 10:10:09,662 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 10:10:09,663 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-06-09 10:10:09,663 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-06-09 10:10:09,664 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-06-09 10:10:09,664 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-06-09 10:10:09,665 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-06-09 10:10:10,360 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 200 2559
+2025-06-09 10:10:10,361 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-06-09 10:10:10,545 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-06-09 10:10:10,545 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-06-09 10:10:10,547 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-06-09 10:10:10,975 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-06-09 10:10:10,976 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-06-09 10:10:10,977 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-06-09 10:10:10,977 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-06-09 10:10:10,978 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-06-09 10:10:11,176 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-06-09 10:10:11,176 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-06-09 10:10:11,177 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-06-09 10:10:11,628 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 200 44004
+2025-06-09 10:10:11,628 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 200 40840
+2025-06-09 10:10:12,028 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-06-09 10:31:04,958 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-09 10:31:05,317 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-09 10:31:05,759 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-06-09 10:31:05,917 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-06-09 10:31:05,919 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-06-09 10:31:05,920 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-06-09 10:31:05,920 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-06-09 10:31:05,921 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-06-09 10:31:05,922 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-06-09 10:31:08,870 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-09 10:31:08,870 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3882
+2025-06-09 10:50:06,098 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-09 10:50:06,490 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-09 10:51:17,468 [INFO] django.server: "GET /account/password-reset/ HTTP/1.1" 200 2923
+2025-06-09 10:51:17,916 [INFO] django.server: "GET /static/assets/images/ceibs-logo.png HTTP/1.1" 200 47238
+2025-06-09 10:51:28,173 [INFO] django.server: "POST /account/password-reset/ HTTP/1.1" 302 0
+2025-06-09 10:51:28,517 [INFO] django.server: "GET /account/password-reset-confirm/ HTTP/1.1" 200 2927
+2025-06-09 10:52:01,502 [INFO] django.server: "POST /account/password-reset-confirm/ HTTP/1.1" 302 0
+2025-06-09 10:52:01,890 [INFO] django.server: "GET /account/login/ HTTP/1.1" 200 4106
+2025-06-09 10:52:16,959 [INFO] django.server: "POST /account/login/ HTTP/1.1" 200 4389
+2025-06-09 10:52:23,448 [INFO] django.server: "POST /account/login/ HTTP/1.1" 200 4389
+2025-06-09 10:52:44,984 [INFO] django.server: "POST /account/login/ HTTP/1.1" 200 4389
+2025-06-09 10:56:12,838 [INFO] django.server: "POST /account/login/ HTTP/1.1" 200 4389
+2025-06-09 11:03:08,832 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\account\views.py changed, reloading.
+2025-06-09 11:03:10,700 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-09 11:03:22,302 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:22,310 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:22,312 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-09 11:03:22,313 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:22,314 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:22,316 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:22,326 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 90371
+2025-06-09 11:03:22,700 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+2025-06-09 11:03:22,876 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+2025-06-09 11:03:22,879 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+2025-06-09 11:03:22,880 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 304 0
+2025-06-09 11:03:23,035 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2025-06-09 11:03:23,203 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+2025-06-09 11:03:23,203 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+2025-06-09 11:03:23,348 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+2025-06-09 11:03:23,348 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+2025-06-09 11:03:23,349 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-06-09 11:03:27,185 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:27,186 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:27,188 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-09 11:03:27,189 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:27,189 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:27,218 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 41761
+2025-06-09 11:03:27,571 [INFO] django.server: "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+2025-06-09 11:03:27,574 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-09 11:03:27,588 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+2025-06-09 11:03:27,718 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+2025-06-09 11:03:27,718 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+2025-06-09 11:03:27,722 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+2025-06-09 11:03:27,722 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 304 0
+2025-06-09 11:03:27,722 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+2025-06-09 11:03:27,723 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+2025-06-09 11:03:28,046 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+2025-06-09 11:03:28,046 [INFO] django.server: "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+2025-06-09 11:03:28,060 [INFO] django.server: "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+2025-06-09 11:03:28,061 [INFO] django.server: "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+2025-06-09 11:03:29,234 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:29,235 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:29,237 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-09 11:03:29,238 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:29,239 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:29,244 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:29,311 [INFO] django.server: "GET /elevated/account/customuser/20/change/ HTTP/1.1" 200 69217
+2025-06-09 11:03:29,660 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+2025-06-09 11:03:29,663 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-09 11:03:29,807 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+2025-06-09 11:03:29,807 [INFO] django.server: "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+2025-06-09 11:03:29,808 [INFO] django.server: "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+2025-06-09 11:03:30,103 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+2025-06-09 11:03:30,106 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+2025-06-09 11:03:30,121 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+2025-06-09 11:03:30,121 [INFO] django.server: "GET /static/jazzmin/js/change_form.js HTTP/1.1" 304 0
+2025-06-09 11:03:30,499 [INFO] django.server: "GET /static/jazzmin/img/selector-icons.svg HTTP/1.1" 304 0
+2025-06-09 11:03:36,913 [INFO] django.server: "POST /elevated/account/customuser/20/change/ HTTP/1.1" 302 0
+2025-06-09 11:03:37,239 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:37,240 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:37,241 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-09 11:03:37,242 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:37,242 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 11:03:37,254 [INFO] django.server: "GET /elevated/account/customuser/ HTTP/1.1" 200 42346
+2025-06-09 11:03:37,591 [INFO] django.server: "GET /elevated/jsi18n/ HTTP/1.1" 200 3342
+2025-06-09 11:07:04,336 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-09 11:10:39,072 [INFO] django.server: "POST /account/login/ HTTP/1.1" 302 0
+2025-06-09 11:10:39,455 [INFO] django.server: "GET / HTTP/1.1" 200 27051
+2025-06-09 11:10:39,674 [WARNING] django.security.csrf: Forbidden (CSRF token from POST incorrect.): /account/login/
+2025-06-09 11:10:39,674 [WARNING] django.server: "POST /account/login/ HTTP/1.1" 403 2503
+2025-06-09 11:10:48,525 [WARNING] django.security.csrf: Forbidden (CSRF token from POST incorrect.): /account/login/
+2025-06-09 11:10:48,526 [WARNING] django.server: "POST /account/login/?next=/ HTTP/1.1" 403 2503
+2025-06-09 11:11:08,982 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 4077
+2025-06-09 11:11:18,118 [INFO] django.server: "POST /account/login/?next=/ HTTP/1.1" 302 0
+2025-06-09 11:11:18,484 [INFO] django.server: "GET / HTTP/1.1" 200 27051
+2025-06-09 11:11:18,921 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 200 15074
+2025-06-09 11:11:18,939 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 200 3471
+2025-06-09 11:11:18,939 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 200 1036
+2025-06-09 11:11:19,073 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 200 12601
+2025-06-09 11:11:19,073 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:11:19,074 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 200 77584
+2025-06-09 11:11:19,430 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 200 2559
+2025-06-09 11:11:19,430 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 200 14305
+2025-06-09 11:11:19,647 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 200 7831
+2025-06-09 11:11:19,648 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 200 92631
+2025-06-09 11:11:19,677 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 200 40223
+2025-06-09 11:11:19,678 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 200 44004
+2025-06-09 11:11:19,679 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 200 126500
+2025-06-09 11:11:19,840 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 200 40840
+2025-06-09 11:11:20,221 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 200 75664
+2025-06-09 11:11:20,224 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 200 186987
+2025-06-09 11:11:20,466 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 200 8106
+2025-06-09 11:11:20,467 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 200 14350
+2025-06-09 11:11:20,468 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 200 236271
+2025-06-09 11:11:21,813 [INFO] django.server: "GET /static/assets/images/ceibs_favicon.png HTTP/1.1" 200 201874
+2025-06-09 11:11:31,541 [INFO] django.server: "GET /academic_program/lecturer_list HTTP/1.1" 200 21724
+2025-06-09 11:11:31,994 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:11:54,463 [INFO] django.server: "GET /academic_program/lecturer/add/ HTTP/1.1" 200 22832
+2025-06-09 11:11:54,966 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:11:55,349 [INFO] django.server: "GET /static/assets/images/down-arrow.png HTTP/1.1" 200 1015
+2025-06-09 11:11:59,400 [INFO] django.server: "GET /academic_program/lecturer/statistics HTTP/1.1" 200 23630
+2025-06-09 11:11:59,833 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:12:02,897 [INFO] django.server: "GET /academic_program/program_types HTTP/1.1" 200 21127
+2025-06-09 11:12:03,271 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:12:05,977 [INFO] django.server: "GET /academic_program/program_types/Executive%20Program HTTP/1.1" 200 23485
+2025-06-09 11:12:06,409 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:12:28,093 [INFO] django.server: "GET /academic_program/program_participants/GEMBA-2025/Executive%20Program HTTP/1.1" 200 25951
+2025-06-09 11:12:28,608 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:13:07,517 [INFO] django.server: "GET /academic_program/program/6/add_student/ HTTP/1.1" 200 24154
+2025-06-09 11:13:07,880 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:13:12,674 [INFO] django.server: "GET /academic_program/lecturer/add/ HTTP/1.1" 200 22832
+2025-06-09 11:13:13,122 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:13:15,536 [INFO] django.server: "GET /academic_program/lecturer_list HTTP/1.1" 200 21724
+2025-06-09 11:13:15,979 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:13:18,528 [INFO] django.server: "GET /academic_program/lecturer/statistics HTTP/1.1" 200 23630
+2025-06-09 11:13:18,929 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:17:29,124 [INFO] django.server: "GET /marketing/prospect_list HTTP/1.1" 200 23277
+2025-06-09 11:17:29,502 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:17:36,262 [INFO] django.server: "GET /marketing/prospect/prospect_feedbacks/3 HTTP/1.1" 200 19400
+2025-06-09 11:17:36,689 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:17:41,071 [INFO] django.server: "GET /academic_program/program_types HTTP/1.1" 200 21127
+2025-06-09 11:17:41,486 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:17:44,670 [INFO] django.server: "GET /academic_program/program_types/Executive%20Program HTTP/1.1" 200 23485
+2025-06-09 11:17:45,101 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:17:53,438 [INFO] django.server: "GET /academic_program/program_participants/GEMBA-2025/Executive%20Program HTTP/1.1" 200 25951
+2025-06-09 11:17:53,821 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:18:08,621 [INFO] django.server: "GET /academic_program/program_types HTTP/1.1" 200 21127
+2025-06-09 11:18:09,092 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:18:13,772 [INFO] django.server: "GET /academic_program/program_types/Company%20Specific%20Program HTTP/1.1" 200 23313
+2025-06-09 11:18:14,209 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:18:17,741 [INFO] django.server: "GET /academic_program/program_participants/ABSA%20Acceleration/Company%20Specific%20Program HTTP/1.1" 200 25197
+2025-06-09 11:18:18,156 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:18:25,197 [INFO] django.server: "GET /events/add_event/ HTTP/1.1" 200 24948
+2025-06-09 11:18:25,599 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:18:33,615 [INFO] django.server: "GET /academic_program/program-module-overview/ HTTP/1.1" 200 23616
+2025-06-09 11:18:33,997 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:19:26,799 [INFO] django.server: "GET /alumni/all_alumni/ HTTP/1.1" 200 24136
+2025-06-09 11:19:27,256 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:19:30,545 [INFO] django.server: "GET /academic_program/program/statistics HTTP/1.1" 200 26342
+2025-06-09 11:19:31,042 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:19:37,393 [INFO] django.server: "GET /students/add_student HTTP/1.1" 200 24207
+2025-06-09 11:19:37,742 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:19:39,998 [INFO] django.server: "GET /students/all_students HTTP/1.1" 200 27104
+2025-06-09 11:19:40,482 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:22:30,003 [INFO] django.server: "GET /students/add_student HTTP/1.1" 200 24207
+2025-06-09 11:22:30,484 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:22:38,420 [INFO] django.server: "GET /students/add_student HTTP/1.1" 200 24207
+2025-06-09 11:22:38,868 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 11:22:41,063 [INFO] django.server: "GET /students/all_students HTTP/1.1" 200 27104
+2025-06-09 11:22:41,539 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 12:19:22,427 [INFO] django.server: "GET /academic_program/lecturer/add/ HTTP/1.1" 200 22832
+2025-06-09 12:19:22,784 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-09 12:19:22,792 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-09 12:19:22,941 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-09 12:19:22,942 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-09 12:19:22,942 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 12:19:22,955 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-09 12:19:22,956 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-09 12:19:27,375 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 12:19:27,376 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 12:19:27,378 [WARNING] jazzmin.utils: No url supplied in custom link
+2025-06-09 12:19:27,379 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 12:19:27,380 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 12:19:27,382 [WARNING] jazzmin.utils: Could not reverse url from academic_program.studentdetail
+2025-06-09 12:19:27,389 [INFO] django.server: "GET /elevated/ HTTP/1.1" 200 82077
+2025-06-09 12:19:27,996 [INFO] django.server: "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+2025-06-09 12:19:28,025 [INFO] django.server: "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+2025-06-09 12:19:29,420 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+2025-06-09 12:19:29,583 [INFO] django.server: "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+2025-06-09 12:19:29,845 [INFO] django.server: "GET /static/assets/images/ceibs-logo-admin.png HTTP/1.1" 200 8447
+2025-06-09 12:19:31,914 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+2025-06-09 12:19:31,921 [INFO] django.server: "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+2025-06-09 12:19:36,401 [INFO] django.server: "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+2025-06-09 12:19:36,431 [INFO] django.server: "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+2025-06-09 12:19:37,010 [INFO] django.server: "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+2025-06-09 15:32:53,741 [INFO] django.server: "GET / HTTP/1.1" 200 26868
+2025-06-09 15:32:54,793 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-06-09 15:32:54,958 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 304 0
+2025-06-09 15:32:54,958 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-09 15:32:54,973 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.css HTTP/1.1" 304 0
+2025-06-09 15:32:54,976 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 304 0
+2025-06-09 15:32:54,977 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 304 0
+2025-06-09 15:32:54,977 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.css HTTP/1.1" 304 0
+2025-06-09 15:32:54,978 [INFO] django.server: "GET /static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css HTTP/1.1" 304 0
+2025-06-09 15:32:55,102 [INFO] django.server: "GET /static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css HTTP/1.1" 304 0
+2025-06-09 15:32:55,102 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.css HTTP/1.1" 304 0
+2025-06-09 15:32:55,574 [INFO] django.server: "GET /static/assets/images/ceibs-logo1.jpg HTTP/1.1" 304 0
+2025-06-09 15:32:55,575 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 304 0
+2025-06-09 15:32:55,739 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 304 0
+2025-06-09 15:32:55,740 [INFO] django.server: "GET /static/assets/vendor/charts/chartist-bundle/chartist.min.js HTTP/1.1" 304 0
+2025-06-09 15:32:55,929 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/raphael.min.js HTTP/1.1" 304 0
+2025-06-09 15:32:55,929 [INFO] django.server: "GET /static/assets/vendor/charts/morris-bundle/morris.js HTTP/1.1" 304 0
+2025-06-09 15:32:55,931 [INFO] django.server: "GET /static/assets/vendor/slimscroll/jquery.slimscroll.js HTTP/1.1" 304 0
+2025-06-09 15:32:55,932 [INFO] django.server: "GET /static/assets/libs/js/main-js.js HTTP/1.1" 304 0
+2025-06-09 15:32:55,932 [INFO] django.server: "GET /static/assets/vendor/charts/sparkline/jquery.sparkline.js HTTP/1.1" 304 0
+2025-06-09 15:32:56,075 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/c3.min.js HTTP/1.1" 304 0
+2025-06-09 15:32:56,094 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/d3-5.4.0.min.js HTTP/1.1" 304 0
+2025-06-09 15:32:56,218 [INFO] django.server: "GET /static/assets/vendor/charts/c3charts/C3chartjs.js HTTP/1.1" 304 0
+2025-06-09 15:32:56,394 [INFO] django.server: "GET /static/assets/libs/js/dashboard-ecommerce.js HTTP/1.1" 304 0
+2025-06-09 15:32:56,394 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/webfonts/fa-solid-900.html HTTP/1.1" 304 0
+2025-06-09 15:32:56,397 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/CircularStd-Medium.woff HTTP/1.1" 304 0
+2025-06-09 15:33:03,293 [INFO] django.server: "GET /events/events_overview/ HTTP/1.1" 200 18380
+2025-06-09 15:33:03,785 [WARNING] django.server: "GET /static/css/bootstrap.min.css HTTP/1.1" 404 1897
+2025-06-10 17:28:08,733 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-10 17:28:29,775 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\http\request.py", line 191, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
+2025-06-10 17:28:29,925 [WARNING] django.request: Bad Request: /
+2025-06-10 17:28:29,925 [WARNING] django.server: "GET / HTTP/1.1" 400 79967
+2025-06-10 17:28:30,619 [ERROR] django.security.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Gyamfi\Downloads\ceibs_africa\.venv\Lib\site-packages\django\http\request.py", line 191, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237-210.ngrok-free.app'. You may need to add '6295-41-66-237-210.ngrok-free.app' to ALLOWED_HOSTS.
+2025-06-10 17:28:30,638 [WARNING] django.request: Bad Request: /favicon.ico
+2025-06-10 17:28:30,639 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 400 79671
+2025-06-10 17:28:55,926 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\ceibs_management\settings.py changed, reloading.
+2025-06-10 17:28:57,667 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-10 17:29:03,270 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-10 17:29:03,560 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-10 17:29:03,818 [INFO] django.server: "GET /static/assets/vendor/fonts/circular-std/style.css HTTP/1.1" 200 1575
+2025-06-10 17:29:03,820 [INFO] django.server: "GET /static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css HTTP/1.1" 200 48888
+2025-06-10 17:29:03,822 [INFO] django.server: "GET /static/assets/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 140427
+2025-06-10 17:29:03,823 [INFO] django.server: "GET /static/assets/libs/css/style.css HTTP/1.1" 200 133561
+2025-06-10 17:29:03,871 [INFO] django.server: "GET /static/assets/vendor/jquery/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+2025-06-10 17:29:03,913 [INFO] django.server: "GET /static/assets/images/accra2021.jpg HTTP/1.1" 200 107907
+2025-06-10 17:29:04,058 [INFO] django.server: "GET /static/assets/vendor/bootstrap/js/bootstrap.bundle.js HTTP/1.1" 200 217045
+2025-06-10 17:29:05,513 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-10 17:29:05,514 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3881
+2025-06-10 17:29:15,188 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-10 17:29:15,425 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
+2025-06-10 17:30:41,766 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\students\tasks.py changed, reloading.
+2025-06-10 17:30:43,860 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
