@@ -4,16 +4,15 @@ from decouple import config
 from django.core.exceptions import ImproperlyConfigured
 import dj_database_url
 
-
 # Function to get environment variables or raise an exception
-def get_env_variable(var_name, default_value=None):
-    try:
-        return config[var_name]
-    except KeyError:
-        if default_value is not None:
-            return default_value
-        error_msg = f"Set the {var_name} environment variable"
-        raise ImproperlyConfigured(error_msg)
+# def config(var_name, default_value=None):
+#     try:
+#         return config[var_name]
+#     except KeyError:
+#         if default_value is not None:
+#             return default_value
+#         error_msg = f"Set the {var_name} environment variable"
+#         raise ImproperlyConfigured(error_msg)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,15 +21,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY SETTINGS
 
 # Keep the secret key used in production secret!
-SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY', 'django-insecure-2=%90%y_dk6@zx$r#k4^t$yp__r@1qm1@zf*+!z4hxdg@6-p=i')
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # Don't run with debug turned on in production!
 DEBUG = True
 
 # Define allowed hosts
-ALLOWED_HOSTS = get_env_variable('DJANGO_ALLOWED_HOSTS', 'ceibs.osekre.net').split(',')
+ALLOWED_HOSTS = [
+    'ceibs.osekre.net',
+]
 
-REDIS_URL = get_env_variable('REDIS_URL', 'redis://localhost:6379/0')
+REDIS_URL = 'redis://localhost:6379/0'
 
 CSRF_TRUSTED_ORIGINS = [
     'https://ceibs.osekre.net',
@@ -67,7 +68,6 @@ INSTALLED_APPS = [
     'student_grading',
     'django_celery_results'
 ]
-
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
@@ -115,7 +115,7 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
         {"name": "Support", "url": "", "new_window": True},
@@ -128,7 +128,6 @@ JAZZMIN_SETTINGS = {
     ],
 
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -174,7 +173,7 @@ DATABASES = {
 }
 
 # Use DATABASE_URL environment variable if available (e.g., for production)
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASE_URL = config('DATABASE_URL')
 if DATABASE_URL:
     DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
 
@@ -311,21 +310,19 @@ try:
 except ImportError:
     pass
 
-
 # ─────────────────────────────────────────────────────────────
 # Conditional S3/media configuration
 USE_AWS = config('USE_AWS', default=False, cast=bool)
-
 
 if USE_AWS:
     INSTALLED_APPS += ['storages']
 
     # AWS credentials & bucket
-    AWS_ACCESS_KEY_ID       = config('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY   = config('AWS_SECRET_ACCESS_KEY')
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_REGION_NAME      = config('AWS_S3_REGION_NAME', default='us-east-1')
-    AWS_S3_CUSTOM_DOMAIN    = 'https://ceibs-bucket.nyc3.digitaloceanspaces.com'
+    AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME', default='us-east-1')
+    AWS_S3_CUSTOM_DOMAIN = 'https://ceibs-bucket.nyc3.digitaloceanspaces.com'
     AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
     }
@@ -333,4 +330,3 @@ if USE_AWS:
     # Tell Django to use S3 for media files
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
-
