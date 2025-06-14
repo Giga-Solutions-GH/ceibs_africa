@@ -8,7 +8,7 @@ import dj_database_url
 # Function to get environment variables or raise an exception
 def get_env_variable(var_name, default_value=None):
     try:
-        return os.environ[var_name]
+        return config[var_name]
     except KeyError:
         if default_value is not None:
             return default_value
@@ -25,15 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY', 'django-insecure-2=%90%y_dk6@zx$r#k4^t$yp__r@1qm1@zf*+!z4hxdg@6-p=i')
 
 # Don't run with debug turned on in production!
-DEBUG = get_env_variable('DJANGO_DEBUG', 'True') == 'True'
+DEBUG = True
 
 # Define allowed hosts
-ALLOWED_HOSTS = get_env_variable('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,6295-41-66-237-210.ngrok-free.app').split(',')
+ALLOWED_HOSTS = get_env_variable('DJANGO_ALLOWED_HOSTS', 'ceibs.osekre.net').split(',')
 
 REDIS_URL = get_env_variable('REDIS_URL', 'redis://localhost:6379/0')
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://6295-41-66-237-210.ngrok-free.app',
+    'https://ceibs.osekre.net',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CELERY_BROKER_URL = REDIS_URL
