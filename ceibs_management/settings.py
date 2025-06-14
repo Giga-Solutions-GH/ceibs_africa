@@ -171,11 +171,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# Use DATABASE_URL environment variable if available (e.g., for production)
-DATABASE_URL = config('DATABASE_URL')
-if DATABASE_URL:
-    DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
+#
+# # Use DATABASE_URL environment variable if available (e.g., for production)
+# DATABASE_URL = config('DATABASE_URL')
+# if DATABASE_URL:
+#     DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
 
 # PASSWORD VALIDATION
 
