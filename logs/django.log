@@ -23248,3 +23248,6 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '6295-41-66-237
 2025-06-10 17:29:15,425 [INFO] django.server: "GET /account/login/?next=/ HTTP/1.1" 200 3895
 2025-06-10 17:30:41,766 [INFO] django.utils.autoreload: C:\Users\Gyamfi\Downloads\ceibs_africa\students\tasks.py changed, reloading.
 2025-06-10 17:30:43,860 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-17 14:43:55,732 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-17 14:44:45,864 [WARNING] kombu.connection: Secure redis scheme specified (rediss) with no ssl options, defaulting to insecure SSL behaviour.
+2025-06-17 14:53:14,933 [INFO] django.utils.autoreload: C:\Users\Michael\Documents\new_ceibs_project\ceibs_management\ceibs_management\settings.py changed, reloading.

@@ -51,6 +51,13 @@ BROKER_USE_SSL = {
     'ssl_cert_reqs': ssl.CERT_NONE,
 }
 
+from kombu import Exchange, Queue
+
+CELERY_TASK_DEFAULT_QUEUE = "celery"
+CELERY_TASK_QUEUES = (
+    Queue("celery", Exchange("celery"), routing_key="celery"),
+)
+
 # APPLICATION DEFINITION
 
 INSTALLED_APPS = [
