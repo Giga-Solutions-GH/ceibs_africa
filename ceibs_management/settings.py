@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
     'ceibs.osekre.net',
 ]
 
-REDIS_URL = 'redis://localhost:6379/0'
+REDIS_URL = config('REDIS_URL')
 
 CSRF_TRUSTED_ORIGINS = [
     'https://ceibs.osekre.net',
